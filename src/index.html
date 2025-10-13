@@ -1,0 +1,476 @@
+---
+title: Home
+layout: base
+---
+
+<!-- Hero Section with Slider -->
+<section id="hero" class="hero">
+    <div class="slider-container">
+        <div class="slider-wrapper">
+            {% for slide in slider %}
+            <div class="slide" {% if loop.first %}style="display: block"{% endif %}>
+                <div class="slide-background">
+                    <img src="{{ slide.image }}" alt="{{ slide.title }}" class="slide-image">
+                    <div class="slide-overlay"></div>
+                </div>
+                <div class="slide-content">
+                    <h1 class="slide-title">{{ slide.title }}</h1>
+                    <p class="slide-subtitle">{{ slide.subtitle }}</p>
+                    <a href="{{ slide.link }}" class="cta-button">{{ slide.buttonText }}</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Slider Navigation -->
+        <div class="slider-nav">
+            <button class="slider-prev" id="sliderPrev">&#10094;</button>
+            <button class="slider-next" id="sliderNext">&#10095;</button>
+        </div>
+        
+        <!-- Slider Dots -->
+        <div class="slider-dots" id="sliderDots">
+            {% for slide in slider %}
+            <button class="dot {% if loop.first %}active{% endif %}" data-slide="{{ loop.index0 }}"></button>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">The Iyengar Method</h2>
+            <p class="section-subtitle">Precision, alignment, and therapeutic healing through mindful practice</p>
+        </div>
+        
+        <div class="about-content">
+            <div class="about-text">
+                <p>Iyengar Yoga is a precise and detailed approach to yoga asana (postures) and pranayama (breathing techniques). Developed by B.K.S. Iyengar, this method emphasizes proper alignment, use of props, and holding poses longer to develop strength, flexibility, and awareness.</p>
+                
+                <p>At Yog Chumbak, we specialize in therapeutic applications of Iyengar Yoga, helping students find relief from various physical ailments and mental stress through carefully guided practice.</p>
+                
+                <div class="benefits">
+                    <h3>Benefits of Iyengar Yoga:</h3>
+                    <ul>
+                        <li>Improved posture and alignment</li>
+                        <li>Increased strength and flexibility</li>
+                        <li>Stress relief and mental clarity</li>
+                        <li>Therapeutic healing for injuries</li>
+                        <li>Better body awareness and balance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Suman Section -->
+<section id="about-suman" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Meet Your Guide</h2>
+            <p class="section-subtitle">Suman Hora - Homemaker Turned Yogapreneur</p>
+        </div>
+        
+        <div class="about-suman-content">
+            <div class="instructor-profile">
+                <div class="instructor-image">
+                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Suman Hora - Yoga Instructor" />
+                    <div class="instructor-credentials">
+                        <span class="credential-badge">Pranic Healer</span>
+                        <span class="credential-badge">Certified Instructor</span>
+                    </div>
+                </div>
+                <div class="instructor-details">
+                    <h3 class="instructor-name">Suman Hora</h3>
+                    <p class="instructor-intro">At the age of 59, Suman dared to pursue her passion and live her mission - proving that it's never too late to transform your life and serve others.</p>
+                    
+                    <div class="instructor-story">
+                        <p>Suman Hora is a remarkable homemaker turned yogapreneur, married to a visionary entrepreneur and mother of 2. As a certified Pranic healer, she is on a mission to serve 100,000 people to help them reverse age themselves in life.</p>
+                        
+                        <p>Her journey represents the power of transformation at any age. She has opened her first flagship outlet by the name "Yog Chumbak", where ancient wisdom meets modern healing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- One-to-One Therapies Section -->
+<section id="one-to-one-therapy" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">One-to-One Therapies</h2>
+            <p class="section-subtitle">Personalized healing for chronic conditions and specialized needs</p>
+        </div>
+        
+        <div class="therapy-content">
+            <div class="therapy-introduction">
+                <p class="therapy-intro-text">At Yog Chumbak, we understand that each body is unique and requires individualized attention. Our one-to-one therapy sessions are specially designed for those dealing with chronic conditions or specific physical limitations.</p>
+            </div>
+            
+            <div class="therapy-process">
+                <div class="process-flow">
+                    <h3>How We Determine Your Path</h3>
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Assessment</h4>
+                                <p>We evaluate your condition, body flexibility, and specific needs to determine whether you're suited for group classes or individual therapy.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Personalized Plan</h4>
+                                <p>Yoga exercises are customized as per your body's specific needs, focusing first on fixing the root cause of chronic pains.</p>
+                            </div>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Gradual Transition</h4>
+                                <p>Once you improve, you're shifted to either care batch or regular batch depending on the healing progress achieved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="therapy-conditions">
+                <h3>Conditions We Specialize In</h3>
+                <div class="conditions-grid">
+                    <div class="condition-card">
+                        <div class="condition-icon">🦴</div>
+                        <h4>Frozen Shoulder</h4>
+                        <p>Gentle mobilization and strengthening exercises to restore range of motion and reduce pain in frozen shoulder conditions.</p>
+                        <div class="condition-benefits flex">
+                            <span>• Pain Reduction</span>
+                            <span>• Mobility Restoration</span>
+                            <span>• Strength Building</span>
+                        </div>
+                    </div>
+                    
+                    <div class="condition-card">
+                        <div class="condition-icon">🧘‍♀️</div>
+                        <h4>Chronic Back Pain</h4>
+                        <p>Targeted spinal alignment and core strengthening techniques to address the root causes of chronic back pain.</p>
+                        <div class="condition-benefits flex">
+                            <span>• Spinal Alignment</span>
+                            <span>• Core Strength</span>
+                            <span>• Posture Correction</span>
+                        </div>
+                    </div>
+                    
+                    <div class="condition-card">
+                        <div class="condition-icon">🦵</div>
+                        <h4>Knee Pain</h4>
+                        <p>Specialized sequences to strengthen supporting muscles and improve joint flexibility while protecting the knee structure.</p>
+                        <div class="condition-benefits flex">
+                            <span>• Joint Protection</span>
+                            <span>• Muscle Support</span>
+                            <span>• Flexibility Enhancement</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="therapy-approach">
+                <div class="approach-highlight">
+                    <h3>Our Therapeutic Approach</h3>
+                    <div class="approach-features">
+                        <div class="feature">
+                            <h4>Root Cause Focus</h4>
+                            <p>We don't just treat symptoms – we identify and address the underlying causes of your chronic pain.</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Body-Specific Exercises</h4>
+                            <p>Every exercise is tailored to your body's current capacity and specific therapeutic needs.</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Progressive Healing</h4>
+                            <p>Gradual transition from intensive therapy to group classes as your condition improves.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Schedule Section -->
+<section id="schedule" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Class Schedule</h2>
+            <p class="section-subtitle">Find the perfect class for your practice level and schedule</p>
+        </div>
+        
+        <div class="schedule-grid">
+            <div class="schedule-card">
+                <h3>Morning Classes</h3>
+                <div class="schedule-item">
+                    <span class="time">6:30 AM - 7:30 AM</span>
+                    <span class="class-name">Beginner's Yoga</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="time">7:45 AM - 8:45 AM</span>
+                    <span class="class-name">Intermediate Practice</span>
+                </div>
+            </div>
+            
+            <div class="schedule-card">
+                <h3>Afternoon Classes</h3>
+                <div class="schedule-item">
+                    <span class="time">4:00 PM - 5:00 PM</span>
+                    <span class="class-name">Therapeutic Yoga</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="time">5:15 PM - 6:15 PM</span>
+                    <span class="class-name">Advanced Practice</span>
+                </div>
+            </div>
+            
+            <div class="schedule-card">
+                <h3>Evening Classes</h3>
+                <div class="schedule-item">
+                    <span class="time">6:30 PM - 7:30 PM</span>
+                    <span class="class-name">Relaxation & Meditation</span>
+                </div>
+                <div class="schedule-item">
+                    <span class="time">7:45 PM - 8:45 PM</span>
+                    <span class="class-name">Pranayama Session</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Visit Our Studio Section -->
+<section id="visit-studio" class="section studio-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Visit Our Studio</h2>
+            <p class="section-subtitle">Experience the healing power of yoga in our serene space</p>
+        </div>
+        
+        <div class="horizontal-layout">
+            <!-- Map Section -->
+            <div class="map-section">
+                <div class="map-container">
+                    <iframe 
+                        class="map-iframe"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3497.4445623456!2d77.10025177549632!3d28.704100575644853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d074c2e1a3d4d%3A0x4e1c8f2d5e8a7b3c!2sSingalpur%20Village%2C%20Delhi%20110088!5e0!3m2!1sen!2sin!4v1695123456789!5m2!1sen!2sin"
+                        width="100%" 
+                        height="500" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Yog Chumbak Studio Location">
+                    </iframe>
+                    <div class="map-overlay">
+                        <div class="studio-marker">
+                            <div class="marker-icon">📍</div>
+                            <div class="marker-label">Yog Chumbak</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Info Section -->
+            <div class="info-section">
+                <!-- Address Card -->
+                <div class="info-card">
+                    <div class="card-header">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        <h3 class="card-title">Address</h3>
+                    </div>
+                    <div class="card-content">
+                        <p><strong>Fourth Floor, Singalpur Village, SE 30</strong></p>
+                        <p>Above Mac, opposite BT Block</p>
+                        <p>West Shalimar Bagh, Delhi 110088</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="openDirections()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+                        </svg>
+                        Get Directions
+                    </button>
+                </div>
+                
+                <!-- Contact Card -->
+                <div class="info-card">
+                    <div class="card-header">
+                        <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        <h3 class="card-title">Contact</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            <a href="tel:+919811334069" class="contact-text">+91 98113 34069</a>
+                        </div>
+                        <div class="contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            <a href="tel:+919910826170" class="contact-text">+91 99108 26170</a>
+                        </div>
+                        <div class="contact-item">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <a href="mailto:info@yogchumbak.com" class="contact-text">info@yogchumbak.com</a>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn btn-primary" onclick="callStudio('+919811334069')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            Call Now
+                        </button>
+                        <button class="btn btn-whatsapp" onclick="whatsappContact('+919811334069')">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.890 3.251"/>
+                            </svg>
+                            WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section id="gallery" class="section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Gallery</h2>
+            <p class="section-subtitle">Explore our studio, classes, and community</p>
+        </div>
+        
+        <div class="gallery-preview">
+            {% for gallery in collections.galleries %}
+            <div class="gallery-preview-item">
+                <a href="/galleries/{{ gallery.fileSlug }}/" class="gallery-link">
+                    <div class="gallery-preview-image">
+                        {% if gallery.data.preview_image %}
+                        <img src="{{ gallery.data.preview_image }}" alt="{{ gallery.data.title }}">
+                        {% else %}
+                        <div class="placeholder-image">📸</div>
+                        {% endif %}
+                    </div>
+                    <h3>{{ gallery.data.title }}</h3>
+                    <p>{{ gallery.data.description }}</p>
+                </a>
+            </div>
+            {% endfor %}
+            
+            <!-- Fallback galleries in case collections aren't working -->
+            {% if collections.galleries.length == 0 %}
+            <div class="gallery-preview-item">
+                <a href="/galleries/studio/" class="gallery-link">
+                    <div class="gallery-preview-image">
+                        <img src="https://images.unsplash.com/photo-1545389336-cf090694435e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Main Studio Space">
+                    </div>
+                    <h3>Studio Gallery</h3>
+                    <p>Our beautiful yoga studio space and facilities</p>
+                </a>
+            </div>
+            
+            <div class="gallery-preview-item">
+                <a href="/galleries/events/" class="gallery-link">
+                    <div class="gallery-preview-image">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kids Yoga Classes">
+                    </div>
+                    <h3>Events Gallery</h3>
+                    <p>Special yoga workshops, events, and community gatherings</p>
+                </a>
+            </div>
+            
+            <div class="gallery-preview-item">
+                <a href="/galleries/classes/" class="gallery-link">
+                    <div class="gallery-preview-image">
+                        <img src="https://images.unsplash.com/photo-1593810451954-7d7834efb32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Adult Yoga Classes">
+                    </div>
+                    <h3>Classes Gallery</h3>
+                    <p>Our yoga classes in action - students practicing various asanas</p>
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- WhatsApp Popup Widget -->
+<div id="whatsapp-widget" class="whatsapp-widget">
+    <div class="whatsapp-trigger" id="whatsapp-trigger">
+        <div class="whatsapp-icon"><i class="fab fa-whatsapp"></i></div>
+        <div class="pulse-ring"></div>
+    </div>
+    
+    <div class="whatsapp-popup" id="whatsapp-popup">
+        <div class="whatsapp-header">
+            <div class="contact-info">
+                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Yog Chumbak" class="contact-avatar">
+                <div class="contact-details">
+                    <h4 class="contact-name">Yog Chumbak</h4>
+                    <span class="contact-status">Online</span>
+                </div>
+            </div>
+            <button class="close-chat" id="close-chat">✕</button>
+        </div>
+        
+        <div class="whatsapp-messages" id="whatsapp-messages">
+            <div class="welcome-message">
+                <div class="message received">
+                    <div class="message-content">
+                        <p>Hello! 👋</p>
+                        <p>Welcome to Yog Chumbak! How can we help you with your yoga journey today?</p>
+                        <div class="message-time">Just now</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="whatsapp-input-area">
+            <div class="typing-indicator" id="typing-indicator" style="display: none;">
+                <div class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <span class="typing-text">Yog Chumbak is typing...</span>
+            </div>
+            
+            <div class="input-container">
+                <input 
+                    type="text" 
+                    id="whatsapp-input" 
+                    class="message-input" 
+                    placeholder="Type your message..." 
+                    maxlength="500"
+                >
+                <button class="send-button" id="whatsapp-send">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}

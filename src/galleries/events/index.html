@@ -1,0 +1,498 @@
+---
+title: Events Gallery
+layout: base
+---
+
+{% set gallery = {
+  "title": "Events Gallery",
+  "description": "Special yoga workshops, events, and community gatherings",
+  "items": [
+    {
+      "filename": "event-1.jpg",
+      "type": "image",
+      "title": "Workshop: Advanced Backbends",
+      "caption": "Intensive workshop on safe backbend practice",
+      "src": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&h=800&fit=crop",
+      "size": "large",
+      "featured": true
+    },
+    {
+      "filename": "event-2.mp4",
+      "type": "video",
+      "title": "Meditation Session Highlights",
+      "caption": "Weekend meditation and mindfulness retreat highlights",
+      "src": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+      "videoSrc": "https://www.youtube.com/embed/v7AYKMP6rOE",
+      "size": "medium"
+    },
+    {
+      "filename": "event-3.jpg",
+      "type": "image", 
+      "title": "Community Yoga Day",
+      "caption": "Free yoga session for the community",
+      "src": "https://images.unsplash.com/photo-1545389336-cf090694435e?w=400&h=300&fit=crop",
+      "size": "small"
+    },
+    {
+      "filename": "event-4.jpg",
+      "type": "image",
+      "title": "Teacher Training",
+      "caption": "200-hour Iyengar Yoga teacher training program",
+      "src": "https://images.unsplash.com/photo-1593811167562-9cef47bfc4a7?w=400&h=500&fit=crop",
+      "size": "medium"
+    },
+    {
+      "filename": "event-5.mp4",
+      "type": "video",
+      "title": "Pranayama Techniques",
+      "caption": "Deep dive into breathing techniques demonstration",
+      "src": "https://images.unsplash.com/photo-1591343395082-e120087004b4?w=400&h=300&fit=crop",
+      "videoSrc": "https://www.youtube.com/embed/aNXKjGFUlMs",
+      "size": "small"
+    },
+    {
+      "filename": "event-6.jpg",
+      "type": "image",
+      "title": "Yoga Philosophy Seminar",
+      "caption": "Understanding the eight limbs of yoga",
+      "src": "https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=400&h=600&fit=crop",
+      "size": "medium"
+    },
+    {
+      "filename": "event-7.jpg",
+      "type": "image",
+      "title": "Sunrise Yoga Session",
+      "caption": "Early morning practice by the lake",
+      "src": "https://images.unsplash.com/photo-1588286840104-8957b019727f?w=400&h=300&fit=crop",
+      "size": "small"
+    },
+      "size": "medium"
+    },
+    {
+      "filename": "event-8.jpg",
+      "type": "image",
+      "title": "Props Workshop",
+      "caption": "Learning to use yoga props effectively",
+      "src": "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=400&h=500&fit=crop",
+      "size": "medium"
+    },
+    {
+      "filename": "event-1.jpg",
+      "type": "image",
+      "title": "Workshop: Advanced Backbends",
+      "caption": "Intensive workshop on safe backbend practice",
+      "src": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&h=800&fit=crop",
+      "size": "large",
+      "featured": true
+    },
+    {
+      "filename": "event-2.mp4",
+      "type": "video",
+      "title": "Meditation Session Highlights",
+      "caption": "Weekend meditation and mindfulness retreat highlights",
+      "src": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+      "videoSrc": "https://www.youtube.com/embed/v7AYKMP6rOE",
+      "size": "medium"
+    },
+    {
+      "filename": "event-3.jpg",
+      "type": "image", 
+      "title": "Community Yoga Day",
+      "caption": "Free yoga session for the community",
+      "src": "https://images.unsplash.com/photo-1545389336-cf090694435e?w=400&h=300&fit=crop",
+      "size": "small"
+    },
+    {
+      "filename": "event-4.jpg",
+      "type": "image",
+      "title": "Teacher Training",
+      "caption": "200-hour Iyengar Yoga teacher training program",
+      "src": "https://images.unsplash.com/photo-1593811167562-9cef47bfc4a7?w=400&h=500&fit=crop",
+      "size": "medium"
+    },
+    {
+      "filename": "event-5.mp4",
+      "type": "video",
+      "title": "Pranayama Techniques",
+      "caption": "Deep dive into breathing techniques demonstration",
+      "src": "https://images.unsplash.com/photo-1591343395082-e120087004b4?w=400&h=300&fit=crop",
+      "videoSrc": "https://www.youtube.com/embed/aNXKjGFUlMs",
+      "size": "small"
+    },
+    {
+      "filename": "event-6.jpg",
+      "type": "image",
+      "title": "Yoga Philosophy Seminar",
+      "caption": "Understanding the eight limbs of yoga",
+      "src": "https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=400&h=600&fit=crop",
+      "size": "medium"
+    },
+    {
+      "filename": "event-7.jpg",
+      "type": "image",
+      "title": "Sunrise Yoga Session",
+      "caption": "Early morning practice by the lake",
+      "src": "https://images.unsplash.com/photo-1588286840104-8957b019727f?w=400&h=300&fit=crop",
+      "size": "small"
+    },
+    {
+      "filename": "event-8.jpg",
+      "type": "image",
+      "title": "Props Workshop",
+      "caption": "Learning to use yoga props effectively",
+      "src": "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=400&h=500&fit=crop",
+      "size": "medium"
+    },
+    {
+      "filename": "event-1.jpg",
+      "type": "image",
+      "title": "Workshop: Advanced Backbends",
+      "caption": "Intensive workshop on safe backbend practice",
+      "src": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&h=800&fit=crop",
+      "size": "large",
+      "featured": true
+    },
+    {
+      "filename": "event-2.mp4",
+      "type": "video",
+      "title": "Meditation Session Highlights",
+      "caption": "Weekend meditation and mindfulness retreat highlights",
+      "src": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+      "videoSrc": "https://www.youtube.com/embed/v7AYKMP6rOE",
+      "size": "medium"
+    },
+    {
+      "filename": "event-3.jpg",
+      "type": "image", 
+      "title": "Community Yoga Day",
+      "caption": "Free yoga session for the community",
+      "src": "https://images.unsplash.com/photo-1545389336-cf090694435e?w=400&h=300&fit=crop",
+      "size": "small"
+    },
+    {
+      "filename": "event-4.jpg",
+      "type": "image",
+      "title": "Teacher Training",
+      "caption": "200-hour Iyengar Yoga teacher training program",
+      "src": "https://images.unsplash.com/photo-1593811167562-9cef47bfc4a7?w=400&h=500&fit=crop",
+      "size": "medium"
+    },
+    {
+      "filename": "event-5.mp4",
+      "type": "video",
+      "title": "Pranayama Techniques",
+      "caption": "Deep dive into breathing techniques demonstration",
+      "src": "https://images.unsplash.com/photo-1591343395082-e120087004b4?w=400&h=300&fit=crop",
+      "videoSrc": "https://www.youtube.com/embed/aNXKjGFUlMs",
+      "size": "small"
+    },
+    {
+      "filename": "event-6.jpg",
+      "type": "image",
+      "title": "Yoga Philosophy Seminar",
+      "caption": "Understanding the eight limbs of yoga",
+      "src": "https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=400&h=600&fit=crop",
+      "size": "medium"
+    },
+    {
+      "filename": "event-7.jpg",
+      "type": "image",
+      "title": "Sunrise Yoga Session",
+      "caption": "Early morning practice by the lake",
+      "src": "https://images.unsplash.com/photo-1588286840104-8957b019727f?w=400&h=300&fit=crop",
+      "size": "small"
+    },
+    {
+      "filename": "event-8.jpg",
+      "type": "image",
+      "title": "Props Workshop",
+      "caption": "Learning to use yoga props effectively",
+      "src": "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=400&h=500&fit=crop",
+      "size": "medium"
+    }
+  ]
+} %}
+
+<!-- Gallery Page -->
+<section class="section gallery-page">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-title">{{ gallery.title }}</h1>
+            <p class="section-subtitle">{{ gallery.description }}</p>
+        </div>
+        
+        <div class="bento-grid">
+            {% for item in gallery.items %}
+            <div class="gallery-item {{ item.size }} {% if item.featured %}featured{% endif %}" 
+                 data-filename="{{ item.filename }}" 
+                 data-type="{{ item.type }}"
+                 onclick="openLightbox({{ loop.index0 }})">
+                <div class="gallery-content">
+                    {% if item.type == 'video' %}
+                        <div class="video-thumbnail">
+                            <img src="{{ item.src }}" alt="{{ item.title }}">
+                            <div class="play-button">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M8 5v14l11-7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                    {% else %}
+                        <img src="{{ item.src }}" alt="{{ item.title }}" loading="lazy">
+                    {% endif %}
+                    
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>{{ item.title }}</h3>
+                            <p>{{ item.caption }}</p>
+                        </div>
+                    </div>
+                    {% if item.type == 'video' %}
+                        <span class="video-badge">VIDEO</span>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Enhanced Lightbox Modal -->
+<div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        
+        <div class="lightbox-media">
+            <img src="" alt="" class="lightbox-image" id="lightboxImage">
+            <div class="lightbox-video" id="lightboxVideo" style="display: none;">
+                <iframe id="lightboxVideoFrame" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        
+        <div class="lightbox-info">
+            <h3 id="lightboxTitle"></h3>
+            <p id="lightboxCaption"></p>
+            <div class="lightbox-counter">
+                <span id="lightboxCounter"></span>
+            </div>
+        </div>
+        
+        <div class="lightbox-nav">
+            <button class="lightbox-prev" id="lightboxPrev" title="Previous">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                </svg>
+            </button>
+            <button class="lightbox-next" id="lightboxNext" title="Next">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Dynamic Bento Grid Layout Script -->
+
+
+<script>
+const galleryItems = {{ gallery.items | dump | safe }};
+let currentItemIndex = 0;
+let lightbox, lightboxImage, lightboxVideo, lightboxVideoFrame, lightboxTitle, lightboxCaption, lightboxCounter, lightboxClose, lightboxPrev, lightboxNext;
+
+// Enhanced lightbox functionality with video support
+function openLightbox(index) {
+    currentItemIndex = index;
+    updateLightboxContent();
+    lightbox.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    
+    // Add smooth fade in animation
+    requestAnimationFrame(() => {
+        lightbox.style.opacity = '1';
+    });
+}
+
+function closeLightbox() {
+    // Stop any playing videos
+    if (lightboxVideoFrame.src) {
+        lightboxVideoFrame.src = '';
+    }
+    
+    lightbox.style.opacity = '0';
+    setTimeout(() => {
+        lightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }, 300);
+}
+
+function updateLightboxContent() {
+    const item = galleryItems[currentItemIndex];
+    
+    // Update counter
+    lightboxCounter.textContent = `${currentItemIndex + 1} / ${galleryItems.length}`;
+    
+    // Update title and caption
+    lightboxTitle.textContent = item.title;
+    lightboxCaption.textContent = item.caption;
+    
+    if (item.type === 'video') {
+        // Show video, hide image
+        lightboxImage.style.display = 'none';
+        lightboxVideo.style.display = 'block';
+        
+        // Load video with autoplay
+        lightboxVideoFrame.src = item.videoSrc + '?autoplay=1&title=0&byline=0&portrait=0';
+    } else {
+        // Show image, hide video
+        lightboxVideo.style.display = 'none';
+        lightboxImage.style.display = 'block';
+        
+        // Clear any video
+        lightboxVideoFrame.src = '';
+        
+        // Load image with smooth transition
+        lightboxImage.style.opacity = '0';
+        lightboxImage.src = item.src;
+        lightboxImage.onload = () => {
+            lightboxImage.style.opacity = '1';
+        };
+    }
+}
+
+function navigateLightbox(direction) {
+    // Stop current video if playing
+    if (lightboxVideoFrame.src) {
+        lightboxVideoFrame.src = '';
+    }
+    
+    if (direction === 'next') {
+        currentItemIndex = (currentItemIndex + 1) % galleryItems.length;
+    } else {
+        currentItemIndex = (currentItemIndex - 1 + galleryItems.length) % galleryItems.length;
+    }
+    
+    updateLightboxContent();
+}
+
+// Make openLightbox global for onclick handlers
+window.openLightbox = openLightbox;
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Get DOM elements
+    lightbox = document.getElementById('lightbox');
+    lightboxImage = document.getElementById('lightboxImage');
+    lightboxVideo = document.getElementById('lightboxVideo');
+    lightboxVideoFrame = document.getElementById('lightboxVideoFrame');
+    lightboxTitle = document.getElementById('lightboxTitle');
+    lightboxCaption = document.getElementById('lightboxCaption');
+    lightboxCounter = document.getElementById('lightboxCounter');
+    lightboxClose = document.getElementById('lightboxClose');
+    lightboxPrev = document.getElementById('lightboxPrev');
+    lightboxNext = document.getElementById('lightboxNext');
+    
+    // Set initial opacity for smooth animations
+    lightbox.style.opacity = '0';
+    lightbox.style.transition = 'opacity 0.3s ease';
+    lightboxImage.style.transition = 'opacity 0.3s ease';
+    
+    // Event listeners
+    lightboxClose.addEventListener('click', closeLightbox);
+    
+    lightboxPrev.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navigateLightbox('prev');
+    });
+    
+    lightboxNext.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navigateLightbox('next');
+    });
+    
+    // Close lightbox when clicking outside content
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+    
+    // Prevent closing when clicking on content
+    document.querySelector('.lightbox-content').addEventListener('click', (e) => {
+        e.stopPropagation();
+    });
+    
+    // Enhanced keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (lightbox.style.display === 'block') {
+            switch(e.key) {
+                case 'Escape':
+                    closeLightbox();
+                    break;
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    navigateLightbox('prev');
+                    break;
+                case 'ArrowRight':
+                    e.preventDefault();
+                    navigateLightbox('next');
+                    break;
+                case ' ': // Spacebar
+                    e.preventDefault();
+                    navigateLightbox('next');
+                    break;
+            }
+        }
+    });
+    
+    // Add loading animation to gallery items
+    const galleryItemElements = document.querySelectorAll('.gallery-item');
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '50px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Apply stagger animation to gallery items
+    galleryItemElements.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px)';
+        item.style.transition = `all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) ${index * 0.1}s`;
+        observer.observe(item);
+    });
+    
+    // Preload next/previous images for smooth navigation
+    function preloadAdjacentImages(currentIndex) {
+        const preloadIndexes = [
+            (currentIndex - 1 + galleryItems.length) % galleryItems.length,
+            (currentIndex + 1) % galleryItems.length
+        ];
+        
+        preloadIndexes.forEach(index => {
+            const item = galleryItems[index];
+            if (item.type === 'image') {
+                const img = new Image();
+                img.src = item.src;
+            }
+        });
+    }
+    
+    // Preload first few images
+    galleryItems.slice(0, 3).forEach(item => {
+        if (item.type === 'image') {
+            const img = new Image();
+            img.src = item.src;
+        }
+    });
+});
+</script>
+
+{% include 'footer.html' %}

@@ -1,0 +1,377 @@
+// Slider functionality
+class Slider {
+  constructor() {
+    this.slides = document.querySelectorAll('.slide');
+    this.dots = document.querySelectorAll('.dot');
+    this.prevBtn = document.getElementById('sliderPrev');
+    this.nextBtn = document.getElementById('sliderNext');
+    this.currentSlide = 0;
+    
+    this.init();
+  }
+  
+  init() {
+    // Only add event listeners if elements exist
+    if (this.prevBtn) {
+      this.prevBtn.addEventListener('click', () => this.prevSlide());
+    }
+    if (this.nextBtn) {
+      this.nextBtn.addEventListener('click', () => this.nextSlide());
+    }
+    
+    if (this.dots.length > 0) {
+      this.dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => this.goToSlide(index));
+      });
+    }
+    
+    // Auto-advance slides only if we have slides
+    if (this.slides.length > 0) {
+      setInterval(() => this.nextSlide(), 5000);
+    }
+  }
+  
+  showSlide(index) {
+    // Hide all slides
+    this.slides.forEach(slide => slide.style.display = 'none');
+    this.dots.forEach(dot => dot.classList.remove('active'));
+    
+    // Show current slide
+    this.slides[index].style.display = 'block';
+    this.dots[index].classList.add('active');
+    
+    this.currentSlide = index;
+  }
+  
+  nextSlide() {
+    const nextIndex = (this.currentSlide + 1) % this.slides.length;
+    this.showSlide(nextIndex);
+  }
+  
+  prevSlide() {
+    const prevIndex = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+    this.showSlide(prevIndex);
+  }
+  
+  goToSlide(index) {
+    this.showSlide(index);
+  }
+}
+
+// Mobile menu functionality
+class MobileMenu {
+  constructor() {
+    this.menuBtn = document.getElementById('mobileMenuBtn');
+    this.nav = document.getElementById('nav');
+    this.isOpen = false;
+    
+    this.init();
+  }
+  
+  init() {
+    this.menuBtn.addEventListener('click', () => this.toggleMenu());
+    
+    // Close menu when clicking on a link
+    this.nav.addEventListener('click', (e) => {
+      if (e.target.classList.contains('nav-link')) {
+        this.closeMenu();
+      }
+    });
+  }
+  
+  toggleMenu() {
+    this.isOpen = !this.isOpen;
+    
+    if (this.isOpen) {
+      this.openMenu();
+    } else {
+      this.closeMenu();
+    }
+  }
+  
+  openMenu() {
+    this.nav.style.display = 'flex';
+    this.nav.style.position = 'fixed';
+    this.nav.style.top = '80px';
+    this.nav.style.left = '0';
+    this.nav.style.width = '100%';
+    this.nav.style.height = 'calc(100vh - 80px)';
+    this.nav.style.flexDirection = 'column';
+    this.nav.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+    this.nav.style.padding = '2rem';
+    this.nav.style.gap = '1rem';
+    
+    // Animate hamburger menu
+    this.menuBtn.children[0].style.transform = 'rotate(45deg) translateY(8px)';
+    this.menuBtn.children[1].style.opacity = '0';
+    this.menuBtn.children[2].style.transform = 'rotate(-45deg) translateY(-8px)';
+  }
+  
+  closeMenu() {
+    this.nav.style.display = 'none';
+    this.nav.style.position = 'static';
+    this.nav.style.height = 'auto';
+    this.nav.style.flexDirection = 'row';
+    this.nav.style.padding = '0';
+    this.nav.style.gap = '2rem';
+    
+    // Reset hamburger menu
+    this.menuBtn.children[0].style.transform = 'rotate(0) translateY(0)';
+    this.menuBtn.children[1].style.opacity = '1';
+    this.menuBtn.children[2].style.transform = 'rotate(0) translateY(0)';
+    
+    this.isOpen = false;
+  }
+}
+
+// Smooth scrolling for navigation links
+class SmoothScroll {
+  constructor() {
+    this.links = document.querySelectorAll('a[href^="#"]');
+    this.init();
+  }
+  
+  init() {
+    this.links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        const targetId = link.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          const headerOffset = 80;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  }
+}
+
+// WhatsApp Widget functionality
+class WhatsAppWidget {
+  constructor() {
+    this.widget = document.getElementById('whatsapp-widget');
+    this.trigger = document.getElementById('whatsapp-trigger');
+    this.popup = document.getElementById('whatsapp-popup');
+    this.closeBtn = document.getElementById('close-chat');
+    this.input = document.getElementById('whatsapp-input');
+    this.sendBtn = document.getElementById('whatsapp-send');
+    this.messagesContainer = document.getElementById('whatsapp-messages');
+    this.typingIndicator = document.getElementById('typing-indicator');
+    
+    this.isOpen = false;
+    this.autoResponseDelay = 2000; // 2 seconds
+    
+    this.init();
+  }
+  
+  init() {
+    if (!this.widget) return;
+    
+    // Event listeners
+    this.trigger.addEventListener('click', () => this.toggleWidget());
+    this.closeBtn.addEventListener('click', () => this.closeWidget());
+    this.sendBtn.addEventListener('click', () => this.sendMessage());
+    this.input.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        this.sendMessage();
+      }
+    });
+    
+    // Auto-focus input when widget opens
+    this.popup.addEventListener('transitionend', () => {
+      if (this.isOpen && this.input) {
+        this.input.focus();
+      }
+    });
+    
+    // Click outside to close
+    document.addEventListener('click', (e) => {
+      if (!this.widget.contains(e.target) && this.isOpen) {
+        this.closeWidget();
+      }
+    });
+  }
+  
+  toggleWidget() {
+    if (this.isOpen) {
+      this.closeWidget();
+    } else {
+      this.openWidget();
+    }
+  }
+  
+  openWidget() {
+    this.isOpen = true;
+    this.popup.classList.add('open');
+    
+    // Show auto-response after delay
+    setTimeout(() => {
+      this.showAutoResponse();
+    }, 1000);
+  }
+  
+  closeWidget() {
+    this.isOpen = false;
+    this.popup.classList.remove('open');
+    this.hideTypingIndicator();
+  }
+  
+  showAutoResponse() {
+    if (!this.isOpen) return;
+    
+    this.showTypingIndicator();
+    
+    setTimeout(() => {
+      this.hideTypingIndicator();
+      this.addMessage(
+        'Thanks for your interest! 🧘‍♀️\n\nWe specialize in Iyengar Yoga therapy and would love to help you on your healing journey. What specific concerns would you like to address?',
+        'received'
+      );
+    }, this.autoResponseDelay);
+  }
+  
+  sendMessage() {
+    const message = this.input.value.trim();
+    if (!message) return;
+    
+    // Add user message
+    this.addMessage(message, 'sent');
+    this.input.value = '';
+    
+    // Simulate auto-response based on message content
+    setTimeout(() => {
+      this.showTypingIndicator();
+      setTimeout(() => {
+        this.hideTypingIndicator();
+        this.handleAutoResponse(message);
+      }, 1500);
+    }, 500);
+  }
+  
+  handleAutoResponse(userMessage) {
+    const lowerMessage = userMessage.toLowerCase();
+    let response = '';
+    
+    if (lowerMessage.includes('price') || lowerMessage.includes('cost') || lowerMessage.includes('fee')) {
+      response = 'Great question! Our pricing varies based on the type of session:\n\n• Group Classes: Flexible packages available\n• One-to-One Therapy: Customized pricing\n• Specialized Programs: Different rates\n\nWould you like me to connect you with our team for detailed pricing? Just click the button below! 👇';
+    } else if (lowerMessage.includes('schedule') || lowerMessage.includes('time') || lowerMessage.includes('class')) {
+      response = 'We have classes throughout the day!\n\n🌅 Morning: 6:30 AM - 8:45 AM\n🌞 Afternoon: 4:00 PM - 6:15 PM\n🌙 Evening: 6:30 PM - 8:45 PM\n\nWould you like to know more about a specific time slot?';
+    } else if (lowerMessage.includes('therapy') || lowerMessage.includes('pain') || lowerMessage.includes('injury')) {
+      response = 'Our one-to-one therapy sessions are perfect for addressing specific concerns! 🎯\n\nWe specialize in:\n• Frozen shoulder recovery\n• Chronic back pain relief\n• Knee pain management\n• Posture correction\n\nShall I connect you directly with Suman to discuss your specific needs?';
+    } else if (lowerMessage.includes('beginner') || lowerMessage.includes('new') || lowerMessage.includes('start')) {
+      response = 'Perfect! We love welcoming new students! 🌟\n\nFor beginners, we recommend:\n• Assessment session first\n• Beginner-friendly morning classes\n• Gradual progression approach\n\nWould you like to book an assessment session to get started?';
+    } else {
+      response = 'Thank you for your message! 😊\n\nI\'d love to connect you directly with our team for personalized assistance. Would you like to continue this conversation on WhatsApp where we can provide more detailed information?';
+    }
+    
+    this.addMessage(response, 'received');
+    
+    // Add quick action button after auto-response
+    setTimeout(() => {
+      this.addActionButton();
+    }, 1000);
+  }
+  
+  addMessage(text, type) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${type}`;
+    
+    const contentDiv = document.createElement('div');
+    contentDiv.className = 'message-content';
+    
+    // Convert line breaks to paragraphs
+    const paragraphs = text.split('\n').filter(p => p.trim());
+    paragraphs.forEach(paragraph => {
+      const p = document.createElement('p');
+      p.textContent = paragraph;
+      contentDiv.appendChild(p);
+    });
+    
+    const timeDiv = document.createElement('div');
+    timeDiv.className = 'message-time';
+    timeDiv.textContent = this.getCurrentTime();
+    contentDiv.appendChild(timeDiv);
+    
+    messageDiv.appendChild(contentDiv);
+    this.messagesContainer.appendChild(messageDiv);
+    
+    // Scroll to bottom
+    this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
+  }
+  
+  addActionButton() {
+    const buttonDiv = document.createElement('div');
+    buttonDiv.className = 'message received';
+    buttonDiv.innerHTML = `
+      <div class="message-content" style="text-align: center; padding: 12px;">
+        <button onclick="whatsappContact('${document.querySelector('[data-phone]')?.getAttribute('data-phone') || '+91 98113 34069'}')" 
+                style="background: #25d366; color: white; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 14px;">
+          💬 Continue on WhatsApp
+        </button>
+        <div class="message-time">${this.getCurrentTime()}</div>
+      </div>
+    `;
+    this.messagesContainer.appendChild(buttonDiv);
+    this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
+  }
+  
+  showTypingIndicator() {
+    this.typingIndicator.style.display = 'flex';
+    this.messagesContainer.scrollTop = this.messagesContainer.scrollHeight;
+  }
+  
+  hideTypingIndicator() {
+    this.typingIndicator.style.display = 'none';
+  }
+  
+  getCurrentTime() {
+    const now = new Date();
+    return now.toLocaleTimeString([], { 
+      hour: '2-digit', 
+      minute: '2-digit',
+      hour12: false 
+    });
+  }
+}
+
+// Fade-in animation for info cards
+const setupCardAnimations = () => {
+  // Add fade-in animation on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  });
+  
+  const cards = document.querySelectorAll('.info-card');
+  cards.forEach((card, index) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = `all 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.1}s`;
+    observer.observe(card);
+  });
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+  const slides = document.querySelectorAll('.slide');
+  if (slides.length > 0) {
+    new Slider();
+  }
+  
+  new MobileMenu();
+  new SmoothScroll();
+  new WhatsAppWidget();
+  setupCardAnimations();
+});

@@ -1,0 +1,473 @@
+/* ==============================================
+   GALLERY STYLES - Yog Chumbak Website
+   ============================================== */
+
+/* Basic Gallery Grid Layout (Studio & Classes) */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-image {
+    position: relative;
+}
+
+.gallery-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    color: white;
+    padding: 2rem 1rem 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-overlay h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.gallery-overlay p {
+    margin: 0;
+    font-size: 0.875rem;
+    opacity: 0.9;
+}
+
+/* ==============================================
+   BENTO GRID LAYOUT (Events Gallery)
+   ============================================== */
+
+.gallery-page {
+    padding-top: 90px !important;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    margin-top: 3rem;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Bento Layout Patterns - Now handled dynamically by bento-grid.js */
+/* Static :nth-child rules removed to support any number of items */
+
+/* Bento Grid Item Styles */
+.bento-grid .gallery-item {
+    background: white;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-radius: 16px;
+}
+
+.bento-grid .gallery-item:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Gallery Content */
+.gallery-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.gallery-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.bento-grid .gallery-item:hover .gallery-content img {
+    transform: scale(1.05);
+}
+
+/* Video Specific Styling */
+.video-thumbnail {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: #f0f0f0;
+}
+
+.video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 3;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.play-button svg {
+    margin-left: 4px;
+    width: 20px;
+    height: 20px;
+}
+
+.gallery-item:hover .play-button {
+    background: #E54992;
+    color: white;
+    transform: translate(-50%, -50%) scale(1.15);
+    box-shadow: 0 8px 30px rgba(229, 73, 146, 0.4);
+}
+
+/* Modern Overlay for Bento Grid */
+.bento-grid .gallery-overlay {
+    background: linear-gradient(135deg, rgba(131, 36, 124, 0.8) 0%, rgba(229, 73, 146, 0.8) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.5rem;
+    opacity: 0;
+    transform: none;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.bento-grid .gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.overlay-content h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.3;
+    transform: translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 0.1s;
+}
+
+.overlay-content p {
+    margin: 0 0 10px 0;
+    font-size: 0.875rem;
+    opacity: 0.9;
+    line-height: 1.4;
+    transform: translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) 0.2s;
+}
+
+.bento-grid .gallery-item:hover .overlay-content h3,
+.bento-grid .gallery-item:hover .overlay-content p {
+    transform: translateY(0);
+}
+
+.video-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 1;
+}
+
+/* ==============================================
+   LIGHTBOX STYLES
+   ============================================== */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    animation: lightboxFadeIn 0.3s ease;
+}
+
+.lightbox-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.lightbox-media {
+    position: relative;
+    max-width: 90vw;
+    max-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-video {
+    width: 85vw;
+    height: 47.8125vw;
+    max-height: 75vh;
+    max-width: calc(75vh * 16/9);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-video iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.lightbox-info {
+    color: white;
+    text-align: center;
+    margin-top: 2rem;
+    max-width: 600px;
+}
+
+.lightbox-info h3 {
+    margin: 0 0 12px 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.lightbox-info p {
+    margin: 0 0 16px 0;
+    font-size: 1rem;
+    opacity: 0.8;
+    line-height: 1.5;
+}
+
+.lightbox-counter {
+    font-size: 0.9rem;
+    opacity: 0.6;
+}
+
+/* Navigation Buttons */
+.lightbox-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+    pointer-events: none;
+    z-index: 10001;
+}
+
+.lightbox-prev,
+.lightbox-next {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: all;
+    backdrop-filter: blur(10px);
+    font-size: 1.5rem;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background: rgba(131, 36, 124, 0.8);
+    transform: scale(1.1);
+}
+
+.lightbox-close {
+    position: fixed;
+    top: 30px;
+    right: 40px;
+    color: white;
+    font-size: 28px;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    z-index: 10001;
+    padding: 0;
+}
+
+.lightbox-close:hover {
+    background: rgba(229, 73, 146, 0.8);
+    transform: rotate(90deg);
+}
+
+@keyframes lightboxFadeIn {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0px);
+    }
+    to {
+        opacity: 1;
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* ==============================================
+   RESPONSIVE DESIGN
+   ============================================== */
+
+@media (max-width: 1200px) {
+    .bento-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 200px;
+        gap: 12px;
+    }
+
+    /* Tablet layout patterns handled dynamically by bento-grid.js */
+}
+
+@media (max-width: 768px) {
+    .gallery-page {
+        padding-top: 80px !important;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 220px;
+        gap: 10px;
+        margin-top: 2rem;
+        padding: 0 1rem;
+    }
+
+    /* Mobile layout patterns handled dynamically by bento-grid.js */
+
+    .play-button {
+        width: 60px;
+        height: 60px;
+    }
+
+    .lightbox-content {
+        padding: 20px;
+    }
+
+    .lightbox-nav {
+        padding: 0 1rem;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .lightbox-close {
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 30px;
+    }
+
+    .lightbox-media {
+        max-height: 60vh;
+        max-width: 95vw;
+    }
+
+    .lightbox-video {
+        width: 95vw;
+        height: 53.4375vw;
+        max-height: 60vh;
+        max-width: calc(60vh * 16/9);
+    }
+}
+
+@media (max-width: 480px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 280px;
+        gap: 10px;
+    }
+
+    /* Extra small mobile layout patterns handled dynamically by bento-grid.js */
+}

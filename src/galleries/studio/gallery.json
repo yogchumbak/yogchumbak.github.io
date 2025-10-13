@@ -1,0 +1,27 @@
+{
+  "title": "Studio Gallery",
+  "description": "Our beautiful yoga studio space and facilities",
+  "preview_image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+  "images": [
+    {
+      "filename": "studio-1.jpg",
+      "title": "Main Studio Space",
+      "caption": "Spacious and serene main practice area"
+    },
+    {
+      "filename": "studio-2.jpg", 
+      "title": "Props Storage",
+      "caption": "Well-organized Iyengar yoga props"
+    },
+    {
+      "filename": "studio-3.jpg",
+      "title": "Relaxation Area",
+      "caption": "Peaceful space for meditation and relaxation"
+    },
+    {
+      "filename": "studio-4.jpg",
+      "title": "Entrance",
+      "caption": "Welcome to Yog Chumbak"
+    }
+  ]
+}

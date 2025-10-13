@@ -1,0 +1,252 @@
+<!-- Theme Chooser Toggle Button -->
+<button class="toggle-button" id="toggleButton">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0L12 2.69z"/>
+    </svg>
+</button>
+
+<!-- Theme Chooser Panel -->
+<div class="theme-chooser hidden" id="themeChooser">
+    <div class="theme-chooser-header">
+        <h3 class="theme-chooser-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0L12 2.69z"/>
+            </svg>
+            Theme Chooser
+        </h3>
+        <button class="theme-close-button" onclick="toggleThemeChooser()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+    </div>
+    
+    <div class="theme-options">
+        <div class="theme-option" onclick="changeTheme('original')">
+            <div class="theme-radio" id="radio-original"></div>
+            <span class="theme-option-label">Original Magenta</span>
+        </div>
+        <div class="theme-option" onclick="changeTheme('deep-focus')">
+            <div class="theme-radio" id="radio-deep-focus"></div>
+            <span class="theme-option-label">Deep Focus</span>
+        </div>
+        <div class="theme-option" onclick="changeTheme('vibrant-energy')">
+            <div class="theme-radio" id="radio-vibrant-energy"></div>
+            <span class="theme-option-label">Vibrant Energy</span>
+        </div>
+        <div class="theme-option" onclick="changeTheme('healing-lavender')">
+            <div class="theme-radio" id="radio-healing-lavender"></div>
+            <span class="theme-option-label">Healing Lavender</span>
+        </div>
+        <div class="theme-option" onclick="changeTheme('sunset-warmth')">
+            <div class="theme-radio" id="radio-sunset-warmth"></div>
+            <span class="theme-option-label">Sunset Warmth</span>
+        </div>
+        <div class="theme-option" onclick="changeTheme('minimalist-mono')">
+            <div class="theme-radio" id="radio-minimalist-mono"></div>
+            <span class="theme-option-label">Minimalist Mono</span>
+        </div>
+    </div>
+    
+    <div class="config-controls">
+        <button class="config-button" onclick="saveThemeConfig()">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m19 21-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"/>
+            </svg>
+            Save
+        </button>
+        <button class="config-button" onclick="loadThemeConfig()">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7,10 12,15 17,10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            Load
+        </button>
+        <button class="config-button" onclick="resetTheme()">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
+                <path d="M3 3v5h5"/>
+                <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/>
+                <path d="M21 21v-5h-5"/>
+            </svg>
+            Reset
+        </button>
+    </div>
+</div>
+
+<script>
+let currentTheme = 'original';
+let isChooserVisible = false;
+
+// Set initial active radio on load
+document.addEventListener('DOMContentLoaded', function() {
+    // Load saved theme if available
+    const saved = localStorage.getItem('yogChumbakTheme');
+    if (saved) {
+        const config = JSON.parse(saved);
+        changeTheme(config.theme);
+    } else {
+        updateActiveRadio();
+    }
+});
+
+function changeTheme(theme) {
+    currentTheme = theme;
+    document.documentElement.setAttribute('data-theme', theme);
+    updateActiveRadio();
+    
+    // Smooth animation for theme change
+    document.body.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+    setTimeout(() => {
+        document.body.style.transition = '';
+    }, 500);
+}
+
+function updateActiveRadio() {
+    // Clear all active states
+    document.querySelectorAll('.theme-radio').forEach(radio => {
+        radio.classList.remove('active');
+    });
+    
+    // Set active state
+    const activeRadio = document.getElementById(`radio-${currentTheme}`);
+    if (activeRadio) {
+        activeRadio.classList.add('active');
+    }
+}
+
+function toggleThemeChooser() {
+    const chooser = document.getElementById('themeChooser');
+    const button = document.getElementById('toggleButton');
+    
+    isChooserVisible = !isChooserVisible;
+    
+    if (isChooserVisible) {
+        chooser.classList.remove('hidden');
+        button.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>`;
+    } else {
+        chooser.classList.add('hidden');
+        button.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="13.5" cy="6.5" r=".5"/>
+            <circle cx="17.5" cy="10.5" r=".5"/>
+            <circle cx="8.5" cy="7.5" r=".5"/>
+            <circle cx="6.5" cy="11.5" r=".5"/>
+            <circle cx="12.5" cy="13.5" r=".5"/>
+            <circle cx="16.5" cy="17.5" r=".5"/>
+            <circle cx="6.5" cy="17.5" r=".5"/>
+            <circle cx="12.5" cy="20.5" r=".5"/>
+            <circle cx="9.5" cy="23.5" r=".5"/>
+            <circle cx="15.5" cy="21.5" r=".5"/>
+            <circle cx="21.5" cy="16.5" r=".5"/>
+            <circle cx="4.5" cy="3.5" r=".5"/>
+            <circle cx="16.5" cy="3.5" r=".5"/>
+            <circle cx="10.5" cy="3.5" r=".5"/>
+            <circle cx="20.5" cy="5.5" r=".5"/>
+            <circle cx="20.5" cy="12.5" r=".5"/>
+            <circle cx="16.5" cy="5.5" r=".5"/>
+            <circle cx="13.5" cy="19.5" r=".5"/>
+            <circle cx="9.5" cy="10.5" r=".5"/>
+            <circle cx="15.5" cy="7.5" r=".5"/>
+            <circle cx="4.5" cy="20.5" r=".5"/>
+        </svg>`;
+    }
+}
+
+function saveThemeConfig() {
+    const config = {
+        theme: currentTheme,
+        timestamp: new Date().toISOString()
+    };
+    localStorage.setItem('yogChumbakTheme', JSON.stringify(config));
+    
+    // Show success feedback
+    const button = event.target.closest('.config-button');
+    const originalHTML = button.innerHTML;
+    button.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20,6 9,17 4,12"/>
+    </svg>Saved!`;
+    button.style.background = '#10B981';
+    
+    setTimeout(() => {
+        button.innerHTML = originalHTML;
+        button.style.background = '';
+    }, 2000);
+}
+
+function loadThemeConfig() {
+    const saved = localStorage.getItem('yogChumbakTheme');
+    if (saved) {
+        const config = JSON.parse(saved);
+        changeTheme(config.theme);
+        
+        // Show success feedback
+        const button = event.target.closest('.config-button');
+        const originalHTML = button.innerHTML;
+        button.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20,6 9,17 4,12"/>
+        </svg>Loaded!`;
+        button.style.background = '#10B981';
+        
+        setTimeout(() => {
+            button.innerHTML = originalHTML;
+            button.style.background = '';
+        }, 2000);
+    } else {
+        alert('No saved theme configuration found');
+    }
+}
+
+function resetTheme() {
+    changeTheme('original');
+    localStorage.removeItem('yogChumbakTheme');
+    
+    // Show success feedback
+    const button = event.target.closest('.config-button');
+    const originalHTML = button.innerHTML;
+    button.innerHTML = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20,6 9,17 4,12"/>
+    </svg>Reset!`;
+    button.style.background = '#F59E0B';
+    
+    setTimeout(() => {
+        button.innerHTML = originalHTML;
+        button.style.background = '';
+    }, 2000);
+}
+
+// Keyboard shortcuts
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        if (isChooserVisible) {
+            toggleThemeChooser();
+        }
+    }
+    
+    // Number keys 1-6 for quick theme switching
+    const themeKeys = {
+        '1': 'original',
+        '2': 'deep-focus',
+        '3': 'vibrant-energy',
+        '4': 'healing-lavender',
+        '5': 'sunset-warmth',
+        '6': 'minimalist-mono'
+    };
+    
+    if (themeKeys[e.key] && e.altKey) {
+        changeTheme(themeKeys[e.key]);
+    }
+});
+
+// Initialize toggle button click event
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleButton = document.getElementById('toggleButton');
+    if (toggleButton) {
+        toggleButton.addEventListener('click', toggleThemeChooser);
+    }
+});
+</script>

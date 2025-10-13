@@ -1,0 +1,43 @@
+  <!-- Footer Section -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Us</h3>
+                    <p class="footer-info">{{ site.address }}</p>
+                    <p class="footer-info">{{ site.address_line2 }}</p>
+                    <p class="footer-info">📞 {{ site.phone }}</p>
+                    <p class="footer-info">📞 {{ site.phone2 }}</p>
+                    <p class="footer-info">✉️ {{ site.email }}</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://instagram.com/{{ site.social.instagram }}" class="social-link" target="_blank">Instagram</a>
+                        <a href="https://facebook.com/{{ site.social.facebook }}" class="social-link" target="_blank">Facebook</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <div class="quick-links">
+                        <a href="#hero" class="quick-link">Home</a>
+                        <a href="#about" class="quick-link">About</a>
+                        <a href="#schedule" class="quick-link">Schedule</a>
+                        <a href="#gallery" class="quick-link">Gallery</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 {{ site.title }}. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/js/main.js"></script>
+    <script src="/js/bento-grid.js"></script>
+</body>
+</html>

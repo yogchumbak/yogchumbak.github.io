@@ -1,0 +1,558 @@
+/* ==============================================
+   THEME CHOOSER STYLES - Yog Chumbak Website
+   ============================================== */
+
+/* ==============================================
+   CSS VARIABLES FOR THEMES
+   ============================================== */
+
+/* Original Magenta Theme (Default) */
+:root {
+    --deep-magenta: #83247C;
+    --vibrant-pink: #E54992;
+    --light-lavender: #F6EFF5;
+    --dark-charcoal: #2D2D2D;
+    --mid-gray: #888888;
+}
+
+/* Deep Focus Theme */
+[data-theme="deep-focus"] {
+    --deep-magenta: #1a1a2e;
+    --vibrant-pink: #0f3460;
+    --light-lavender: #e8e8e8;
+    --dark-charcoal: #1a1a2e;
+    --mid-gray: #6c757d;
+}
+
+/* Vibrant Energy Theme */
+[data-theme="vibrant-energy"] {
+    --deep-magenta: #FF6B6B;
+    --vibrant-pink: #4ECDC4;
+    --light-lavender: #FFE5E5;
+    --dark-charcoal: #2D3142;
+    --mid-gray: #7B8FA7;
+}
+
+/* Healing Lavender Theme */
+[data-theme="healing-lavender"] {
+    --deep-magenta: #9B59B6;
+    --vibrant-pink: #E8DAEF;
+    --light-lavender: #F4ECF7;
+    --dark-charcoal: #34495E;
+    --mid-gray: #95A5A6;
+}
+
+/* Sunset Warmth Theme */
+[data-theme="sunset-warmth"] {
+    --deep-magenta: #D35400;
+    --vibrant-pink: #F39C12;
+    --light-lavender: #FEF5E7;
+    --dark-charcoal: #2C3E50;
+    --mid-gray: #7F8C8D;
+}
+
+/* Minimalist Mono Theme */
+[data-theme="minimalist-mono"] {
+    --deep-magenta: #2C3E50;
+    --vibrant-pink: #34495E;
+    --light-lavender: #ECF0F1;
+    --dark-charcoal: #1C2833;
+    --mid-gray: #7F8C8D;
+}
+
+/* ==============================================
+   TOGGLE BUTTON (Floating in Corner)
+   ============================================== */
+
+.toggle-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, var(--deep-magenta) 0%, var(--vibrant-pink) 100%);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(131, 36, 124, 0.3);
+    z-index: 9998;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-button:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 30px rgba(131, 36, 124, 0.5);
+}
+
+.toggle-button:active {
+    transform: scale(0.95);
+}
+
+.toggle-button svg {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* ==============================================
+   THEME CHOOSER PANEL
+   ============================================== */
+
+.theme-chooser {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 320px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15),
+                0 0 0 1px rgba(0, 0, 0, 0.05);
+    z-index: 9999;
+    padding: 24px;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    max-height: 600px;
+    overflow-y: hidden;
+}
+
+.theme-chooser.hidden {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    pointer-events: none;
+    visibility: hidden;
+}
+
+/* Custom Scrollbar */
+.theme-chooser::-webkit-scrollbar {
+    width: 6px;
+}
+
+.theme-chooser::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 3px;
+}
+
+.theme-chooser::-webkit-scrollbar-thumb {
+    background: var(--deep-magenta);
+    border-radius: 3px;
+}
+
+.theme-chooser::-webkit-scrollbar-thumb:hover {
+    background: var(--vibrant-pink);
+}
+
+/* ==============================================
+   HEADER SECTION
+   ============================================== */
+
+.theme-chooser-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--light-lavender);
+}
+
+.theme-chooser-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--dark-charcoal);
+}
+
+.theme-chooser-title svg {
+    color: var(--deep-magenta);
+}
+
+.theme-close-button {
+    background: transparent;
+    border: none;
+    color: var(--mid-gray);
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.theme-close-button:hover {
+    background: var(--light-lavender);
+    color: var(--deep-magenta);
+    transform: rotate(90deg);
+}
+
+.theme-close-button:active {
+    transform: rotate(90deg) scale(0.9);
+}
+
+/* ==============================================
+   THEME OPTIONS LIST
+   ============================================== */
+
+.theme-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.theme-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--light-lavender);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.theme-option:hover {
+    background: linear-gradient(135deg, rgba(131, 36, 124, 0.1) 0%, rgba(229, 73, 146, 0.1) 100%);
+    border-color: var(--vibrant-pink);
+    transform: translateX(4px);
+}
+
+.theme-option:active {
+    transform: translateX(4px) scale(0.98);
+}
+
+/* ==============================================
+   CUSTOM RADIO BUTTONS
+   ============================================== */
+
+.theme-radio {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--mid-gray);
+    border-radius: 50%;
+    position: relative;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.theme-radio::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-radio.active {
+    background: linear-gradient(135deg, var(--deep-magenta) 0%, var(--vibrant-pink) 100%);
+    border-color: var(--deep-magenta);
+    box-shadow: 0 0 0 3px rgba(131, 36, 124, 0.2);
+}
+
+.theme-radio.active::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.theme-option-label {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--dark-charcoal);
+    user-select: none;
+}
+
+/* ==============================================
+   CONTROL BUTTONS (Save/Load/Reset)
+   ============================================== */
+
+.config-controls {
+    display: flex;
+    gap: 8px;
+    padding-top: 16px;
+    border-top: 2px solid var(--light-lavender);
+}
+
+.config-button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 12px;
+    background: white;
+    border: 2px solid var(--deep-magenta);
+    color: var(--deep-magenta);
+    border-radius: 8px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.config-button:hover {
+    background: linear-gradient(135deg, var(--deep-magenta) 0%, var(--vibrant-pink) 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(131, 36, 124, 0.3);
+    border-color: transparent;
+}
+
+.config-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(131, 36, 124, 0.2);
+}
+
+.config-button svg {
+    transition: transform 0.2s ease;
+}
+
+.config-button:hover svg {
+    transform: scale(1.1);
+}
+
+/* Button color variants for feedback */
+.config-button[style*="background: #10B981"] {
+    border-color: #10B981;
+}
+
+.config-button[style*="background: #F59E0B"] {
+    border-color: #F59E0B;
+}
+
+/* ==============================================
+   ANIMATIONS
+   ============================================== */
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes slideOutDown {
+    from {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Entrance animation */
+.theme-chooser:not(.hidden) {
+    animation: slideInUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==============================================
+   RESPONSIVE DESIGN
+   ============================================== */
+
+@media (max-width: 768px) {
+    .toggle-button {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .theme-chooser {
+        bottom: 85px;
+        right: 20px;
+        left: 20px;
+        width: auto;
+        max-width: calc(100vw - 40px);
+        padding: 20px;
+        max-height: 500px;
+    }
+
+    .theme-chooser-title {
+        font-size: 1rem;
+    }
+
+    .theme-option {
+        padding: 10px 14px;
+    }
+
+    .theme-option-label {
+        font-size: 0.875rem;
+    }
+
+    .config-controls {
+        flex-direction: column;
+    }
+
+    .config-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .toggle-button {
+        width: 46px;
+        height: 46px;
+        bottom: 16px;
+        right: 16px;
+    }
+
+    .toggle-button svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .theme-chooser {
+        bottom: 75px;
+        right: 16px;
+        left: 16px;
+        padding: 16px;
+        max-height: 400px;
+    }
+
+    .theme-chooser-header {
+        margin-bottom: 16px;
+        padding-bottom: 12px;
+    }
+
+    .theme-chooser-title {
+        font-size: 0.9375rem;
+        gap: 8px;
+    }
+
+    .theme-chooser-title svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .theme-close-button {
+        width: 28px;
+        height: 28px;
+    }
+
+    .theme-close-button svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .theme-options {
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+
+    .theme-option {
+        padding: 10px 12px;
+        gap: 10px;
+    }
+
+    .theme-radio {
+        width: 18px;
+        height: 18px;
+    }
+
+    .theme-radio::after {
+        width: 8px;
+        height: 8px;
+    }
+
+    .theme-option-label {
+        font-size: 0.8125rem;
+    }
+
+    .config-controls {
+        padding-top: 12px;
+        gap: 6px;
+    }
+
+    .config-button {
+        padding: 8px 10px;
+        font-size: 0.75rem;
+        gap: 4px;
+    }
+
+    .config-button svg {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* ==============================================
+   ACCESSIBILITY & FOCUS STATES
+   ============================================== */
+
+.toggle-button:focus-visible,
+.theme-close-button:focus-visible,
+.config-button:focus-visible {
+    outline: 3px solid var(--vibrant-pink);
+    outline-offset: 2px;
+}
+
+.theme-option:focus-visible {
+    outline: 2px solid var(--vibrant-pink);
+    outline-offset: 2px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .theme-chooser,
+    .toggle-button,
+    .theme-option,
+    .config-button,
+    .theme-radio {
+        transition: none;
+        animation: none;
+    }
+
+    .toggle-button:hover {
+        transform: none;
+    }
+
+    .theme-option:hover {
+        transform: none;
+    }
+}
+
+/* ==============================================
+   Z-INDEX MANAGEMENT
+   ============================================== */
+
+/* Ensure theme chooser appears above most content but below modals */
+.toggle-button {
+    z-index: 9998;
+}
+
+.theme-chooser {
+    z-index: 9999;
+}
+
+/* If there's a lightbox or modal, it should be higher */
+.lightbox {
+    z-index: 10000;
+}

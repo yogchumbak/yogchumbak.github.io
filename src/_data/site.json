@@ -1,0 +1,27 @@
+{
+  "title": "Yog Chumbak",
+  "subtitle": "Iyengar Yoga Therapy",
+  "description": "Experience transformative Iyengar Yoga therapy in Delhi. Professional classes for all ages and levels at Yog Chumbak studio.",
+  "keywords": "Iyengar yoga, yoga therapy, Delhi yoga, healing yoga, yoga classes, Shalimar Bagh yoga",
+  "author": "Suman Hora",
+  "url": "https://yogchumbak.com",
+  "phone": "+91 98113 34069",
+  "phone2": "+91 99108 26170",
+  "email": "info@yogchumbak.com",
+  "address": "Fourth Floor, Singalpur Village, SE 30, above Mac, opposite BT Block",
+  "address_line2": "West Shalimar Bagh, Delhi 110088",
+  "location": {
+    "city": "Delhi",
+    "area": "West Shalimar Bagh",
+    "pincode": "110088",
+    "landmark": "Above Mac, opposite BT Block",
+    "coordinates": {
+      "lat": "28.7041",
+      "lng": "77.1025"
+    }
+  },
+  "social": {
+    "instagram": "@yog.chumbak",
+    "facebook": "yogchumbakindia"
+  }
+}
