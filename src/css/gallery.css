@@ -84,15 +84,15 @@
 
 /* Bento Grid Item Styles */
 .bento-grid .gallery-item {
-    background: white;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+    background: var(--background-color);
+    box-shadow: var(--shadow-md);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     border-radius: 16px;
 }
 
 .bento-grid .gallery-item:hover {
     transform: translateY(-2px) scale(1.01);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-lg);
 }
 
 /* Gallery Content */
@@ -151,7 +151,7 @@
     justify-content: center;
     transition: all 0.3s ease;
     z-index: 3;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-md);
 }
 
 .play-button svg {
@@ -164,7 +164,7 @@
     background: #E54992;
     color: white;
     transform: translate(-50%, -50%) scale(1.15);
-    box-shadow: 0 8px 30px rgba(229, 73, 146, 0.4);
+    box-shadow: var(--shadow-lg);
 }
 
 /* Modern Overlay for Bento Grid */
@@ -268,7 +268,7 @@
     max-height: 100%;
     object-fit: contain;
     border-radius: 12px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow-lg);
 }
 
 .lightbox-video {
@@ -278,7 +278,7 @@
     max-width: calc(75vh * 16/9);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    box-shadow: var(--shadow-lg);
 }
 
 .lightbox-video iframe {
