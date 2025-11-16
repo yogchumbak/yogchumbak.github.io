@@ -23,6 +23,10 @@
     </div>
     
     <div class="theme-options">
+        <div class="theme-option" onclick="changeTheme('yog-chumbak')">
+            <div class="theme-radio" id="radio-yog-chumbak"></div>
+            <span class="theme-option-label">Yog Chumbak (Default)</span>
+        </div>
         <div class="theme-option" onclick="changeTheme('original')">
             <div class="theme-radio" id="radio-original"></div>
             <span class="theme-option-label">Original Magenta</span>
@@ -77,7 +81,7 @@
 </div>
 
 <script>
-let currentTheme = 'original';
+let currentTheme = 'yog-chumbak';
 let isChooserVisible = false;
 
 // Set initial active radio on load
@@ -202,7 +206,7 @@ function loadThemeConfig() {
 }
 
 function resetTheme() {
-    changeTheme('original');
+    changeTheme('yog-chumbak');
     localStorage.removeItem('yogChumbakTheme');
     
     // Show success feedback
@@ -227,14 +231,15 @@ document.addEventListener('keydown', (e) => {
         }
     }
     
-    // Number keys 1-6 for quick theme switching
+    // Number keys 1-7 for quick theme switching
     const themeKeys = {
-        '1': 'original',
-        '2': 'deep-focus',
-        '3': 'vibrant-energy',
-        '4': 'healing-lavender',
-        '5': 'sunset-warmth',
-        '6': 'minimalist-mono'
+        '1': 'yog-chumbak',
+        '2': 'original',
+        '3': 'deep-focus',
+        '4': 'vibrant-energy',
+        '5': 'healing-lavender',
+        '6': 'sunset-warmth',
+        '7': 'minimalist-mono'
     };
     
     if (themeKeys[e.key] && e.altKey) {

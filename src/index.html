@@ -24,8 +24,8 @@ layout: base
         
         <!-- Slider Navigation -->
         <div class="slider-nav">
-            <button class="slider-prev" id="sliderPrev">&#10094;</button>
-            <button class="slider-next" id="sliderNext">&#10095;</button>
+            <button class="slider-prev" id="sliderPrev" aria-label="Previous slide">&#10094;</button>
+            <button class="slider-next" id="sliderNext" aria-label="Next slide">&#10095;</button>
         </div>
         
         <!-- Slider Dots -->
@@ -66,18 +66,57 @@ layout: base
     </div>
 </section>
 
+<!-- Why Yog Chumbak Section -->
+<section id="why-yog-chumbak" class="section why-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Why Yog Chumbak?</h2>
+            <p class="section-subtitle">What sets us apart in Delhi's yoga landscape</p>
+        </div>
+
+        <div class="why-grid">
+            <!-- Point 1: Established Since 2019 -->
+            <div class="why-card">
+                <div class="why-number">1</div>
+                <h3 class="why-title">Trusted Since 2019</h3>
+                <p class="why-description">6 years of transforming lives in Shalimar Bagh. A community built on results, not promises.</p>
+            </div>
+
+            <!-- Point 2: Expert Instructor -->
+            <div class="why-card">
+                <div class="why-number">2</div>
+                <h3 class="why-title">Expert Guidance</h3>
+                <p class="why-description">Suman Hora brings 10+ years of experience and Certified Pranic Healer expertise. Homemaker turned yogapreneur—proof that transformation is possible at any age.</p>
+            </div>
+
+            <!-- Point 3: Not Regular Yoga -->
+            <div class="why-card">
+                <div class="why-number">3</div>
+                <h3 class="why-title">Iyengar Method with Props</h3>
+                <p class="why-description">Precision, alignment, and therapeutic focus using blocks, straps, bolsters, and chairs. Suitable for all levels—from complete beginners to advanced practitioners.</p>
+            </div>
+
+            <!-- Point 4: Personalized Attention -->
+            <div class="why-card">
+                <div class="why-number">4</div>
+                <h3 class="why-title">Individual Care</h3>
+                <p class="why-description">Small batch sizes ensure personal attention. Individual assessments. One-to-one therapy options for chronic conditions. You're not just a number.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- About Suman Section -->
 <section id="about-suman" class="section">
     <div class="container">
         <div class="section-header">
             <h2 class="section-title">Meet Your Guide</h2>
-            <p class="section-subtitle">Suman Hora - Homemaker Turned Yogapreneur</p>
         </div>
         
         <div class="about-suman-content">
             <div class="instructor-profile">
                 <div class="instructor-image">
-                    <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Suman Hora - Yoga Instructor" />
+                    <img src="/images/instructor_1.jpeg" alt="Suman Hora - Yoga Instructor" loading="lazy" />
                     <div class="instructor-credentials">
                         <span class="credential-badge">Pranic Healer</span>
                         <span class="credential-badge">Certified Instructor</span>
@@ -143,36 +182,42 @@ layout: base
             <div class="therapy-conditions">
                 <h3>Conditions We Specialize In</h3>
                 <div class="conditions-grid">
-                    <div class="condition-card">
-                        <div class="condition-icon">🦴</div>
-                        <h4>Frozen Shoulder</h4>
-                        <p>Gentle mobilization and strengthening exercises to restore range of motion and reduce pain in frozen shoulder conditions.</p>
-                        <div class="condition-benefits flex">
-                            <span>• Pain Reduction</span>
-                            <span>• Mobility Restoration</span>
-                            <span>• Strength Building</span>
+                    <div class="condition-card" style="background-image: url('/images/frozen_shoulder.png');">
+                        <div class="condition-card-overlay"></div>
+                        <div class="condition-card-content">
+                            <h4>Frozen Shoulder</h4>
+                            <p>Gentle mobilization and strengthening exercises to restore range of motion and reduce pain in frozen shoulder conditions.</p>
+                            <div class="condition-benefits">
+                                <span>• Pain Reduction</span>
+                                <span>• Mobility Restoration</span>
+                                <span>• Strength Building</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="condition-card">
-                        <div class="condition-icon">🧘‍♀️</div>
-                        <h4>Chronic Back Pain</h4>
-                        <p>Targeted spinal alignment and core strengthening techniques to address the root causes of chronic back pain.</p>
-                        <div class="condition-benefits flex">
-                            <span>• Spinal Alignment</span>
-                            <span>• Core Strength</span>
-                            <span>• Posture Correction</span>
+
+                    <div class="condition-card" style="background-image: url('/images/back_pain.png');">
+                        <div class="condition-card-overlay"></div>
+                        <div class="condition-card-content">
+                            <h4>Chronic Back Pain</h4>
+                            <p>Targeted spinal alignment and core strengthening techniques to address the root causes of chronic back pain.</p>
+                            <div class="condition-benefits">
+                                <span>• Spinal Alignment</span>
+                                <span>• Core Strength</span>
+                                <span>• Posture Correction</span>
+                            </div>
                         </div>
                     </div>
-                    
-                    <div class="condition-card">
-                        <div class="condition-icon">🦵</div>
-                        <h4>Knee Pain</h4>
-                        <p>Specialized sequences to strengthen supporting muscles and improve joint flexibility while protecting the knee structure.</p>
-                        <div class="condition-benefits flex">
-                            <span>• Joint Protection</span>
-                            <span>• Muscle Support</span>
-                            <span>• Flexibility Enhancement</span>
+
+                    <div class="condition-card" style="background-image: url('/images/knee_pain.png');">
+                        <div class="condition-card-overlay"></div>
+                        <div class="condition-card-content">
+                            <h4>Knee Pain</h4>
+                            <p>Specialized sequences to strengthen supporting muscles and improve joint flexibility while protecting the knee structure.</p>
+                            <div class="condition-benefits">
+                                <span>• Joint Protection</span>
+                                <span>• Muscle Support</span>
+                                <span>• Flexibility Enhancement</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -202,47 +247,168 @@ layout: base
 </section>
 
 <!-- Schedule Section -->
-<section id="schedule" class="section">
+<section id="schedule" class="section schedule-section">
     <div class="container">
         <div class="section-header">
-            <h2 class="section-title">Class Schedule</h2>
-            <p class="section-subtitle">Find the perfect class for your practice level and schedule</p>
+            <h2 class="section-title">Weekly Class Schedule</h2>
+            <p class="section-subtitle">Choose a batch that fits your lifestyle—we offer flexible timings</p>
         </div>
-        
-        <div class="schedule-grid">
-            <div class="schedule-card">
-                <h3>Morning Classes</h3>
-                <div class="schedule-item">
-                    <span class="time">6:30 AM - 7:30 AM</span>
-                    <span class="class-name">Beginner's Yoga</span>
+
+        <!-- Regular Batches Table (Desktop) / Cards (Mobile) -->
+        <div class="schedule-table-wrapper">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Batch</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                        <th>Saturday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="batch-name">Morning Batch</td>
+                        <td class="active">7:15 - 8:15 AM</td>
+                        <td class="inactive"></td>
+                        <td class="active">7:15 - 8:15 AM</td>
+                        <td class="active">7:15 - 8:15 AM</td>
+                        <td class="inactive"></td>
+                        <td class="inactive"></td>
+                    </tr>
+                    <tr>
+                        <td class="batch-name">Morning Batch 2</td>
+                        <td class="active">9:00 - 10:00 AM</td>
+                        <td class="active">9:00 - 10:00 AM</td>
+                        <td class="inactive"></td>
+                        <td class="inactive"></td>
+                        <td class="active">9:00 - 10:00 AM</td>
+                        <td class="inactive"></td>
+                    </tr>
+                    <tr>
+                        <td class="batch-name">Afternoon Batch</td>
+                        <td class="inactive"></td>
+                        <td class="active">12:00 - 1:00 PM</td>
+                        <td class="inactive"></td>
+                        <td class="active">12:00 - 1:00 PM</td>
+                        <td class="inactive"></td>
+                        <td class="active">12:00 - 1:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td class="batch-name">Evening Batch</td>
+                        <td class="active">6:00 - 7:00 PM</td>
+                        <td class="active">6:00 - 7:00 PM</td>
+                        <td class="inactive"></td>
+                        <td class="active">6:00 - 7:00 PM</td>
+                        <td class="inactive"></td>
+                        <td class="inactive"></td>
+                    </tr>
+                    <tr class="special-program-row">
+                        <td class="batch-name">Kids Yoga</td>
+                        <td class="inactive"></td>
+                        <td class="inactive"></td>
+                        <td class="inactive"></td>
+                        <td class="inactive"></td>
+                        <td class="inactive"></td>
+                        <td class="active">11:00 AM - 12:00 PM<br><small>(Sat & Sun)</small></td>
+                    </tr>
+                    <tr class="special-program-row">
+                        <td class="batch-name">Weekend Meditation</td>
+                        <td class="inactive"></td>
+                        <td class="inactive"></td>
+                        <td class="inactive"></td>
+                        <td class="inactive"></td>
+                        <td class="inactive"></td>
+                        <td class="active meditation-dates">12:30 - 1:30 PM<br><small id="meditation-dates">Loading...</small></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Mobile Schedule Cards -->
+            <div class="schedule-mobile-cards">
+                <div class="schedule-mobile-card">
+                    <h3>Morning Batch</h3>
+                    <p class="time">7:15AM - 8:15AM</p>
+                    <p class="days">Mon • Wed • Thu</p>
                 </div>
-                <div class="schedule-item">
-                    <span class="time">7:45 AM - 8:45 AM</span>
-                    <span class="class-name">Intermediate Practice</span>
+
+                <div class="schedule-mobile-card">
+                    <h3>Morning Batch 2</h3>
+                    <p class="time">9:00AM - 10:00AM</p>
+                    <p class="days">Mon • Tue • Fri</p>
+                </div>
+
+                <div class="schedule-mobile-card">
+                    <h3>Afternoon Batch</h3>
+                    <p class="time">12:00PM - 1:00PM</p>
+                    <p class="days">Tue • Thu • Sat</p>
+                </div>
+
+                <div class="schedule-mobile-card">
+                    <h3>Evening Batch</h3>
+                    <p class="time">6:00PM - 7:00PM</p>
+                    <p class="days">Mon • Tue • Thu</p>
                 </div>
             </div>
-            
-            <div class="schedule-card">
-                <h3>Afternoon Classes</h3>
-                <div class="schedule-item">
-                    <span class="time">4:00 PM - 5:00 PM</span>
-                    <span class="class-name">Therapeutic Yoga</span>
-                </div>
-                <div class="schedule-item">
-                    <span class="time">5:15 PM - 6:15 PM</span>
-                    <span class="class-name">Advanced Practice</span>
+        </div>
+
+        <p class="schedule-note">Each batch: 3 classes per week • 12 classes per month</p>
+    </div>
+</section>
+
+<!-- Special Programs Section -->
+<section class="section special-programs-section" id="programs">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Our Programs</h2>
+            <p class="section-subtitle">Choose the perfect program for your yoga journey</p>
+        </div>
+
+        <div class="programs-grid">
+            <!-- Regular Batch Card -->
+            <div class="program-card" style="background-image: url('https://images.unsplash.com/photo-1545389336-cf090694435e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+                <div class="program-card-overlay"></div>
+                <div class="program-card-content">
+                    <h3>Regular Batch</h3>
+                    <p class="program-description">Join our group classes designed for all levels, from beginners to advanced practitioners.</p>
+                    <div class="program-highlights">
+                        <span>• Morning & Evening Batches</span>
+                        <span>• 3 Classes per Week</span>
+                        <span>• Small Group Sizes</span>
+                    </div>
+                    <a href="#schedule" class="btn btn-secondary-outline">View Schedule</a>
                 </div>
             </div>
-            
-            <div class="schedule-card">
-                <h3>Evening Classes</h3>
-                <div class="schedule-item">
-                    <span class="time">6:30 PM - 7:30 PM</span>
-                    <span class="class-name">Relaxation & Meditation</span>
+
+            <!-- Weekend Meditation Card -->
+            <div class="program-card" style="background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+                <div class="program-card-overlay"></div>
+                <div class="program-card-content">
+                    <h3>Weekend Meditation</h3>
+                    <p class="program-description">Find inner peace through guided meditation sessions with breath work and props.</p>
+                    <div class="program-highlights">
+                        <span>• 2nd & 4th Sunday</span>
+                        <span>• 12:30 PM - 1:30 PM</span>
+                        <span>• Limited to 10 Spots</span>
+                    </div>
+                    <a href="https://wa.me/919811334069?text=Hi%20Yog%20Chumbak,%20I'd%20like%20to%20reserve%20a%20spot%20for%20Weekend%20Meditation" class="btn btn-secondary-outline" target="_blank" rel="noopener">Reserve Your Spot</a>
                 </div>
-                <div class="schedule-item">
-                    <span class="time">7:45 PM - 8:45 PM</span>
-                    <span class="class-name">Pranayama Session</span>
+            </div>
+
+            <!-- Kids Yoga Card -->
+            <div class="program-card" style="background-image: url('/images/kids_yoga.jpeg');">
+                <div class="program-card-overlay"></div>
+                <div class="program-card-content">
+                    <h3>Kids Yoga</h3>
+                    <p class="program-description">Fun and engaging yoga classes specially designed for children to build strength, focus, and confidence.</p>
+                    <div class="program-highlights">
+                        <span>• Weekend Classes</span>
+                        <span>• Saturday & Sunday</span>
+                        <span>• 11:00 AM - 12:00 PM</span>
+                    </div>
+                    <a href="https://wa.me/919811334069?text=Hi%20Yog%20Chumbak,%20I'd%20like%20to%20enroll%20my%20child%20in%20Kids%20Yoga" class="btn btn-secondary-outline" target="_blank" rel="noopener">Enroll Your Child</a>
                 </div>
             </div>
         </div>
@@ -261,13 +427,13 @@ layout: base
             <!-- Map Section -->
             <div class="map-section">
                 <div class="map-container">
-                    <iframe 
+                    <iframe
                         class="map-iframe"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3497.4445623456!2d77.10025177549632!3d28.704100575644853!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d074c2e1a3d4d%3A0x4e1c8f2d5e8a7b3c!2sSingalpur%20Village%2C%20Delhi%20110088!5e0!3m2!1sen!2sin!4v1695123456789!5m2!1sen!2sin"
-                        width="100%" 
-                        height="500" 
-                        allowfullscreen="" 
-                        loading="lazy" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3497.425!2d77.1530145!3d28.7046772!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d039dc42e3317%3A0x9ca108d793c2455d!2sYog%20Chumbak%20-%20Yoga%20for%20pain%20relief!5e0!3m2!1sen!2sin!4v1695123456789!5m2!1sen!2sin"
+                        width="100%"
+                        height="500"
+                        allowfullscreen=""
+                        loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"
                         title="Yog Chumbak Studio Location">
                     </iframe>
@@ -367,7 +533,7 @@ layout: base
                 <a href="/galleries/{{ gallery.fileSlug }}/" class="gallery-link">
                     <div class="gallery-preview-image">
                         {% if gallery.data.preview_image %}
-                        <img src="{{ gallery.data.preview_image }}" alt="{{ gallery.data.title }}">
+                        <img src="{{ gallery.data.preview_image }}" alt="{{ gallery.data.title }}" loading="lazy">
                         {% else %}
                         <div class="placeholder-image">📸</div>
                         {% endif %}
@@ -383,7 +549,7 @@ layout: base
             <div class="gallery-preview-item">
                 <a href="/galleries/studio/" class="gallery-link">
                     <div class="gallery-preview-image">
-                        <img src="https://images.unsplash.com/photo-1545389336-cf090694435e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Main Studio Space">
+                        <img src="https://images.unsplash.com/photo-1545389336-cf090694435e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Main Studio Space" loading="lazy">
                     </div>
                     <h3>Studio Gallery</h3>
                     <p>Our beautiful yoga studio space and facilities</p>
@@ -393,7 +559,7 @@ layout: base
             <div class="gallery-preview-item">
                 <a href="/galleries/events/" class="gallery-link">
                     <div class="gallery-preview-image">
-                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kids Yoga Classes">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kids Yoga Classes" loading="lazy">
                     </div>
                     <h3>Events Gallery</h3>
                     <p>Special yoga workshops, events, and community gatherings</p>
@@ -403,7 +569,7 @@ layout: base
             <div class="gallery-preview-item">
                 <a href="/galleries/classes/" class="gallery-link">
                     <div class="gallery-preview-image">
-                        <img src="https://images.unsplash.com/photo-1593810451954-7d7834efb32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Adult Yoga Classes">
+                        <img src="https://images.unsplash.com/photo-1593810451954-7d7834efb32a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Adult Yoga Classes" loading="lazy">
                     </div>
                     <h3>Classes Gallery</h3>
                     <p>Our yoga classes in action - students practicing various asanas</p>
@@ -414,63 +580,149 @@ layout: base
     </div>
 </section>
 
-<!-- WhatsApp Popup Widget -->
-<div id="whatsapp-widget" class="whatsapp-widget">
-    <div class="whatsapp-trigger" id="whatsapp-trigger">
-        <div class="whatsapp-icon"><i class="fab fa-whatsapp"></i></div>
-        <div class="pulse-ring"></div>
+<!-- Testimonials Section -->
+<section class="section testimonials-section" id="testimonials">
+    <div class="testimonials-background"></div>
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">What Our Students Say</h2>
+            <p class="section-subtitle">Real transformations, real results</p>
+        </div>
+
+        <div class="testimonials-carousel">
+            <div class="testimonials-wrapper">
+                {% for testimonial in testimonials %}
+                <div class="testimonial-card" {% if loop.first %}style="display: block"{% endif %}>
+                    <div class="stars">
+                        {% for i in range(0, testimonial.rating) %}★{% endfor %}
+                    </div>
+                    <blockquote class="testimonial-quote">
+                        "{{ testimonial.summary }}"
+                    </blockquote>
+                    <div class="testimonial-author">
+                        <p class="author-name">— {{ testimonial.name }}</p>
+                        <p class="author-location">{{ testimonial.location }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Navigation -->
+            <div class="testimonials-nav">
+                <button class="testimonials-prev" id="testimonialsPrev" aria-label="Previous testimonial">&#10094;</button>
+                <button class="testimonials-next" id="testimonialsNext" aria-label="Next testimonial">&#10095;</button>
+            </div>
+
+            <!-- Dots -->
+            <div class="testimonials-dots" id="testimonialsDots">
+                {% for testimonial in testimonials %}
+                <button class="testimonial-dot {% if loop.first %}active{% endif %}" data-testimonial="{{ loop.index0 }}"></button>
+                {% endfor %}
+            </div>
+        </div>
     </div>
-    
-    <div class="whatsapp-popup" id="whatsapp-popup">
-        <div class="whatsapp-header">
-            <div class="contact-info">
-                <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="Yog Chumbak" class="contact-avatar">
-                <div class="contact-details">
-                    <h4 class="contact-name">Yog Chumbak</h4>
-                    <span class="contact-status">Online</span>
+</section>
+
+<!-- FAQ Section -->
+<section class="section faq-section" id="faq">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Everything you need to know about joining Yog Chumbak</p>
+        </div>
+
+        <div class="faq-accordion">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">I go to Gym, do I need Yoga?</span>
+                    <span class="faq-icon">›</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Absolutely! While gym workouts build muscle strength and cardiovascular fitness, yoga improves flexibility, balance, posture, and mental well-being. They complement each other perfectly.</p>
+                        <p>Many gym-goers find yoga helps prevent injuries, improves recovery time, and enhances overall performance. Plus, yoga addresses stress and mental health—benefits that gym workouts alone cannot provide. Think of gym as building your house, and yoga as creating a home.</p>
+                    </div>
                 </div>
             </div>
-            <button class="close-chat" id="close-chat">✕</button>
-        </div>
-        
-        <div class="whatsapp-messages" id="whatsapp-messages">
-            <div class="welcome-message">
-                <div class="message received">
-                    <div class="message-content">
-                        <p>Hello! 👋</p>
-                        <p>Welcome to Yog Chumbak! How can we help you with your yoga journey today?</p>
-                        <div class="message-time">Just now</div>
+
+            <!-- FAQ Item 2 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">I am a working professional, when can I join classes?</span>
+                    <span class="faq-icon">›</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>We offer flexible timing specifically for working professionals across morning, afternoon, and evening slots:</p>
+                        <ul>
+                            <li><strong>Morning Batches:</strong> 7:15-8:15am, 9:00-10:00am</li>
+                            <li><strong>Afternoon Batch:</strong> 12:00-1:00pm (lunch break option)</li>
+                            <li><strong>Evening Batch:</strong> 6:00-7:00pm (after work)</li>
+                        </ul>
+                        <p>Each batch runs 3 days per week, giving you 12 classes per month. Choose the schedule that fits your routine. Many working professionals prefer our morning batches to start the day energized, or evening batches to unwind after work.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">How many classes do you take?</span>
+                    <span class="faq-icon">›</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Each batch gets 3 classes per week, totaling 12 classes per month.</p>
+                        <p>This frequency is intentionally designed for the Iyengar method, where we hold poses longer and focus intensely on alignment. Your body needs adequate rest between sessions to integrate the practice and build strength safely. Consistent 3x/week attendance shows better results than sporadic daily practice.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">I have a chronic ailment, can I do yoga?</span>
+                    <span class="faq-icon">›</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Yes, you absolutely should! However, chronic conditions require personalized attention rather than jumping into group classes.</p>
+                        <p>We strongly recommend coming in for a free assessment where we'll:</p>
+                        <ul>
+                            <li>Evaluate your specific condition</li>
+                            <li>Test your current flexibility and range of motion</li>
+                            <li>Understand your pain triggers and limitations</li>
+                        </ul>
+                        <p>Based on this assessment, we'll determine whether you're suited for our regular batches or would benefit more from one-to-one therapy sessions. Many of our students have found lasting relief from chronic pain, frozen shoulder, back issues, and knee problems through our therapeutic approach.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">How is it different from Physiotherapy?</span>
+                    <span class="faq-icon">›</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>This is a great question! The key difference is scope and approach:</p>
+                        <p><strong>PHYSIOTHERAPY:</strong> Works on the pain area only, providing symptomatic relief. If your knee hurts, physio treats your knee.</p>
+                        <p><strong>YOGA (our approach):</strong> Finds the SOURCE of the problem causing misalignment. Your knee pain might actually stem from hip misalignment, poor posture habits, or weak core muscles—issues built over years that you never noticed.</p>
+                        <p>We address:</p>
+                        <ul>
+                            <li>Shoulder misalignment causing neck pain</li>
+                            <li>Neck shortening from desk work causing headaches</li>
+                            <li>Wrong posture habits causing back pain</li>
+                            <li>Muscle imbalances creating joint stress</li>
+                        </ul>
+                        <p>With yoga, you don't just work on fixing the pain—you fix the ROOT CAUSES: postural habits, structural misalignments, and muscle imbalances. This comprehensive approach leads to lasting relief, not temporary band-aids. Think long-term transformation, not short-term fixes.</p>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <div class="whatsapp-input-area">
-            <div class="typing-indicator" id="typing-indicator" style="display: none;">
-                <div class="typing-dots">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <span class="typing-text">Yog Chumbak is typing...</span>
-            </div>
-            
-            <div class="input-container">
-                <input 
-                    type="text" 
-                    id="whatsapp-input" 
-                    class="message-input" 
-                    placeholder="Type your message..." 
-                    maxlength="500"
-                >
-                <button class="send-button" id="whatsapp-send">
-                    <svg viewBox="0 0 24 24" width="20" height="20">
-                        <path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                    </svg>
-                </button>
-            </div>
-        </div>
     </div>
-</div>
+</section>
 
 {% include 'footer.html' %}

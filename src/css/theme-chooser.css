@@ -6,13 +6,43 @@
    CSS VARIABLES FOR THEMES
    ============================================== */
 
-/* Original Magenta Theme (Default) */
+/* Yog Chumbak Theme (Default) */
 :root {
+    --deep-magenta: #83247C;
+    --vibrant-pink: #E54992;
+    --light-lavender: #F8F9FA;
+    --dark-charcoal: #2D2D2D;
+    --mid-gray: #666666;
+
+    /* Typography - Yog Chumbak Theme */
+    --theme-font-heading: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --theme-font-body: 'Inter', 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Yog Chumbak Theme (same as default) */
+[data-theme="yog-chumbak"] {
+    --deep-magenta: #83247C;
+    --vibrant-pink: #E54992;
+    --light-lavender: #F8F9FA;
+    --dark-charcoal: #2D2D2D;
+    --mid-gray: #666666;
+
+    /* Typography - Modern, Professional, Wellness-focused */
+    --theme-font-heading: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --theme-font-body: 'Inter', 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Original Magenta Theme */
+[data-theme="original"] {
     --deep-magenta: #83247C;
     --vibrant-pink: #E54992;
     --light-lavender: #F6EFF5;
     --dark-charcoal: #2D2D2D;
     --mid-gray: #888888;
+
+    /* Typography - Elegant Serif + Modern Sans */
+    --theme-font-heading: 'Spectral', 'Noto Sans Devanagari', Georgia, serif;
+    --theme-font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* Deep Focus Theme */
@@ -22,6 +52,10 @@
     --light-lavender: #e8e8e8;
     --dark-charcoal: #1a1a2e;
     --mid-gray: #6c757d;
+
+    /* Typography - Monospace Tech Feel */
+    --theme-font-heading: 'Space Mono', 'Courier New', monospace;
+    --theme-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* Vibrant Energy Theme */
@@ -289,8 +323,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    padding: 10px 12px;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-3);
     background: white;
     border: 2px solid var(--deep-magenta);
     color: var(--deep-magenta);
@@ -301,6 +335,8 @@
     transition: all 0.2s ease;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    min-height: 44px;
+    min-width: 44px;
 }
 
 .config-button:hover {

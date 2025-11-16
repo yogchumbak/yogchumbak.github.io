@@ -1,37 +1,30 @@
 [
   {
-    "title": "Discover Healing Through Iyengar Yoga",
-    "subtitle": "Experience precision, alignment, and therapeutic benefits at Delhi's premier studio",
+    "title": "Transform Your Body & Mind",
+    "subtitle": "Therapeutic Iyengar Yoga for Pain Relief & Holistic Wellness",
     "image": "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    "link": "#about",
-    "buttonText": "Learn More"
+    "link": "#schedule",
+    "buttonText": "Book Your First Class"
   },
   {
-    "title": "Expert Guided Practice",
-    "subtitle": "Professional instruction for all levels, from beginner to advanced practitioners",
+    "title": "Yoga for Everyone",
+    "subtitle": "From Beginners to Advanced - Morning, Afternoon & Evening Batches",
     "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     "link": "#schedule",
     "buttonText": "View Schedule"
   },
   {
-    "title": "Therapeutic Yoga Healing",
-    "subtitle": "Specialized one-to-one sessions for chronic pain and therapeutic recovery",
+    "title": "One-to-One Therapy Sessions",
+    "subtitle": "Personalized healing for back pain, sciatica, knee & shoulder issues",
     "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
     "link": "#one-to-one-therapy",
-    "buttonText": "Book Session"
+    "buttonText": "Book a Therapy"
   },
   {
-    "title": "Transform Your Practice",
-    "subtitle": "Join Suman Hora's mission to help you reverse age and heal through yoga",
-    "image": "https://images.unsplash.com/photo-1588286840104-8957b019727f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    "link": "#about-suman",
-    "buttonText": "Meet Your Guide"
-  },
-  {
-    "title": "Visit Our Serene Studio",
-    "subtitle": "Experience yoga in our beautiful, well-equipped space in Delhi",
-    "image": "https://images.unsplash.com/photo-1545389336-cf090694435e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    "link": "#visit-studio",
-    "buttonText": "Find Us"
+    "title": "Kids Yoga & Weekend Meditation",
+    "subtitle": "Building healthy habits for the whole family - Weekends only",
+    "image": "/images/kids_yoga.jpeg",
+    "link": "#schedule",
+    "buttonText": "Learn More"
   }
 ]

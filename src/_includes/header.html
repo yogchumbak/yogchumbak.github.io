@@ -15,7 +15,10 @@
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/gallery.css">
     <link rel="stylesheet" href="/css/theme-chooser.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Modern Two-Font Typography: Plus Jakarta Sans (headings) + Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -30,8 +33,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <h1 class="logo-text">{{ site.title }}</h1>
-                    <span class="logo-subtitle">{{ site.subtitle }}</span>
+                    <img src="/images/yogchumbak_logo.png" alt="{{ site.title }} - {{ site.subtitle }}" class="logo-image">
                 </div>
                 
                 <nav class="nav" id="nav">
