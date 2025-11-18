@@ -3,18 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title or site.title }} - {{ site.subtitle }}</title>
+    {% if noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
+    <title>{% if title %}{{ title }}{% else %}{{ site.title }} - {{ site.subtitle }}{% endif %}</title>
     <meta name="description" content="{{ description or site.description }}">
     <meta name="keywords" content="{{ keywords or site.keywords }}">
     <meta name="author" content="{{ author or site.author }}">
-    
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:title" content="{% if title %}{{ title }}{% else %}{{ site.title }} - {{ site.subtitle }}{% endif %}">
+    <meta property="og:description" content="{{ description or site.description }}">
+    <meta property="og:image" content="{{ site.url }}/images/yogchumbak_logo.png">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="twitter:title" content="{% if title %}{{ title }}{% else %}{{ site.title }} - {{ site.subtitle }}{% endif %}">
+    <meta property="twitter:description" content="{{ description or site.description }}">
+    <meta property="twitter:image" content="{{ site.url }}/images/yogchumbak_logo.png">
+
+    <!-- JSON-LD Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "YogaStudio",
+      "name": "{{ site.title }}",
+      "description": "{{ site.description }}",
+      "url": "{{ site.url }}",
+      "logo": "{{ site.url }}/images/yogchumbak_logo.png",
+      "image": "{{ site.url }}/images/yogchumbak_logo.png",
+      "telephone": "{{ site.phone }}",
+      "email": "{{ site.email }}",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "{{ site.address }}",
+        "addressLocality": "{{ site.location.area }}",
+        "addressRegion": "{{ site.location.city }}",
+        "postalCode": "{{ site.location.pincode }}",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "{{ site.location.coordinates.lat }}",
+        "longitude": "{{ site.location.coordinates.lng }}"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Wednesday", "Thursday"],
+          "opens": "07:15",
+          "closes": "20:00"
+        }
+      ],
+      "priceRange": "₹₹",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "8"
+      },
+      "sameAs": [
+        "https://instagram.com/{{ site.social.instagram }}",
+        "https://facebook.com/{{ site.social.facebook }}"
+      ]
+    }
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='90' font-size='90'>🧘</text></svg>">
     
     <!-- CSS -->
+    {% if site.development.enableThemeChooser %}<link rel="stylesheet" href="/css/theme-chooser.css">{% endif %}
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/gallery.css">
-    <link rel="stylesheet" href="/css/theme-chooser.css">
     <!-- Modern Two-Font Typography: Plus Jakarta Sans (headings) + Inter (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +88,10 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
     {% if layout.css %}
     <link rel="stylesheet" href="{{ layout.css }}">
     {% endif %}
@@ -42,7 +111,7 @@
                     <a href="#schedule" class="nav-link">Classes</a>
                     <a href="#gallery" class="nav-link">Gallery</a>
                     <a href="#contact" class="nav-link">Contact</a>
-                    <a href="#one-to-one-therapy" class="cta-btn">Book a Therapy</a>
+                    <a href="#one-to-one-therapy" class="cta-btn">Book a Consultation</a>
                 </nav>
                 
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation">
@@ -54,5 +123,7 @@
         </div>
     </header>
     
-    <!-- Theme Chooser -->
+    <!-- Theme Chooser (Development Only) -->
+    {% if site.development.enableThemeChooser %}
     {% include "theme-chooser.html" %}
+    {% endif %}

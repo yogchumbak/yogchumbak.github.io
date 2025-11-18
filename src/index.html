@@ -1,40 +1,116 @@
 ---
-title: Home
+title: Yog Chumbak | Therapeutic Iyengar Yoga Studio in Shalimar Bagh, Delhi
 layout: base
+description: "Experience transformative therapeutic yoga in Delhi. Professional Iyengar yoga classes for chronic pain relief, healing, and wellness at Yog Chumbak studio in Shalimar Bagh."
 ---
 
-<!-- Hero Section with Slider -->
-<section id="hero" class="hero">
-    <div class="slider-container">
-        <div class="slider-wrapper">
-            {% for slide in slider %}
-            <div class="slide" {% if loop.first %}style="display: block"{% endif %}>
-                <div class="slide-background">
-                    <img src="{{ slide.image }}" alt="{{ slide.title }}" class="slide-image">
-                    <div class="slide-overlay"></div>
-                </div>
-                <div class="slide-content">
-                    <h1 class="slide-title">{{ slide.title }}</h1>
-                    <p class="slide-subtitle">{{ slide.subtitle }}</p>
-                    <a href="{{ slide.link }}" class="cta-button">{{ slide.buttonText }}</a>
+<!-- Hero Section - Full-Width Slider -->
+<section id="hero" class="hero-visual">
+    <div class="hero-slider">
+        <!-- Slide 1: Transform Your Body & Mind -->
+        <div class="hero-slide active" data-slide="1">
+            <div class="hero-image-container">
+                <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                     alt="Peaceful therapeutic yoga practice"
+                     class="hero-image">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content-wrapper">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Find Lasting Relief from Chronic Pain</h1>
+                        <p class="hero-subtitle">Therapeutic Iyengar Yoga for Pain Relief & Holistic Wellness</p>
+                        <div class="hero-cta-group">
+                            <a href="https://wa.me/919811334069?text=Hi%20Yog%20Chumbak,%20I'd%20like%20to%20book%20a%20demo%20session" class="cta-button-primary" target="_blank" rel="noopener">Book Your Demo Session</a>
+                            <a href="#one-to-one-therapy" class="cta-button-secondary">Explore Therapy Sessions</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            {% endfor %}
         </div>
-        
-        <!-- Slider Navigation -->
-        <div class="slider-nav">
-            <button class="slider-prev" id="sliderPrev" aria-label="Previous slide">&#10094;</button>
-            <button class="slider-next" id="sliderNext" aria-label="Next slide">&#10095;</button>
+
+        <!-- Slide 2: Kids Yoga -->
+        <div class="hero-slide" data-slide="2">
+            <div class="hero-image-container">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                     alt="Kids practicing yoga in a joyful environment"
+                     class="hero-image">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content-wrapper">
+                <div class="container">
+                    <div class="hero-content">
+                        <h2 class="hero-title">Kids Yoga Program</h2>
+                        <p class="hero-subtitle">Building Strength, Focus & Confidence Through Play-Based Yoga</p>
+                        <div class="hero-cta-group">
+                            <a href="https://wa.me/919811334069?text=Hi%20Yog%20Chumbak,%20I'm%20interested%20in%20Kids%20Yoga" class="cta-button-primary" target="_blank" rel="noopener">Enroll Your Child</a>
+                            <a href="#programs" class="cta-button-secondary">View Programs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <!-- Slider Dots -->
-        <div class="slider-dots" id="sliderDots">
-            {% for slide in slider %}
-            <button class="dot {% if loop.first %}active{% endif %}" data-slide="{{ loop.index0 }}"></button>
-            {% endfor %}
+
+        <!-- Slide 3: One-to-One Therapies -->
+        <div class="hero-slide" data-slide="3">
+            <div class="hero-image-container">
+                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                     alt="One-to-one therapeutic yoga session"
+                     class="hero-image">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content-wrapper">
+                <div class="container">
+                    <div class="hero-content">
+                        <h2 class="hero-title">One-to-One Therapy Sessions</h2>
+                        <p class="hero-subtitle">Personalized Healing for Chronic Pain, Injuries & Special Conditions</p>
+                        <div class="hero-cta-group">
+                            <a href="https://wa.me/919811334069?text=Hi%20Yog%20Chumbak,%20I'd%20like%20to%20book%20a%20therapy%20session" class="cta-button-primary" target="_blank" rel="noopener">Book Therapy Session</a>
+                            <a href="#one-to-one-therapy" class="cta-button-secondary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Weekend Meditation -->
+        <div class="hero-slide" data-slide="4">
+            <div class="hero-image-container">
+                <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                     alt="Peaceful meditation session"
+                     class="hero-image">
+                <div class="hero-overlay"></div>
+            </div>
+            <div class="hero-content-wrapper">
+                <div class="container">
+                    <div class="hero-content">
+                        <h2 class="hero-title">Weekend Meditation Retreats</h2>
+                        <p class="hero-subtitle">Find Inner Peace & Mental Clarity Through Guided Meditation</p>
+                        <div class="hero-cta-group">
+                            <a href="https://wa.me/919811334069?text=Hi%20Yog%20Chumbak,%20I'm%20interested%20in%20Weekend%20Meditation" class="cta-button-primary" target="_blank" rel="noopener">Join Meditation</a>
+                            <a href="#programs" class="cta-button-secondary">View Schedule</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- Slider Navigation Dots -->
+    <div class="hero-slider-dots">
+        <button class="slider-dot active" data-slide="1" aria-label="Go to slide 1"></button>
+        <button class="slider-dot" data-slide="2" aria-label="Go to slide 2"></button>
+        <button class="slider-dot" data-slide="3" aria-label="Go to slide 3"></button>
+        <button class="slider-dot" data-slide="4" aria-label="Go to slide 4"></button>
+    </div>
+
+    <!-- Slider Arrow Navigation -->
+    <button class="hero-slider-arrow hero-slider-prev" aria-label="Previous slide">
+        <i data-lucide="chevron-left"></i>
+    </button>
+    <button class="hero-slider-arrow hero-slider-next" aria-label="Next slide">
+        <i data-lucide="chevron-right"></i>
+    </button>
 </section>
 
 <!-- About Section -->
@@ -75,61 +151,111 @@ layout: base
         </div>
 
         <div class="why-grid">
-            <!-- Point 1: Established Since 2019 -->
+            <!-- Point 1: Expert Guidance -->
             <div class="why-card">
-                <div class="why-number">1</div>
-                <h3 class="why-title">Trusted Since 2019</h3>
-                <p class="why-description">6 years of transforming lives in Shalimar Bagh. A community built on results, not promises.</p>
+                <div class="why-icon">
+                    <i data-lucide="award" class="icon-award"></i>
+                </div>
+                <h3 class="why-title">Benefit from a Decade of Expertise</h3>
+                <p class="why-description">Receive dedicated guidance from Suman Hora, a certified Pranic Healer with over 10 years of teaching experience in therapeutic yoga.</p>
             </div>
 
-            <!-- Point 2: Expert Instructor -->
+            <!-- Point 2: Iyengar Method -->
             <div class="why-card">
-                <div class="why-number">2</div>
-                <h3 class="why-title">Expert Guidance</h3>
-                <p class="why-description">Suman Hora brings 10+ years of experience and Certified Pranic Healer expertise. Homemaker turned yogapreneur—proof that transformation is possible at any age.</p>
-            </div>
-
-            <!-- Point 3: Not Regular Yoga -->
-            <div class="why-card">
-                <div class="why-number">3</div>
+                <div class="why-icon">
+                    <i data-lucide="target" class="icon-target"></i>
+                </div>
                 <h3 class="why-title">Iyengar Method with Props</h3>
                 <p class="why-description">Precision, alignment, and therapeutic focus using blocks, straps, bolsters, and chairs. Suitable for all levels—from complete beginners to advanced practitioners.</p>
             </div>
 
-            <!-- Point 4: Personalized Attention -->
+            <!-- Point 3: Individual Care -->
             <div class="why-card">
-                <div class="why-number">4</div>
+                <div class="why-icon">
+                    <i data-lucide="heart" class="icon-heart"></i>
+                </div>
                 <h3 class="why-title">Individual Care</h3>
                 <p class="why-description">Small batch sizes ensure personal attention. Individual assessments. One-to-one therapy options for chronic conditions. You're not just a number.</p>
+            </div>
+
+            <!-- Point 4: Trusted Since 2019 -->
+            <div class="why-card">
+                <div class="why-icon">
+                    <i data-lucide="shield-check" class="icon-shield"></i>
+                </div>
+                <h3 class="why-title">A Community Trusted for Over 5 Years</h3>
+                <p class="why-description">Join a community built on proven results and transformations in Shalimar Bagh since 2019.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- About Suman Section -->
-<section id="about-suman" class="section">
+<!-- About Suman Section - Meet Your Guide -->
+<section id="about-suman" class="section meet-guide-section">
     <div class="container">
         <div class="section-header">
             <h2 class="section-title">Meet Your Guide</h2>
+            <p class="section-subtitle">Experience, wisdom, and dedication to your healing journey</p>
         </div>
-        
-        <div class="about-suman-content">
-            <div class="instructor-profile">
-                <div class="instructor-image">
-                    <img src="/images/instructor_1.jpeg" alt="Suman Hora - Yoga Instructor" loading="lazy" />
-                    <div class="instructor-credentials">
-                        <span class="credential-badge">Pranic Healer</span>
-                        <span class="credential-badge">Certified Instructor</span>
-                    </div>
+
+        <div class="meet-guide-grid">
+            <!-- Portrait Column -->
+            <div class="guide-portrait">
+                <div class="portrait-frame">
+                    <img srcset="/images/optimized/instructor_1-400.webp 400w,
+                                /images/optimized/instructor_1-800.webp 800w,
+                                /images/optimized/instructor_1-1200.webp 1200w"
+                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
+                         src="/images/optimized/instructor_1-800.webp"
+                         alt="Suman Hora - Certified Yoga Instructor & Pranic Healer"
+                         class="portrait-image"
+                         loading="lazy" />
+                    <div class="portrait-accent"></div>
                 </div>
-                <div class="instructor-details">
-                    <h3 class="instructor-name">Suman Hora</h3>
-                    <p class="instructor-intro">At the age of 59, Suman dared to pursue her passion and live her mission - proving that it's never too late to transform your life and serve others.</p>
-                    
-                    <div class="instructor-story">
-                        <p>Suman Hora is a remarkable homemaker turned yogapreneur, married to a visionary entrepreneur and mother of 2. As a certified Pranic healer, she is on a mission to serve 100,000 people to help them reverse age themselves in life.</p>
-                        
-                        <p>Her journey represents the power of transformation at any age. She has opened her first flagship outlet by the name "Yog Chumbak", where ancient wisdom meets modern healing.</p>
+                <div class="credentials-badges">
+                    <span class="credential-badge">
+                        <i data-lucide="award" class="badge-icon"></i>
+                        Certified Instructor
+                    </span>
+                    <span class="credential-badge">
+                        <i data-lucide="sparkles" class="badge-icon"></i>
+                        Pranic Healer
+                    </span>
+                </div>
+            </div>
+
+            <!-- Story Column -->
+            <div class="guide-story">
+                <h3 class="guide-name">Suman Hora</h3>
+                <p class="guide-tagline">At the age of 59, Suman dared to pursue her passion and live her mission—proving that it's never too late to transform your life and serve others.</p>
+
+                <div class="story-content">
+                    <p>Suman's journey is a testament to the transformative power of yoga. After dedicating her life to her family, she pursued her passion, becoming a certified instructor and Pranic Healer. Her mission is to guide 100,000 individuals in reclaiming their health and vitality through dedicated, mindful practice.</p>
+
+                    <p>Her journey represents the power of transformation at any age. She has opened her first flagship outlet by the name "Yog Chumbak", where ancient wisdom meets modern healing.</p>
+                </div>
+
+                <div class="guide-highlights">
+                    <div class="highlight-item">
+                        <i data-lucide="users" class="highlight-icon"></i>
+                        <div class="highlight-text">
+                            <strong>10+ Years</strong>
+                            <span>Teaching Experience</span>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <i data-lucide="heart-pulse" class="highlight-icon"></i>
+                        <div class="highlight-text">
+                            <strong>Certified</strong>
+                            <span>Pranic Healer</span>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <i data-lucide="trophy" class="highlight-icon"></i>
+                        <div class="highlight-text">
+                            <strong>100,000</strong>
+                            <span>Mission to Serve</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -152,7 +278,7 @@ layout: base
             
             <div class="therapy-process">
                 <div class="process-flow">
-                    <h3>How We Determine Your Path</h3>
+                    <h3>Your Personalized Healing Plan</h3>
                     <div class="process-steps">
                         <div class="process-step">
                             <div class="step-number">1</div>
@@ -172,7 +298,7 @@ layout: base
                             <div class="step-number">3</div>
                             <div class="step-content">
                                 <h4>Gradual Transition</h4>
-                                <p>Once you improve, you're shifted to either care batch or regular batch depending on the healing progress achieved.</p>
+                                <p>As your condition improves, we facilitate a seamless transition into our specialized care groups or regular classes, ensuring your progress continues.</p>
                             </div>
                         </div>
                     </div>
@@ -182,7 +308,7 @@ layout: base
             <div class="therapy-conditions">
                 <h3>Conditions We Specialize In</h3>
                 <div class="conditions-grid">
-                    <div class="condition-card" style="background-image: url('/images/frozen_shoulder.png');">
+                    <div class="condition-card" style="background-image: image-set(url('/images/optimized/frozen_shoulder-800.webp') type('image/webp'), url('/images/optimized/frozen_shoulder-800.jpg') type('image/jpeg')); background-image: -webkit-image-set(url('/images/optimized/frozen_shoulder-800.webp') 1x, url('/images/optimized/frozen_shoulder-800.jpg') 1x); background-image: url('/images/optimized/frozen_shoulder-800.webp');">
                         <div class="condition-card-overlay"></div>
                         <div class="condition-card-content">
                             <h4>Frozen Shoulder</h4>
@@ -195,7 +321,7 @@ layout: base
                         </div>
                     </div>
 
-                    <div class="condition-card" style="background-image: url('/images/back_pain.png');">
+                    <div class="condition-card" style="background-image: image-set(url('/images/optimized/back_pain-800.webp') type('image/webp'), url('/images/optimized/back_pain-800.jpg') type('image/jpeg')); background-image: -webkit-image-set(url('/images/optimized/back_pain-800.webp') 1x, url('/images/optimized/back_pain-800.jpg') 1x); background-image: url('/images/optimized/back_pain-800.webp');">
                         <div class="condition-card-overlay"></div>
                         <div class="condition-card-content">
                             <h4>Chronic Back Pain</h4>
@@ -208,7 +334,7 @@ layout: base
                         </div>
                     </div>
 
-                    <div class="condition-card" style="background-image: url('/images/knee_pain.png');">
+                    <div class="condition-card" style="background-image: image-set(url('/images/optimized/knee_pain-800.webp') type('image/webp'), url('/images/optimized/knee_pain-800.jpg') type('image/jpeg')); background-image: -webkit-image-set(url('/images/optimized/knee_pain-800.webp') 1x, url('/images/optimized/knee_pain-800.jpg') 1x); background-image: url('/images/optimized/knee_pain-800.webp');">
                         <div class="condition-card-overlay"></div>
                         <div class="condition-card-content">
                             <h4>Knee Pain</h4>
@@ -353,8 +479,6 @@ layout: base
                 </div>
             </div>
         </div>
-
-        <p class="schedule-note">Each batch: 3 classes per week • 12 classes per month</p>
     </div>
 </section>
 
@@ -374,9 +498,9 @@ layout: base
                     <h3>Regular Batch</h3>
                     <p class="program-description">Join our group classes designed for all levels, from beginners to advanced practitioners.</p>
                     <div class="program-highlights">
-                        <span>• Morning & Evening Batches</span>
-                        <span>• 3 Classes per Week</span>
-                        <span>• Small Group Sizes</span>
+                        <span>Morning & Evening Batches</span>
+                        <span>3 Classes per Week</span>
+                        <span>Small Group Sizes</span>
                     </div>
                     <a href="#schedule" class="btn btn-secondary-outline">View Schedule</a>
                 </div>
@@ -389,9 +513,9 @@ layout: base
                     <h3>Weekend Meditation</h3>
                     <p class="program-description">Find inner peace through guided meditation sessions with breath work and props.</p>
                     <div class="program-highlights">
-                        <span>• 2nd & 4th Sunday</span>
-                        <span>• 12:30 PM - 1:30 PM</span>
-                        <span>• Limited to 10 Spots</span>
+                        <span>2nd & 4th Sunday</span>
+                        <span>12:30 PM - 1:30 PM</span>
+                        <span>Limited to 10 Spots</span>
                     </div>
                     <a href="https://wa.me/919811334069?text=Hi%20Yog%20Chumbak,%20I'd%20like%20to%20reserve%20a%20spot%20for%20Weekend%20Meditation" class="btn btn-secondary-outline" target="_blank" rel="noopener">Reserve Your Spot</a>
                 </div>
@@ -404,9 +528,9 @@ layout: base
                     <h3>Kids Yoga</h3>
                     <p class="program-description">Fun and engaging yoga classes specially designed for children to build strength, focus, and confidence.</p>
                     <div class="program-highlights">
-                        <span>• Weekend Classes</span>
-                        <span>• Saturday & Sunday</span>
-                        <span>• 11:00 AM - 12:00 PM</span>
+                        <span>Weekend Classes</span>
+                        <span>Saturday & Sunday</span>
+                        <span>11:00 AM - 12:00 PM</span>
                     </div>
                     <a href="https://wa.me/919811334069?text=Hi%20Yog%20Chumbak,%20I'd%20like%20to%20enroll%20my%20child%20in%20Kids%20Yoga" class="btn btn-secondary-outline" target="_blank" rel="noopener">Enroll Your Child</a>
                 </div>
@@ -641,7 +765,7 @@ layout: base
                 <div class="faq-answer">
                     <div class="faq-answer-content">
                         <p>Absolutely! While gym workouts build muscle strength and cardiovascular fitness, yoga improves flexibility, balance, posture, and mental well-being. They complement each other perfectly.</p>
-                        <p>Many gym-goers find yoga helps prevent injuries, improves recovery time, and enhances overall performance. Plus, yoga addresses stress and mental health—benefits that gym workouts alone cannot provide. Think of gym as building your house, and yoga as creating a home.</p>
+                        <p>Many gym-goers find yoga helps prevent injuries, improves recovery time, and enhances overall performance. Plus, yoga addresses stress and mental health—benefits that gym workouts alone cannot provide. You can think of it with this analogy: the gym builds the house, while yoga creates the home.</p>
                     </div>
                 </div>
             </div>
@@ -708,7 +832,7 @@ layout: base
                 <div class="faq-answer">
                     <div class="faq-answer-content">
                         <p>This is a great question! The key difference is scope and approach:</p>
-                        <p><strong>PHYSIOTHERAPY:</strong> Works on the pain area only, providing symptomatic relief. If your knee hurts, physio treats your knee.</p>
+                        <p><strong>PHYSIOTHERAPY:</strong> Physiotherapy often focuses on providing symptomatic relief to a specific area of pain. If your knee hurts, physio treats your knee.</p>
                         <p><strong>YOGA (our approach):</strong> Finds the SOURCE of the problem causing misalignment. Your knee pain might actually stem from hip misalignment, poor posture habits, or weak core muscles—issues built over years that you never noticed.</p>
                         <p>We address:</p>
                         <ul>
@@ -721,8 +845,33 @@ layout: base
                     </div>
                 </div>
             </div>
+
+            <!-- FAQ Item 6 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span class="faq-question-text">Do you offer demo classes before I commit?</span>
+                    <span class="faq-icon">›</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Yes! We offer complimentary demo sessions so you can experience the Iyengar method and our studio environment before making any commitment.</p>
+                        <p>During your demo session, you'll:</p>
+                        <ul>
+                            <li>Experience a full Iyengar yoga class with props</li>
+                            <li>Meet Suman and understand her teaching approach</li>
+                            <li>See our studio facilities and small batch sizes</li>
+                            <li>Ask any questions about the practice or programs</li>
+                            <li>Get a personalized assessment of your needs</li>
+                        </ul>
+                        <p>This demo session helps you decide if our therapeutic approach is right for you, with no pressure to enroll. Many of our students felt the difference in just one session and decided to continue their healing journey with us.</p>
+                        <p class="faq-cta-text">Ready to experience it yourself? Book your free demo session today!</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+{% include 'final-cta.html' %}
 
 {% include 'footer.html' %}

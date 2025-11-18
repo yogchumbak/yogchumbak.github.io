@@ -92,19 +92,23 @@ class MobileMenu {
   openMenu() {
     this.nav.style.display = 'flex';
     this.nav.style.position = 'fixed';
-    this.nav.style.top = '80px';
+    this.nav.style.top = '70px';
     this.nav.style.left = '0';
     this.nav.style.width = '100%';
-    this.nav.style.height = 'calc(100vh - 80px)';
+    this.nav.style.height = 'calc(100vh - 70px)';
     this.nav.style.flexDirection = 'column';
+    this.nav.style.alignItems = 'center';
+    this.nav.style.justifyContent = 'flex-start';
     this.nav.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-    this.nav.style.padding = '2rem';
-    this.nav.style.gap = '1rem';
-    
+    this.nav.style.padding = '2rem 1rem';
+    this.nav.style.gap = '1.5rem';
+    this.nav.style.zIndex = '999';
+    this.nav.style.overflowY = 'auto';
+
     // Animate hamburger menu
-    this.menuBtn.children[0].style.transform = 'rotate(45deg) translateY(8px)';
+    this.menuBtn.children[0].style.transform = 'translateY(9px) rotate(45deg)';
     this.menuBtn.children[1].style.opacity = '0';
-    this.menuBtn.children[2].style.transform = 'rotate(-45deg) translateY(-8px)';
+    this.menuBtn.children[2].style.transform = 'translateY(-9px) rotate(-45deg)';
   }
   
   closeMenu() {

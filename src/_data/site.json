@@ -1,8 +1,8 @@
 {
   "title": "Yog Chumbak",
-  "subtitle": "Iyengar Yoga Therapy",
-  "description": "Experience transformative Iyengar Yoga therapy in Delhi. Professional classes for all ages and levels at Yog Chumbak studio.",
-  "keywords": "Iyengar yoga, yoga therapy, Delhi yoga, healing yoga, yoga classes, Shalimar Bagh yoga",
+  "subtitle": "Therapeutic Yoga Studio in Delhi",
+  "description": "Experience transformative therapeutic yoga in Delhi. Professional classes for healing, wellness, and all levels at Yog Chumbak studio in Shalimar Bagh.",
+  "keywords": "yoga therapy, Delhi yoga, healing yoga, yoga classes, Shalimar Bagh yoga, therapeutic yoga, Yog Chumbak",
   "author": "Suman Hora",
   "url": "https://yogchumbak.com",
   "phone": "+91 98113 34069",
@@ -23,5 +23,8 @@
   "social": {
     "instagram": "@yog.chumbak",
     "facebook": "yogchumbakindia"
+  },
+  "development": {
+    "enableThemeChooser": false
   }
 }
