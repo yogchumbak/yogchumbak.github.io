@@ -1,0 +1,172 @@
+---
+layout: base
+title: "Gallery | Yog Chumbak Delhi"
+description: "Browse our photo and video galleries showcasing yoga classes, therapeutic sessions, community events, and more at Yog Chumbak, Delhi"
+permalink: "/galleries/"
+---
+
+<section class="section gallery-index-page">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-title">Gallery</h1>
+            <p class="section-subtitle">Explore our studio, classes, and community</p>
+        </div>
+
+        <div class="gallery-grid">
+            {% for item in galleries %}
+            <a href="{{ item.url }}" class="gallery-card">
+                <div class="gallery-card-image">
+                    {% if item.images[0].type == 'video' %}
+                        <video src="/galleries-images/{{ item.slug }}/{{ item.images[0].filename }}" muted></video>
+                        <div class="play-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="white">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                    {% else %}
+                        <img src="/galleries-images/{{ item.slug }}/{{ item.images[0].filename }}" alt="{{ item.title }}" loading="lazy">
+                    {% endif %}
+                    <div class="gallery-card-overlay">
+                        <div class="gallery-count">{{ item.fileCount }} {{ "item" if item.fileCount == 1 else "items" }}</div>
+                    </div>
+                </div>
+                <div class="gallery-card-content">
+                    <h2>{{ item.title }}</h2>
+                    <p>{{ item.description }}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<style>
+.gallery-index-page {
+    padding: 4rem 0;
+    min-height: 60vh;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.gallery-card {
+    display: block;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-speed, 0.3s ease);
+    text-decoration: none;
+    color: inherit;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.gallery-card-image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: var(--light-lavender, #F8F9FA);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-card-image img,
+.gallery-card-image video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-card:hover .gallery-card-image img,
+.gallery-card:hover .gallery-card-image video {
+    transform: scale(1.1);
+}
+
+.gallery-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3), transparent);
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.gallery-count {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--deep-magenta, #83247C);
+}
+
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.gallery-card:hover .play-icon {
+    background: rgba(0, 0, 0, 0.8);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.gallery-card-content {
+    padding: 1.5rem;
+}
+
+.gallery-card-content h2 {
+    font-size: 1.5rem;
+    margin: 0 0 0.75rem 0;
+    color: var(--deep-magenta, #83247C);
+    font-weight: 600;
+}
+
+.gallery-card-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--mid-gray, #666666);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .gallery-card-content h2 {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>

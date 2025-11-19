@@ -6,15 +6,15 @@
    CSS VARIABLES FOR THEMES
    ============================================== */
 
-/* Yog Chumbak Theme (Default) */
+/* Yogchumbak2 Theme (Default - Kemetic inspired with gold accents) */
 :root {
-    --deep-magenta: #83247C;
-    --vibrant-pink: #E54992;
-    --light-lavender: #F8F9FA;
-    --dark-charcoal: #2D2D2D;
-    --mid-gray: #666666;
+    --deep-magenta: #9988aa;
+    --vibrant-pink: #ffcc66;
+    --light-lavender: #ffeebb;
+    --dark-charcoal: #89a1b5;
+    --mid-gray: #bbbbbb;
 
-    /* Typography - Yog Chumbak Theme */
+    /* Typography - Yogchumbak2 Theme */
     --theme-font-heading: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --theme-font-body: 'Inter', 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
@@ -92,6 +92,15 @@
     --light-lavender: #ECF0F1;
     --dark-charcoal: #1C2833;
     --mid-gray: #7F8C8D;
+}
+
+/* Kemetic Yogchumbak2 Theme - Vibrant ancestors with gold accents */
+[data-theme="yogchumbak2"] {
+    --deep-magenta: #9988aa;
+    --vibrant-pink: #ffcc66;
+    --light-lavender: #ffeebb;
+    --dark-charcoal: #89a1b5;
+    --mid-gray: #bbbbbb;
 }
 
 /* ==============================================

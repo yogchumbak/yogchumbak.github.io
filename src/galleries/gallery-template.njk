@@ -1,0 +1,223 @@
+---
+layout: base
+pagination:
+  data: galleries
+  size: 1
+  alias: gallery
+permalink: "/galleries/{{ gallery.slug }}/"
+eleventyComputed:
+  title: "{{ gallery.title }} | Photo Gallery | Yog Chumbak Delhi"
+  description: "{{ gallery.description }}"
+---
+
+<!-- lightGallery CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery-bundle.min.css">
+<!-- justifiedGallery CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css">
+
+<!-- Gallery Page -->
+<section class="section gallery-page">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-title">{{ gallery.title }}</h1>
+            <p class="section-subtitle">{{ gallery.description }}</p>
+            <p class="gallery-count">{{ gallery.fileCount }} {{ "item" if gallery.fileCount == 1 else "items" }}</p>
+        </div>
+
+        <div id="lightgallery">
+            {% for item in gallery.images %}
+            <a href="/galleries-images/{{ gallery.slug }}/{{ item.filename }}"
+               class="gallery-item"
+               {% if item.type == 'video' %}
+               data-video='{"source": [{"src":"/galleries-images/{{ gallery.slug }}/{{ item.filename }}", "type":"video/mp4"}], "attributes": {"preload": false, "controls": true}}'
+               {% else %}
+               data-src="/galleries-images/{{ gallery.slug }}/{{ item.filename }}"
+               {% endif %}
+               data-sub-html="<h4>{{ item.title }}</h4><p>{{ item.caption }}</p>">
+                {% if item.type == 'video' %}
+                    <div class="video-thumbnail" style="width: 400px; height: 300px; position: relative;">
+                        <video src="/galleries-images/{{ gallery.slug }}/{{ item.filename }}"
+                               muted
+                               preload="metadata"
+                               style="width: 100%; height: 100%; object-fit: cover;"></video>
+                        <div class="play-button">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                        </div>
+                        <span class="video-badge">VIDEO</span>
+                    </div>
+                {% else %}
+                    {% set baseFilename = item.filename | replace('.jpg', '') | replace('.jpeg', '') | replace('.png', '') | replace('.webp', '') %}
+                    <picture>
+                        <source srcset="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.webp 600w, /galleries-images/{{ gallery.slug }}/{{ baseFilename }}-960.webp 960w" type="image/webp">
+                        <source srcset="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.jpeg 600w, /galleries-images/{{ gallery.slug }}/{{ baseFilename }}-960.jpeg 960w" type="image/jpeg">
+                        <img src="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.jpeg"
+                             alt="{{ item.title }}"
+                             loading="lazy"
+                             sizes="(max-width: 768px) 100vw, 300px">
+                    </picture>
+                {% endif %}
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- jQuery (required for justifiedGallery) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- justifiedGallery JS -->
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- lightGallery JS + Plugins -->
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/thumbnail/lg-thumbnail.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/zoom/lg-zoom.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/video/lg-video.min.js"></script>
+
+<script>
+// Use jQuery in noConflict mode to avoid breaking existing JavaScript
+(function($) {
+  // Initialize justifiedGallery first, then lightGallery after layout is complete
+  $('#lightgallery')
+    .justifiedGallery({
+      captions: false,
+      lastRow: 'hide',
+      rowHeight: 200,
+      margins: 8
+    })
+    .on('jg.complete', function () {
+      // Now initialize lightGallery after justified layout is complete
+      window.lightGallery(
+        document.getElementById('lightgallery'),
+        {
+          autoplayFirstVideo: false,
+          pager: false,
+          plugins: [lgZoom, lgThumbnail, lgVideo],
+          speed: 500,
+          licenseKey: '0000-0000-0000-0000',
+          selector: '.gallery-item',
+          thumbnail: true,
+          animateThumb: true,
+          zoomFromOrigin: true,
+          allowMediaOverlap: true,
+          toggleThumb: true,
+          counter: true,
+          download: false,
+          videoMaxWidth: '1000px',
+          mobileSettings: {
+            controls: false,
+            showCloseIcon: false,
+            download: false,
+            rotate: false
+          }
+        }
+      );
+    });
+})(jQuery);
+</script>
+
+<style>
+.gallery-page {
+    padding: 4rem 0;
+    min-height: 60vh;
+}
+
+.gallery-count {
+    text-align: center;
+    color: var(--mid-gray);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+#lightgallery {
+    margin-top: var(--space-12, 3rem);
+}
+
+/* Gallery item - justifiedGallery handles sizing */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Images - justifiedGallery handles dimensions */
+.gallery-item img,
+.gallery-item video {
+    display: block;
+    transition: transform 0.3s ease;
+    width: 100%;
+    height: auto;
+}
+
+/* Video thumbnails wrapper */
+.video-thumbnail {
+    position: relative;
+    display: block;
+    background: #000;
+}
+
+.video-thumbnail video {
+    display: block;
+}
+
+.gallery-item:hover img,
+.gallery-item:hover video {
+    transform: scale(1.05);
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--deep-magenta, #83247C);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.play-button svg {
+    margin-left: 4px;
+}
+
+.gallery-item:hover .play-button {
+    background: var(--vibrant-pink, #E54992);
+    color: white;
+    transform: translate(-50%, -50%) scale(1.15);
+}
+
+.video-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--vibrant-pink, #E54992);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+
+/* justifiedGallery handles responsive layout automatically */
+</style>

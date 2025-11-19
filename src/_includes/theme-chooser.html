@@ -51,8 +51,12 @@
             <div class="theme-radio" id="radio-minimalist-mono"></div>
             <span class="theme-option-label">Minimalist Mono</span>
         </div>
+        <div class="theme-option" onclick="changeTheme('yogchumbak2')">
+            <div class="theme-radio" id="radio-yogchumbak2"></div>
+            <span class="theme-option-label">Yogchumbak2 (Kemetic)</span>
+        </div>
     </div>
-    
+
     <div class="config-controls">
         <button class="config-button" onclick="saveThemeConfig()">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -81,7 +85,7 @@
 </div>
 
 <script>
-let currentTheme = 'yog-chumbak';
+let currentTheme = 'yogchumbak2';
 let isChooserVisible = false;
 
 // Set initial active radio on load
@@ -92,7 +96,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const config = JSON.parse(saved);
         changeTheme(config.theme);
     } else {
-        updateActiveRadio();
+        // Apply default theme
+        changeTheme(currentTheme);
     }
 });
 
@@ -231,7 +236,7 @@ document.addEventListener('keydown', (e) => {
         }
     }
     
-    // Number keys 1-7 for quick theme switching
+    // Number keys 1-8 for quick theme switching
     const themeKeys = {
         '1': 'yog-chumbak',
         '2': 'original',
@@ -239,7 +244,8 @@ document.addEventListener('keydown', (e) => {
         '4': 'vibrant-energy',
         '5': 'healing-lavender',
         '6': 'sunset-warmth',
-        '7': 'minimalist-mono'
+        '7': 'minimalist-mono',
+        '8': 'yogchumbak2'
     };
     
     if (themeKeys[e.key] && e.altKey) {

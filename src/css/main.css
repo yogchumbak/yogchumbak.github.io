@@ -65,10 +65,6 @@
 
 /* 1.1 CSS Variables & Design Tokens */
 :root {
-  /* Logo Colors - Used as Accents Only */
-  --deep-magenta: #83247C;
-  --vibrant-pink: #E54992;
-
   /* Neutral Color Palette */
   --gray-50: #FAFAFA;
   --gray-100: #F8F9FA;
@@ -80,9 +76,6 @@
   --gray-700: #495057;
   --gray-800: #343A40;
   --gray-900: #212529;
-  --dark-charcoal: #212529;  /* Primary dark text for headings and emphasis */
-  --mid-gray: #666666;  /* Mid-tone gray for secondary text and descriptions */
-  --light-lavender: #F8F9FA;  /* Light background tint for subtle sections */
 
   /* Semantic Colors */
   --color-success: #28a745;
@@ -121,11 +114,11 @@
   /* Typography System - Modern Two-Font Strategy */
   /* Primary Font (Headings) - Bold, Strong, Modern Display */
   /* Can be overridden by theme via --theme-font-heading */
-  --font-heading: var(--theme-font-heading, 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif);
+  --font-heading: var(--theme-font-heading, 'Ubuntu Sans', -apple-system, BlinkMacSystemFont, sans-serif);
 
   /* Secondary Font (Body) - Legible, Clean, Comfortable */
   /* Can be overridden by theme via --theme-font-body */
-  --font-body: var(--theme-font-body, 'Inter', 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif);
+  --font-body: var(--theme-font-body, 'Ubuntu Sans', -apple-system, BlinkMacSystemFont, sans-serif);
 
   /* Legacy/Compatibility Variables */
   --font-display: var(--font-heading);

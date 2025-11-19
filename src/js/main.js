@@ -237,7 +237,7 @@ class WhatsAppWidget {
     setTimeout(() => {
       this.hideTypingIndicator();
       this.addMessage(
-        'Thanks for your interest! 🧘‍♀️\n\nWe specialize in Iyengar Yoga therapy and would love to help you on your healing journey. What specific concerns would you like to address?',
+        'Thanks for your interest! 🧘‍♀️\n\nWe specialize in props-based yoga therapy and would love to help you on your healing journey. What specific concerns would you like to address?',
         'received'
       );
     }, this.autoResponseDelay);

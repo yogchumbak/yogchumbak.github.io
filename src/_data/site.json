@@ -2,13 +2,13 @@
   "title": "Yog Chumbak",
   "subtitle": "Therapeutic Yoga Studio in Delhi",
   "description": "Experience transformative therapeutic yoga in Delhi. Professional classes for healing, wellness, and all levels at Yog Chumbak studio in Shalimar Bagh.",
-  "keywords": "yoga therapy, Delhi yoga, healing yoga, yoga classes, Shalimar Bagh yoga, therapeutic yoga, Yog Chumbak",
+  "keywords": "yoga therapy, Delhi yoga, props-based yoga, healing yoga, yoga classes, Shalimar Bagh yoga, therapeutic yoga, PRR therapy, pain relief yoga, Yog Chumbak",
   "author": "Suman Hora",
   "url": "https://yogchumbak.com",
-  "phone": "+91 98113 34069",
-  "phone2": "+91 99108 26170",
+  "phone": "+91 99108 26170",
+  "phone2": "+91 98113 34069",
   "email": "info@yogchumbak.com",
-  "address": "Fourth Floor, Singalpur Village, SE 30, above Mac, opposite BT Block",
+  "address": "Fourth Floor, SE 30, Above Mac, Opposite BT Block",
   "address_line2": "West Shalimar Bagh, Delhi 110088",
   "location": {
     "city": "Delhi",
@@ -25,6 +25,6 @@
     "facebook": "yogchumbakindia"
   },
   "development": {
-    "enableThemeChooser": false
+    "enableThemeChooser": true
   }
 }

@@ -1,0 +1,7 @@
+module.exports = {
+  layout: "base",
+  eleventyComputed: {
+    title: data => `${data.gallery.title} | Photo Gallery | Yog Chumbak Delhi`,
+    description: data => data.gallery.description
+  }
+};
