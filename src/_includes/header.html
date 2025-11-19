@@ -96,13 +96,15 @@
     <link rel="stylesheet" href="{{ layout.css }}">
     {% endif %}
 </head>
-<body>
+<body data-phone="{{ site.phone }}" data-phone2="{{ site.phone2 }}" data-email="{{ site.email }}">
     <!-- Header with Glass Morphism -->
     <header class="header" id="header">
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="/images/yogchumbak_logo.png" alt="{{ site.title }} - {{ site.subtitle }}" class="logo-image">
+                    <a href="/" class="logo-link">
+                        <img src="/images/yogchumbak_logo.png" alt="{{ site.title }} - {{ site.subtitle }}" class="logo-image">
+                    </a>
                 </div>
                 
                 <nav class="nav" id="nav">

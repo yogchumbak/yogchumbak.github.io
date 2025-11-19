@@ -26,14 +26,31 @@ eleventyComputed:
 
         <div id="lightgallery">
             {% for item in gallery.images %}
+            {% if item.type == 'video' %}
             <a href="/galleries-images/{{ gallery.slug }}/{{ item.filename }}"
                class="gallery-item"
-               {% if item.type == 'video' %}
                data-video='{"source": [{"src":"/galleries-images/{{ gallery.slug }}/{{ item.filename }}", "type":"video/mp4"}], "attributes": {"preload": false, "controls": true}}'
-               {% else %}
-               data-src="/galleries-images/{{ gallery.slug }}/{{ item.filename }}"
-               {% endif %}
                data-sub-html="<h4>{{ item.title }}</h4><p>{{ item.caption }}</p>">
+            {% else %}
+                {% set baseFilename = item.filename | replace('.jpg', '') | replace('.jpeg', '') | replace('.png', '') | replace('.webp', '') %}
+                
+                {# Determine the largest available image for lightGallery #}
+                {% set isImage030 = '-030' in baseFilename %}
+                {% set isImage090 = '-090' in baseFilename %}
+                
+                {% if isImage030 %}
+                    {% set lgSrc = '/galleries-images/' + gallery.slug + '/' + baseFilename + '-600.jpeg' %}
+                {% elif isImage090 %}
+                    {% set lgSrc = '/galleries-images/' + gallery.slug + '/' + baseFilename + '-828.jpeg' %}
+                {% else %}
+                    {% set lgSrc = '/galleries-images/' + gallery.slug + '/' + baseFilename + '-960.jpeg' %}
+                {% endif %}
+                
+            <a href="{{ lgSrc }}"
+               class="gallery-item"
+               data-src="{{ lgSrc }}"
+               data-sub-html="<h4>{{ item.title }}</h4><p>{{ item.caption }}</p>">
+            {% endif %}
                 {% if item.type == 'video' %}
                     <div class="video-thumbnail" style="width: 400px; height: 300px; position: relative;">
                         <video src="/galleries-images/{{ gallery.slug }}/{{ item.filename }}"
@@ -49,14 +66,42 @@ eleventyComputed:
                     </div>
                 {% else %}
                     {% set baseFilename = item.filename | replace('.jpg', '') | replace('.jpeg', '') | replace('.png', '') | replace('.webp', '') %}
-                    <picture>
-                        <source srcset="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.webp 600w, /galleries-images/{{ gallery.slug }}/{{ baseFilename }}-960.webp 960w" type="image/webp">
-                        <source srcset="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.jpeg 600w, /galleries-images/{{ gallery.slug }}/{{ baseFilename }}-960.jpeg 960w" type="image/jpeg">
-                        <img src="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.jpeg"
-                             alt="{{ item.title }}"
-                             loading="lazy"
-                             sizes="(max-width: 768px) 100vw, 300px">
-                    </picture>
+                    
+                    {# Simple logic: check if this is a known problematic image #}
+                    {% set isImage030 = '-030' in baseFilename %}
+                    {% set isImage090 = '-090' in baseFilename %}
+                    
+                    {% if isImage030 %}
+                        {# Image 030 only has 600px variants #}
+                        <picture>
+                            <source srcset="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.webp 600w" type="image/webp">
+                            <source srcset="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.jpeg 600w" type="image/jpeg">
+                            <img src="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.jpeg"
+                                 alt="{{ item.title }}"
+                                 loading="eager"
+                                 sizes="(max-width: 768px) 100vw, 300px">
+                        </picture>
+                    {% elif isImage090 %}
+                        {# Image 090 has 600px and 828px variants #}
+                        <picture>
+                            <source srcset="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.webp 600w, /galleries-images/{{ gallery.slug }}/{{ baseFilename }}-828.webp 828w" type="image/webp">
+                            <source srcset="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.jpeg 600w, /galleries-images/{{ gallery.slug }}/{{ baseFilename }}-828.jpeg 828w" type="image/jpeg">
+                            <img src="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.jpeg"
+                                 alt="{{ item.title }}"
+                                 loading="eager"
+                                 sizes="(max-width: 768px) 100vw, 300px">
+                        </picture>
+                    {% else %}
+                        {# All other images have 600px and 960px variants #}
+                        <picture>
+                            <source srcset="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.webp 600w, /galleries-images/{{ gallery.slug }}/{{ baseFilename }}-960.webp 960w" type="image/webp">
+                            <source srcset="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.jpeg 600w, /galleries-images/{{ gallery.slug }}/{{ baseFilename }}-960.jpeg 960w" type="image/jpeg">
+                            <img src="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.jpeg"
+                                 alt="{{ item.title }}"
+                                 loading="eager"
+                                 sizes="(max-width: 768px) 100vw, 300px">
+                        </picture>
+                    {% endif %}
                 {% endif %}
             </a>
             {% endfor %}
@@ -66,6 +111,9 @@ eleventyComputed:
 
 <!-- jQuery (required for justifiedGallery) -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- imagesLoaded (required for proper gallery initialization) -->
+<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
 
 <!-- justifiedGallery JS -->
 <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js"></script>
@@ -79,42 +127,56 @@ eleventyComputed:
 <script>
 // Use jQuery in noConflict mode to avoid breaking existing JavaScript
 (function($) {
-  // Initialize justifiedGallery first, then lightGallery after layout is complete
-  $('#lightgallery')
-    .justifiedGallery({
-      captions: false,
-      lastRow: 'hide',
-      rowHeight: 200,
-      margins: 8
-    })
-    .on('jg.complete', function () {
-      // Now initialize lightGallery after justified layout is complete
-      window.lightGallery(
-        document.getElementById('lightgallery'),
-        {
-          autoplayFirstVideo: false,
-          pager: false,
-          plugins: [lgZoom, lgThumbnail, lgVideo],
-          speed: 500,
-          licenseKey: '0000-0000-0000-0000',
-          selector: '.gallery-item',
-          thumbnail: true,
-          animateThumb: true,
-          zoomFromOrigin: true,
-          allowMediaOverlap: true,
-          toggleThumb: true,
-          counter: true,
-          download: false,
-          videoMaxWidth: '1000px',
-          mobileSettings: {
-            controls: false,
-            showCloseIcon: false,
+  // Wait for all images to load before initializing gallery
+  // This prevents justifiedGallery from calculating incorrect dimensions
+  const $gallery = $('#lightgallery');
+
+  // Use imagesLoaded to ensure all images are loaded
+  $gallery.imagesLoaded({ background: true }, function() {
+    // Initialize justifiedGallery after images are loaded
+    $gallery
+      .justifiedGallery({
+        captions: false,
+        lastRow: 'nojustify',
+        rowHeight: 200,
+        margins: 8,
+        waitThumbnailsLoad: true // Wait for images before calculating layout
+      })
+      .on('jg.complete', function () {
+        // Now initialize lightGallery after justified layout is complete
+        // Check if plugins are available, otherwise use basic configuration
+        const plugins = [];
+        if (typeof window.lgZoom !== 'undefined') plugins.push(window.lgZoom);
+        if (typeof window.lgThumbnail !== 'undefined') plugins.push(window.lgThumbnail);
+        if (typeof window.lgVideo !== 'undefined') plugins.push(window.lgVideo);
+
+        window.lightGallery(
+          document.getElementById('lightgallery'),
+          {
+            autoplayFirstVideo: false,
+            pager: false,
+            plugins: plugins,
+            speed: 500,
+            licenseKey: '0000-0000-0000-0000',
+            selector: '.gallery-item',
+            thumbnail: true,
+            animateThumb: true,
+            zoomFromOrigin: true,
+            allowMediaOverlap: true,
+            toggleThumb: true,
+            counter: true,
             download: false,
-            rotate: false
+            videoMaxWidth: '1000px',
+            mobileSettings: {
+              controls: false,
+              showCloseIcon: false,
+              download: false,
+              rotate: false
+            }
           }
-        }
-      );
-    });
+        );
+      });
+  });
 })(jQuery);
 </script>
 

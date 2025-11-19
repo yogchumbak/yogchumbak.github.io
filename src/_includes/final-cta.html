@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="final-cta-actions">
-                <a href="https://wa.me/919910826170?text=Hi%20Yog%20Chumbak,%20I'd%20like%20to%20book%20a%20demo%20session"
+                <a href="https://wa.me/{{ site.phone | replace(' ', '') | replace('+', '') }}?text=Hi%20Yog%20Chumbak,%20I'd%20like%20to%20book%20a%20demo%20session"
                    class="cta-primary-button"
                    target="_blank"
                    rel="noopener">
@@ -34,7 +34,7 @@
                 </a>
                 <p class="cta-help-text">
                     <i data-lucide="phone-call" class="inline-icon"></i>
-                    Call us: <strong>+91 99108 26170</strong> or <strong>+91 98113 34069</strong>
+                    Call us: <strong>{{ site.phone }}</strong> or <strong>{{ site.phone2 }}</strong>
                 </p>
             </div>
         </div>

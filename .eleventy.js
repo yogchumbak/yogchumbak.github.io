@@ -139,16 +139,70 @@ module.exports = function(eleventyConfig) {
           fs.copyFileSync(sourcePath, destPath);
           totalCopied++;
         } else {
-          // For images, optimize them
-          await Image(sourcePath, {
-            widths: [600, 960],
-            formats: ['webp', 'jpeg'],
-            outputDir: galleryOutputPath,
-            filenameFormat: function (id, src, width, format) {
-              const baseWithoutExt = newFilename.replace(ext, '');
-              return `${baseWithoutExt}-${width}.${format}`;
+          // For images, optimize them and crop ultra-wide images to max 2:1 aspect ratio
+          const sharp = require('sharp');
+          const metadata = await sharp(sourcePath).metadata();
+          const aspectRatio = metadata.width / metadata.height;
+          const maxAspectRatio = 2.0;
+          const baseWithoutExt = newFilename.replace(ext, '');
+
+          // If ultra-wide, pre-process with Sharp to crop to 2:1, then use eleventy-img
+          if (aspectRatio > maxAspectRatio) {
+            const tempPath = path.join(galleryOutputPath, `${baseWithoutExt}-temp.jpg`);
+
+            try {
+              // Crop to 2:1 aspect ratio with Sharp, save as temp file
+              await sharp(sourcePath)
+                .resize(metadata.width, Math.round(metadata.width / maxAspectRatio), {
+                  fit: 'cover',
+                  position: 'center'
+                })
+                .jpeg({ quality: 90 })
+                .toFile(tempPath);
+
+              // Delete old files first to force regeneration
+              const formats = ['webp', 'jpeg'];
+              const widths = [600, 960];
+              for (const width of widths) {
+                for (const format of formats) {
+                  const existingFile = path.join(galleryOutputPath, `${baseWithoutExt}-${width}.${format}`);
+                  if (fs.existsSync(existingFile)) {
+                    fs.unlinkSync(existingFile);
+                  }
+                }
+              }
+
+              // Now process the cropped temp file with eleventy-img
+              try {
+                await Image(tempPath, {
+                  widths: [600, 960],
+                  formats: ['webp', 'jpeg'],
+                  outputDir: galleryOutputPath,
+                  filenameFormat: function (id, src, width, format) {
+                    return `${baseWithoutExt}-${width}.${format}`;
+                  }
+                });
+              } catch (imgError) {
+                console.error(`Error processing ${newFilename} with eleventy-img:`, imgError.message);
+                throw imgError;
+              }
+            } finally {
+              // Always delete temp file, even if processing failed
+              if (fs.existsSync(tempPath)) {
+                fs.unlinkSync(tempPath);
+              }
             }
-          });
+          } else {
+            // Normal processing for non-ultra-wide images
+            await Image(sourcePath, {
+              widths: [600, 960],
+              formats: ['webp', 'jpeg'],
+              outputDir: galleryOutputPath,
+              filenameFormat: function (id, src, width, format) {
+                return `${baseWithoutExt}-${width}.${format}`;
+              }
+            });
+          }
           totalCopied++;
         }
       }

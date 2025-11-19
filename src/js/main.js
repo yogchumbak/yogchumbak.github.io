@@ -317,7 +317,7 @@ class WhatsAppWidget {
     buttonDiv.className = 'message received';
     buttonDiv.innerHTML = `
       <div class="message-content" style="text-align: center; padding: 12px;">
-        <button onclick="whatsappContact('${document.querySelector('[data-phone]')?.getAttribute('data-phone') || '+91 98113 34069'}')" 
+        <button onclick="whatsappContact('${document.body.getAttribute('data-phone') || document.querySelector('[data-phone]')?.getAttribute('data-phone') || '+91 99108 26170'}')" 
                 style="background: #25d366; color: white; border: none; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 14px;">
           💬 Continue on WhatsApp
         </button>

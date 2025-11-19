@@ -300,6 +300,14 @@ body {
   flex-shrink: 0; /* Prevents logo from shrinking */
 }
 
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+
 .logo-image {
   height: 70px;
   width: auto;
