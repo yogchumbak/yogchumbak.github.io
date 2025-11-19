@@ -25,6 +25,6 @@
     "facebook": "yogchumbakindia"
   },
   "development": {
-    "enableThemeChooser": true
+    "enableThemeChooser": false
   }
 }
