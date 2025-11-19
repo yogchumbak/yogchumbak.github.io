@@ -208,6 +208,147 @@
 }
 
 /* ========================================
+   THEME DEFINITIONS - Always Available
+   ======================================== */
+
+/* Yogchumbak2 Theme (Default - Kemetic inspired with gold accents) */
+:root {
+  --deep-magenta: #9988aa;
+  --vibrant-pink: #ffcc66;
+  --light-lavender: #ffeebb;
+  --dark-charcoal: #2c3e50;
+  --mid-gray: #7f8c8d;
+  
+  /* Typography - Yogchumbak2 Theme */
+  --theme-font-heading: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --theme-font-body: 'Inter', 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Button text colors for contrast */
+  --button-text-color: #2c3e50;
+  --button-hover-text-color: #1a252f;
+}
+
+/* Yog Chumbak Theme */
+[data-theme="yog-chumbak"] {
+  --deep-magenta: #83247C;
+  --vibrant-pink: #E54992;
+  --light-lavender: #F8F9FA;
+  --dark-charcoal: #2D2D2D;
+  --mid-gray: #666666;
+  
+  /* Typography - Modern, Professional, Wellness-focused */
+  --theme-font-heading: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --theme-font-body: 'Inter', 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Button text colors */
+  --button-text-color: #ffffff;
+  --button-hover-text-color: #ffffff;
+}
+
+/* Original Magenta Theme */
+[data-theme="original"] {
+  --deep-magenta: #83247C;
+  --vibrant-pink: #E54992;
+  --light-lavender: #F6EFF5;
+  --dark-charcoal: #2D2D2D;
+  --mid-gray: #888888;
+  
+  /* Typography - Elegant Serif + Modern Sans */
+  --theme-font-heading: 'Spectral', 'Noto Sans Devanagari', Georgia, serif;
+  --theme-font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Button text colors */
+  --button-text-color: #ffffff;
+  --button-hover-text-color: #ffffff;
+}
+
+/* Deep Focus Theme */
+[data-theme="deep-focus"] {
+  --deep-magenta: #1a1a2e;
+  --vibrant-pink: #0f3460;
+  --light-lavender: #e8e8e8;
+  --dark-charcoal: #1a1a2e;
+  --mid-gray: #6c757d;
+  
+  /* Typography - Monospace Tech Feel */
+  --theme-font-heading: 'Space Mono', 'Courier New', monospace;
+  --theme-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Button text colors */
+  --button-text-color: #ffffff;
+  --button-hover-text-color: #ffffff;
+}
+
+/* Vibrant Energy Theme */
+[data-theme="vibrant-energy"] {
+  --deep-magenta: #FF6B6B;
+  --vibrant-pink: #4ECDC4;
+  --light-lavender: #FFE5E5;
+  --dark-charcoal: #2D3142;
+  --mid-gray: #7B8FA7;
+  
+  /* Button text colors */
+  --button-text-color: #ffffff;
+  --button-hover-text-color: #ffffff;
+}
+
+/* Healing Lavender Theme */
+[data-theme="healing-lavender"] {
+  --deep-magenta: #9B59B6;
+  --vibrant-pink: #E8DAEF;
+  --light-lavender: #F4ECF7;
+  --dark-charcoal: #34495E;
+  --mid-gray: #95A5A6;
+  
+  /* Button text colors */
+  --button-text-color: #ffffff;
+  --button-hover-text-color: #ffffff;
+}
+
+/* Sunset Warmth Theme */
+[data-theme="sunset-warmth"] {
+  --deep-magenta: #D35400;
+  --vibrant-pink: #F39C12;
+  --light-lavender: #FEF5E7;
+  --dark-charcoal: #2C3E50;
+  --mid-gray: #7F8C8D;
+  
+  /* Button text colors */
+  --button-text-color: #ffffff;
+  --button-hover-text-color: #ffffff;
+}
+
+/* Minimalist Mono Theme */
+[data-theme="minimalist-mono"] {
+  --deep-magenta: #2C3E50;
+  --vibrant-pink: #34495E;
+  --light-lavender: #ECF0F1;
+  --dark-charcoal: #1C2833;
+  --mid-gray: #7F8C8D;
+  
+  /* Button text colors */
+  --button-text-color: #ffffff;
+  --button-hover-text-color: #ffffff;
+}
+
+/* Kemetic Yogchumbak2 Theme - Override for when explicitly set */
+[data-theme="yogchumbak2"] {
+  --deep-magenta: #9988aa;
+  --vibrant-pink: #ffcc66;
+  --light-lavender: #ffeebb;
+  --dark-charcoal: #2c3e50;
+  --mid-gray: #7f8c8d;
+  
+  /* Typography - Yogchumbak2 Theme */
+  --theme-font-heading: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --theme-font-body: 'Inter', 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Button text colors for better contrast */
+  --button-text-color: #2c3e50;
+  --button-hover-text-color: #1a252f;
+}
+
+/* ========================================
    2. BASE STYLES & RESETS
    ======================================== */
 
@@ -239,6 +380,15 @@ body {
   outline: 2px solid var(--primary-color);
   outline-offset: 2px;
   border-radius: 2px;
+}
+
+/* Base List Styles */
+ul, ol {
+  color: var(--text-color);
+}
+
+li {
+  color: inherit;
 }
 
 .container {
@@ -372,7 +522,7 @@ body {
 /* CTA Button - Prominent "Book a Therapy" */
 .cta-btn {
   background: linear-gradient(135deg, var(--primary-color) 0%, var(--vibrant-pink) 100%);
-  color: white;
+  color: var(--button-text-color, white);
   padding: var(--space-3) var(--space-6);
   border: none;
   border-radius: var(--border-radius);
@@ -395,6 +545,7 @@ body {
 .cta-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 16px rgba(131, 36, 124, 0.4);
+  color: var(--button-hover-text-color, var(--button-text-color, white));
 }
 
 .mobile-menu-btn {
@@ -906,7 +1057,7 @@ body {
 .cta-button {
   display: inline-block;
   background: var(--primary-color);
-  color: white;
+  color: var(--button-text-color, white);
   padding: var(--space-4) var(--space-8);
   border: none;
   border-radius: var(--border-radius);
@@ -1097,6 +1248,7 @@ body {
   border-bottom: 1px solid var(--background-color);
   position: relative;
   padding-left: 1.5rem;
+  color: var(--text-color);
 }
 
 .benefits li:before {
@@ -1854,7 +2006,7 @@ body {
 
 .btn-primary {
     background: var(--primary-color);
-    color: white;
+    color: var(--button-text-color, white);
 }
 
 .btn-primary:hover {
@@ -2691,6 +2843,7 @@ body {
 .faq-answer-content li {
   margin-bottom: 0.5rem;
   line-height: 1.6;
+  color: var(--text-color);
 }
 
 .faq-answer-content strong {
@@ -3945,9 +4098,8 @@ h6 {
 
 .cta-secondary-button:hover {
   background: var(--primary-color);
-  color: white;
+  color: var(--button-text-color, white);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(131, 36, 124, 0.25);
 }
 
 .cta-secondary-button .button-icon {
