@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="yogchumbak2">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Test - Yogchumbak2 (No Chooser)</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <style>
+        body {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: var(--font-body);
+        }
+        .test-section {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border: 2px solid var(--mid-gray);
+            border-radius: 8px;
+            background: var(--light-lavender);
+        }
+        .test-button {
+            margin: 1rem 0;
+        }
+        .color-display {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <h1>Yogchumbak2 Theme Test (No Theme Chooser)</h1>
+    
+    <div class="test-section">
+        <h2>✅ Assessment List Visibility Test</h2>
+        <p><strong>Issue:</strong> Assessment numbering should be visible with proper contrast.</p>
+        <p>We strongly recommend coming in for a free assessment where we'll:</p>
+        <ul>
+            <li>Evaluate your specific condition</li>
+            <li>Test your current flexibility and range of motion</li>
+            <li>Understand your pain triggers and limitations</li>
+        </ul>
+        <p>Based on this assessment, we'll determine whether you're suited for our regular batches...</p>
+    </div>
+
+    <div class="test-section">
+        <h2>✅ Button Contrast Test</h2>
+        <p><strong>Issue:</strong> Button text should be readable on theme background.</p>
+        <a href="#" class="cta-btn test-button">Book a Consultation</a>
+        <button class="cta-button test-button">CTA Button</button>
+        <button class="btn-primary test-button">Primary Button</button>
+    </div>
+
+    <div class="test-section">
+        <h2>✅ Theme Variables Test</h2>
+        <p><strong>Check if theme variables are properly defined:</strong></p>
+        <div style="margin: 1rem 0;">
+            <div class="color-display" style="background: var(--deep-magenta); color: white;">
+                --deep-magenta: #9988aa
+            </div>
+            <div class="color-display" style="background: var(--vibrant-pink); color: var(--button-text-color);">
+                --vibrant-pink: #ffcc66
+            </div>
+            <div class="color-display" style="background: var(--dark-charcoal); color: white;">
+                --dark-charcoal: #2c3e50
+            </div>
+            <div class="color-display" style="background: var(--mid-gray); color: var(--button-text-color);">
+                --mid-gray: #7f8c8d
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>✅ Typography Test</h2>
+        <p style="font-family: var(--theme-font-heading); font-weight: 600;">
+            Heading Font: Plus Jakarta Sans (should be different)
+        </p>
+        <p style="font-family: var(--theme-font-body);">
+            Body Font: Inter (should be different)
+        </p>
+    </div>
+
+    <div class="test-section">
+        <h2>🎯 Expected Results</h2>
+        <ul>
+            <li>Assessment list items should be visible with dark text (#2c3e50)</li>
+            <li>Button text should be dark colored, not white</li>
+            <li>Theme colors should display correctly</li>
+            <li>Typography should use Plus Jakarta Sans/Inter fonts</li>
+            <li>All text should have good contrast ratios</li>
+        </ul>
+    </div>
+</body>
+</html>

@@ -173,15 +173,18 @@ module.exports = function(eleventyConfig) {
               }
 
               // Now process the cropped temp file with eleventy-img
-              try {
-                await Image(tempPath, {
-                  widths: [600, 960],
-                  formats: ['webp', 'jpeg'],
-                  outputDir: galleryOutputPath,
-                  filenameFormat: function (id, src, width, format) {
-                    return `${baseWithoutExt}-${width}.${format}`;
-                  }
-                });
+               try {
+                 // For ultra-wide images, always use width-based sizing since we're cropping to 2:1
+                 await Image(tempPath, {
+                   widths: [600, 960],
+                   formats: ['webp', 'jpeg'],
+                   outputDir: galleryOutputPath,
+                   filenameFormat: function (id, src, width, format) {
+                     // Use consistent naming for ultra-wide images
+                     const targetWidth = width === 600 ? 600 : 960;
+                     return `${baseWithoutExt}-${targetWidth}.${format}`;
+                   }
+                 });
               } catch (imgError) {
                 console.error(`Error processing ${newFilename} with eleventy-img:`, imgError.message);
                 throw imgError;
@@ -193,19 +196,67 @@ module.exports = function(eleventyConfig) {
               }
             }
           } else {
-            // Normal processing for non-ultra-wide images
-            await Image(sourcePath, {
-              widths: [600, 960],
-              formats: ['webp', 'jpeg'],
-              outputDir: galleryOutputPath,
-              filenameFormat: function (id, src, width, format) {
-                return `${baseWithoutExt}-${width}.${format}`;
-              }
-            });
-          }
+            // Smart processing based on image orientation
+            const metadata = await sharp(sourcePath).metadata();
+            const aspectRatio = metadata.width / metadata.height;
+            
+            // First, fix any rotation issues by ensuring correct orientation
+            let fixedImage;
+            if (metadata.orientation && metadata.orientation > 1) {
+              // Auto-rotate to correct orientation
+              fixedImage = await sharp(sourcePath)
+                .rotate(metadata.orientation)
+                .toBuffer();
+            } else {
+              // No rotation needed, use original
+              fixedImage = sourcePath;
+            }
+            
+            // Always generate both 600px and 960px variants for all images
+            // This ensures consistency with template expectations
+            if (aspectRatio < 0.75) {
+              // Portrait images (tall): generate each size separately to ensure both exist
+              await Image(fixedImage, {
+                heights: [600],
+                formats: ['webp', 'jpeg'],
+                outputDir: galleryOutputPath,
+                filenameFormat: function (id, src, height, format) {
+                  return `${baseWithoutExt}-600.${format}`;
+                }
+              });
+              
+              await Image(fixedImage, {
+                heights: [960],
+                formats: ['webp', 'jpeg'],
+                outputDir: galleryOutputPath,
+                filenameFormat: function (id, src, height, format) {
+                  return `${baseWithoutExt}-960.${format}`;
+                }
+              });
+            } else {
+              // Landscape/square images: generate each size separately to ensure both exist
+              await Image(fixedImage, {
+                widths: [600],
+                formats: ['webp', 'jpeg'],
+                outputDir: galleryOutputPath,
+                filenameFormat: function (id, src, width, format) {
+                  return `${baseWithoutExt}-600.${format}`;
+                }
+              });
+              
+              await Image(fixedImage, {
+                widths: [960],
+                formats: ['webp', 'jpeg'],
+                outputDir: galleryOutputPath,
+                filenameFormat: function (id, src, width, format) {
+                  return `${baseWithoutExt}-960.${format}`;
+                }
+              });
+            }
           totalCopied++;
         }
       }
+    }
     }
 
     console.log(`✓ Processed and optimized ${totalCopied} gallery files`);

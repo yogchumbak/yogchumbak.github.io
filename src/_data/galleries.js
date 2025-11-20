@@ -23,7 +23,7 @@ module.exports = function() {
     const files = fs.readdirSync(folderPath)
       .filter(file => {
         const ext = path.extname(file).toLowerCase();
-        return ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.mp4', '.webm'].includes(ext);
+        return ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.mp4', '.webm', '.heic'].includes(ext);
       })
       .sort(); // Sort files alphabetically
 

@@ -1,6 +1,7 @@
 const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
+const heicConvert = require('heic-convert');
 
 const inputDir = './src/images';
 const outputDir = './src/images/optimized';
@@ -23,7 +24,7 @@ async function optimizeImages() {
 
   for (const file of files) {
     // Skip if not an image or if it's the optimized directory
-    if (!file.match(/\.(png|jpg|jpeg)$/i) || file === 'optimized') {
+    if (!file.match(/\.(png|jpg|jpeg|heic)$/i) || file === 'optimized') {
       continue;
     }
 
@@ -35,13 +36,40 @@ async function optimizeImages() {
     const originalSizeKB = (originalStats.size / 1024).toFixed(2);
     totalOriginalSize += originalStats.size;
 
-    console.log(`📷 Processing: ${file} (${originalSizeKB} KB)`);
+    const isHeic = file.toLowerCase().endsWith('.heic');
+    const fileType = isHeic ? 'HEIC' : 'Image';
+    console.log(`📷 Processing ${fileType}: ${file} (${originalSizeKB} KB)`);
+
+    // For HEIC files, convert to JPEG buffer first
+    let imageBuffer;
+    if (isHeic) {
+      try {
+        const heicBuffer = fs.readFileSync(inputPath);
+        const jpegBuffer = await heicConvert({
+          buffer: heicBuffer,
+          format: 'JPEG',
+          quality: 0.9
+        });
+        imageBuffer = jpegBuffer;
+        console.log(`   🔄 Converted HEIC to JPEG buffer`);
+      } catch (convertError) {
+        console.error(`   ❌ HEIC conversion failed:`, convertError.message);
+        continue; // Skip this file if conversion fails
+      }
+    }
 
     for (const size of sizes) {
       try {
+        let sharpInstance;
+        if (isHeic && imageBuffer) {
+          sharpInstance = sharp(imageBuffer);
+        } else {
+          sharpInstance = sharp(inputPath);
+        }
+
         // Generate WebP
         const webpPath = path.join(outputDir, `${baseName}-${size}.webp`);
-        await sharp(inputPath)
+        await sharpInstance
           .resize(size)
           .webp({ quality: quality.webp })
           .toFile(webpPath);
@@ -53,7 +81,9 @@ async function optimizeImages() {
 
         // Generate JPEG fallback
         const jpegPath = path.join(outputDir, `${baseName}-${size}.jpg`);
-        await sharp(inputPath)
+        // Create a new sharp instance for the second conversion
+        const jpegSharpInstance = isHeic && imageBuffer ? sharp(imageBuffer) : sharp(inputPath);
+        await jpegSharpInstance
           .resize(size)
           .jpeg({ quality: quality.jpeg })
           .toFile(jpegPath);

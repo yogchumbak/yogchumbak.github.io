@@ -34,17 +34,8 @@ eleventyComputed:
             {% else %}
                 {% set baseFilename = item.filename | replace('.jpg', '') | replace('.jpeg', '') | replace('.png', '') | replace('.webp', '') %}
                 
-                {# Determine the largest available image for lightGallery #}
-                {% set isImage030 = '-030' in baseFilename %}
-                {% set isImage090 = '-090' in baseFilename %}
-                
-                {% if isImage030 %}
-                    {% set lgSrc = '/galleries-images/' + gallery.slug + '/' + baseFilename + '-600.jpeg' %}
-                {% elif isImage090 %}
-                    {% set lgSrc = '/galleries-images/' + gallery.slug + '/' + baseFilename + '-828.jpeg' %}
-                {% else %}
-                    {% set lgSrc = '/galleries-images/' + gallery.slug + '/' + baseFilename + '-960.jpeg' %}
-                {% endif %}
+                {# Always use 960px for lightGallery as it's the largest available #}
+                {% set lgSrc = '/galleries-images/' + gallery.slug + '/' + baseFilename + '-960.jpeg' %}
                 
             <a href="{{ lgSrc }}"
                class="gallery-item"
@@ -67,41 +58,15 @@ eleventyComputed:
                 {% else %}
                     {% set baseFilename = item.filename | replace('.jpg', '') | replace('.jpeg', '') | replace('.png', '') | replace('.webp', '') %}
                     
-                    {# Simple logic: check if this is a known problematic image #}
-                    {% set isImage030 = '-030' in baseFilename %}
-                    {% set isImage090 = '-090' in baseFilename %}
-                    
-                    {% if isImage030 %}
-                        {# Image 030 only has 600px variants #}
-                        <picture>
-                            <source srcset="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.webp 600w" type="image/webp">
-                            <source srcset="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.jpeg 600w" type="image/jpeg">
-                            <img src="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.jpeg"
-                                 alt="{{ item.title }}"
-                                 loading="eager"
-                                 sizes="(max-width: 768px) 100vw, 300px">
-                        </picture>
-                    {% elif isImage090 %}
-                        {# Image 090 has 600px and 828px variants #}
-                        <picture>
-                            <source srcset="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.webp 600w, /galleries-images/{{ gallery.slug }}/{{ baseFilename }}-828.webp 828w" type="image/webp">
-                            <source srcset="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.jpeg 600w, /galleries-images/{{ gallery.slug }}/{{ baseFilename }}-828.jpeg 828w" type="image/jpeg">
-                            <img src="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.jpeg"
-                                 alt="{{ item.title }}"
-                                 loading="eager"
-                                 sizes="(max-width: 768px) 100vw, 300px">
-                        </picture>
-                    {% else %}
-                        {# All other images have 600px and 960px variants #}
-                        <picture>
-                            <source srcset="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.webp 600w, /galleries-images/{{ gallery.slug }}/{{ baseFilename }}-960.webp 960w" type="image/webp">
-                            <source srcset="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.jpeg 600w, /galleries-images/{{ gallery.slug }}/{{ baseFilename }}-960.jpeg 960w" type="image/jpeg">
-                            <img src="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.jpeg"
-                                 alt="{{ item.title }}"
-                                 loading="eager"
-                                 sizes="(max-width: 768px) 100vw, 300px">
-                        </picture>
-                    {% endif %}
+                    {# All images now have both 600px and 960px variants #}
+                    <picture>
+                        <source srcset="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.webp 600w, /galleries-images/{{ gallery.slug }}/{{ baseFilename }}-960.webp 960w" type="image/webp">
+                        <source srcset="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.jpeg 600w, /galleries-images/{{ gallery.slug }}/{{ baseFilename }}-960.jpeg 960w" type="image/jpeg">
+                        <img src="/galleries-images/{{ gallery.slug }}/{{ baseFilename }}-600.jpeg"
+                             alt="{{ item.title }}"
+                             loading="eager"
+                             sizes="(max-width: 768px) 100vw, 300px">
+                    </picture>
                 {% endif %}
             </a>
             {% endfor %}

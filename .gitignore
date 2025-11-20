@@ -26,3 +26,14 @@ yarn-error.log*
 
 # Misc
 .windsurfrules
+
+# Gallery backups
+gallery-backup/
+
+# Large image files (keep only optimized versions)
+*.heic
+*.HEIC
+
+# Build artifacts
+_site/
+.sass-cache/
