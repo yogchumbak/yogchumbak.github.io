@@ -112,12 +112,18 @@ module.exports = function(eleventyConfig) {
       }
 
       // Read and copy files
-      const files = fs.readdirSync(folderPath)
+      const allFiles = fs.readdirSync(folderPath)
         .filter(file => {
           const ext = path.extname(file).toLowerCase();
           return ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.mp4', '.webm'].includes(ext);
-        })
-        .sort();
+        });
+
+      // Separate cover images from regular images (same logic as galleries.js)
+      const coverImages = allFiles.filter(file => file.toLowerCase().startsWith('cover_')).sort();
+      const regularImages = allFiles.filter(file => !file.toLowerCase().startsWith('cover_')).sort();
+
+      // Combine: cover images first, then regular images
+      const files = [...coverImages, ...regularImages];
 
       for (let index = 0; index < files.length; index++) {
         const file = files[index];

@@ -20,12 +20,20 @@ module.exports = function() {
     const folderPath = path.join(galleryRootPath, folderName);
 
     // Read all image and video files
-    const files = fs.readdirSync(folderPath)
+    const allFiles = fs.readdirSync(folderPath)
       .filter(file => {
         const ext = path.extname(file).toLowerCase();
         return ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.mp4', '.webm', '.heic'].includes(ext);
-      })
-      .sort(); // Sort files alphabetically
+      });
+
+    // Separate cover images from regular images
+    // Files starting with 'cover_' (case-insensitive) will be used as cover photos
+    const coverImages = allFiles.filter(file => file.toLowerCase().startsWith('cover_')).sort();
+    const regularImages = allFiles.filter(file => !file.toLowerCase().startsWith('cover_')).sort();
+    
+    // Combine: cover images first, then regular images
+    // This ensures the first image (images[0]) is always the cover photo if one exists
+    const files = [...coverImages, ...regularImages];
 
     if (files.length === 0) {
       return; // Skip empty folders
