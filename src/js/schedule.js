@@ -39,7 +39,46 @@ function calculate2ndAnd4thSunday() {
   }
 }
 
-// Update the meditation dates on page load
+/**
+ * Get current day of week in IST timezone
+ * Returns day name in lowercase (e.g., "monday", "tuesday")
+ */
+function getCurrentDayIST() {
+  // Create formatter for IST timezone
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Kolkata',
+    weekday: 'long'
+  });
+
+  const today = new Date();
+  const dayName = formatter.format(today).toLowerCase();
+
+  return dayName;
+}
+
+/**
+ * Highlight the current day's column in the schedule
+ */
+function highlightTodayColumn() {
+  const currentDay = getCurrentDayIST();
+
+  // Highlight table columns (headers and cells)
+  const elementsWithDay = document.querySelectorAll(`[data-day="${currentDay}"]`);
+  elementsWithDay.forEach(element => {
+    element.classList.add('today');
+  });
+
+  // Highlight mobile cards that operate on current day
+  const mobileCards = document.querySelectorAll('.schedule-mobile-card');
+  mobileCards.forEach(card => {
+    const days = card.getAttribute('data-days');
+    if (days && days.split(',').includes(currentDay)) {
+      card.classList.add('today');
+    }
+  });
+}
+
+// Update the meditation dates and highlight today's column on page load
 document.addEventListener('DOMContentLoaded', () => {
   const meditationDatesElement = document.getElementById('meditation-dates');
 
@@ -47,4 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const dates = calculate2ndAnd4thSunday();
     meditationDatesElement.textContent = dates;
   }
+
+  // Highlight today's column
+  highlightTodayColumn();
 });

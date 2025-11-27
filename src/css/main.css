@@ -2229,6 +2229,40 @@ li {
   line-height: 1.3;
 }
 
+/* Today's Column Highlighting */
+.schedule-table th.today {
+  background: var(--vibrant-pink);
+  position: relative;
+}
+
+.schedule-table th.today::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--vibrant-pink);
+}
+
+.schedule-table td.today {
+  background: rgba(229, 73, 146, 0.08) !important;
+  border-left: 2px solid var(--vibrant-pink);
+  border-right: 2px solid var(--vibrant-pink);
+}
+
+.schedule-table tbody tr:first-child td.today {
+  border-top: 2px solid var(--vibrant-pink);
+}
+
+.schedule-table tbody tr:last-child td.today {
+  border-bottom: 2px solid var(--vibrant-pink);
+}
+
+.schedule-table td.today.active {
+  font-weight: var(--font-weight-bold);
+}
+
 /* Mobile Schedule Cards */
 .schedule-mobile-cards {
   display: none;
@@ -2295,6 +2329,17 @@ li {
     color: var(--mid-gray);
     font-weight: var(--font-weight-medium);
     font-size: 0.9375rem;
+  }
+
+  /* Today's Mobile Card Highlighting */
+  .schedule-mobile-card.today {
+    border-left: 4px solid var(--vibrant-pink);
+    background: rgba(229, 73, 146, 0.05);
+    box-shadow: 0 4px 12px rgba(229, 73, 146, 0.15);
+  }
+
+  .schedule-mobile-card.today h3 {
+    color: var(--vibrant-pink);
   }
 }
 
