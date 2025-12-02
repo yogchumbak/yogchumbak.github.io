@@ -1,0 +1,91 @@
+{
+  "batches": [
+    {
+      "name": "Morning Batch",
+      "schedule": {
+        "monday": "7:15 - 8:15 AM",
+        "tuesday": null,
+        "wednesday": "7:15 - 8:15 AM",
+        "thursday": "7:15 - 8:15 AM",
+        "friday": null,
+        "saturday": null,
+        "sunday": null
+      }
+    },
+    {
+      "name": "Morning Batch 2",
+      "schedule": {
+        "monday": null,
+        "tuesday": "8:00 - 9:00 AM",
+        "wednesday": null,
+        "thursday": "8:15 - 9:15 AM",
+        "friday": "8:00 - 9:00 AM",
+        "saturday": null,
+        "sunday": null
+      }
+    },
+    {
+      "name": "Morning Batch 3",
+      "schedule": {
+        "monday": "9:00 - 10:00 AM",
+        "tuesday": "9:00 - 10:00 AM",
+        "wednesday": null,
+        "thursday": null,
+        "friday": "9:00 - 10:00 AM",
+        "saturday": null,
+        "sunday": null
+      }
+    },
+    {
+      "name": "Afternoon Batch",
+      "schedule": {
+        "monday": null,
+        "tuesday": "12:00 - 1:00 PM",
+        "wednesday": null,
+        "thursday": "12:00 - 1:00 PM",
+        "friday": null,
+        "saturday": "12:00 - 1:00 PM",
+        "sunday": null
+      }
+    },
+    {
+      "name": "Evening Batch",
+      "schedule": {
+        "monday": "6:00 - 7:00 PM",
+        "tuesday": "6:00 - 7:00 PM",
+        "wednesday": null,
+        "thursday": "6:00 - 7:00 PM",
+        "friday": null,
+        "saturday": null,
+        "sunday": null
+      }
+    }
+  ],
+  "specialPrograms": [
+    {
+      "name": "Kids Yoga",
+      "schedule": {
+        "monday": null,
+        "tuesday": null,
+        "wednesday": null,
+        "thursday": null,
+        "friday": null,
+        "saturday": "11:00 AM - 12:00 PM",
+        "sunday": "11:00 AM - 12:00 PM"
+      }
+    },
+    {
+      "name": "Weekend Meditation",
+      "schedule": {
+        "monday": null,
+        "tuesday": null,
+        "wednesday": null,
+        "thursday": null,
+        "friday": null,
+        "saturday": null,
+        "sunday": "12:30 - 1:30 PM"
+      },
+      "note": "2nd & 4th Sunday"
+    }
+  ]
+}

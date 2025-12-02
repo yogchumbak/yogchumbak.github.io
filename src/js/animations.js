@@ -44,6 +44,16 @@ function initParallax() {
   const hero = document.querySelector('.hero');
   if (!hero) return;
 
+  // Disable parallax on mobile/touch devices to prevent rotation bouncing
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+  const isSmallScreen = window.innerWidth <= 768;
+
+  if (isMobile || isTouchDevice || isSmallScreen) {
+    // Skip parallax on mobile devices
+    return;
+  }
+
   const handleScroll = () => {
     const scrolled = window.pageYOffset;
     const parallaxSpeed = 0.5;

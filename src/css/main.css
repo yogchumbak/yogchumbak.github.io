@@ -171,8 +171,8 @@
   --space-component-sm: var(--space-3);
   --space-component-md: var(--space-4);
   --space-component-lg: var(--space-6);
-  --space-section-sm: var(--space-8);
-  --space-section-md: var(--space-12);
+  --space-section-sm: var(--space-4);  /* Reduced from space-8 (32px) to space-4 (16px) for mobile */
+  --space-section-md: var(--space-6);  /* Reduced from space-12 (48px) to space-6 (24px) for tablet */
   --space-section-lg: var(--space-20);
   --space-container-sm: var(--space-4);
   --space-container-md: var(--space-6);
@@ -1204,7 +1204,7 @@ li {
   color: var(--secondary-text);
   max-width: 65ch;
   margin: 0 auto;
-  text-align: left;
+  text-align: center;
 }
 
 /* ========================================
@@ -1868,7 +1868,7 @@ li {
 /* 4.5 Visit Our Studio */
 .section.studio-section {
   background: #F8F9FA;
-  padding: var(--space-section-lg) 0;
+  /* Padding removed - uses responsive values from .section media queries */
 }
 
 .studio-section .horizontal-layout {
@@ -2058,7 +2058,46 @@ li {
 
 .section.schedule-section {
   background: var(--background-color);
-  padding: var(--space-20) 0;
+  /* Padding removed - uses responsive values from .section media queries */
+}
+
+/* PDF Download Button */
+.schedule-download-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-4);
+}
+
+.btn-download-schedule {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--vibrant-pink) 100%);
+  color: white;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-semibold);
+  font-size: 0.9375rem;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-download-schedule:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-download-schedule:active {
+  transform: translateY(0);
+}
+
+.btn-download-schedule svg {
+  flex-shrink: 0;
 }
 
 /* Schedule Table Wrapper */
@@ -2225,7 +2264,7 @@ li {
   font-size: 0.75rem;
   color: var(--mid-gray);
   font-weight: var(--font-weight-normal);
-  margin-top: var(--space-1);
+  margin-top: var(--space-2);
   line-height: 1.3;
 }
 
@@ -2281,65 +2320,193 @@ li {
   border-radius: var(--border-radius);
 }
 
-/* Responsive - Mobile Schedule Cards */
+/* Responsive - Mobile Schedule with Day Tabs */
 @media (max-width: 768px) {
-  .schedule-table-wrapper {
+  /* Hide desktop table and old card layout */
+  .schedule-table-wrapper,
+  .schedule-mobile-cards {
     display: none;
   }
 
-  .schedule-mobile-cards {
-    display: grid;
-    gap: var(--space-4);
+  /* Show new tabbed layout */
+  .schedule-mobile-tabs {
+    display: block !important;
     margin: var(--space-8) 0;
   }
 
-  .schedule-mobile-card {
+  /* Day Tabs Horizontal Scroll Container */
+  .day-tabs-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: var(--space-6);
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+
+  .day-tabs-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+
+  .day-tabs {
+    display: flex;
+    gap: var(--space-2);
+    padding: var(--space-2);
+    background: var(--gray-100);
+    border-radius: var(--border-radius-lg);
+    min-width: min-content;
+  }
+
+  /* Individual Day Tab Button */
+  .day-tab {
+    flex: 1 0 auto;
+    min-width: 60px;
+    padding: var(--space-3) var(--space-4);
     background: white;
-    padding: var(--space-6);
+    border: 2px solid transparent;
+    border-radius: var(--border-radius);
+    font-family: var(--font-heading);
+    font-weight: var(--font-weight-semibold);
+    font-size: 0.9375rem;
+    color: var(--dark-charcoal);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .day-tab:active {
+    transform: scale(0.95);
+  }
+
+  /* Active Tab (selected day) */
+  .day-tab.active {
+    background: var(--vibrant-pink);
+    color: white;
+    border-color: var(--vibrant-pink);
+    box-shadow: 0 4px 12px rgba(229, 73, 146, 0.3);
+  }
+
+  /* Today's Tab (when not active) */
+  .day-tab.today:not(.active) {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+  }
+
+  /* Schedule Content Container */
+  .day-schedule-container {
+    position: relative;
+    overflow: hidden;
+    min-height: 300px;
+  }
+
+  .day-schedule-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    background: white;
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-md);
+  }
+
+  /* Individual Batch Item */
+  .batch-item {
+    padding: var(--space-5);
+    background: white;
     border-left: 4px solid var(--primary-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
     transition: all 0.2s ease;
   }
 
-  .schedule-mobile-card:hover {
+  .batch-item:active {
     transform: translateY(-2px);
     box-shadow: var(--shadow-hover);
   }
 
-  .schedule-mobile-card h3 {
+  .batch-item.special-batch {
+    border-left-color: var(--accent-color);
+  }
+
+  .batch-name {
     font-family: var(--font-heading);
     font-weight: var(--font-weight-semibold);
     color: var(--primary-color);
-    margin-bottom: var(--space-3);
     font-size: 1.125rem;
+    margin-bottom: var(--space-2);
   }
 
-  .schedule-mobile-card .time {
+  .batch-time {
     font-family: var(--font-body);
-    font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-medium);
     color: var(--dark-charcoal);
-    display: block;
-    margin-bottom: var(--space-2);
     font-size: 1rem;
   }
 
-  .schedule-mobile-card .days {
-    font-family: var(--font-body);
+  /* Empty State (no classes that day) */
+  .no-classes {
+    text-align: center;
+    padding: var(--space-12) var(--space-6);
     color: var(--mid-gray);
-    font-weight: var(--font-weight-medium);
+  }
+
+  .no-classes p {
+    font-size: 1rem;
+    font-style: italic;
+  }
+
+  /* Special Programs Note */
+  .mobile-schedule-note {
+    margin-top: var(--space-6);
+    padding: var(--space-5);
+    background: var(--light-lavender);
+    border-radius: var(--border-radius);
     font-size: 0.9375rem;
   }
 
-  /* Today's Mobile Card Highlighting */
-  .schedule-mobile-card.today {
-    border-left: 4px solid var(--vibrant-pink);
-    background: rgba(229, 73, 146, 0.05);
-    box-shadow: 0 4px 12px rgba(229, 73, 146, 0.15);
+  .special-program {
+    margin-bottom: var(--space-2);
+    line-height: 1.6;
   }
 
-  .schedule-mobile-card.today h3 {
-    color: var(--vibrant-pink);
+  .special-program:last-child {
+    margin-bottom: 0;
+  }
+
+  .special-program strong {
+    color: var(--primary-color);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  /* Slide Animations */
+  @keyframes slideInFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .day-schedule-content.slide-right {
+    animation: slideInFromRight 0.3s ease;
+  }
+
+  .day-schedule-content.slide-left {
+    animation: slideInFromLeft 0.3s ease;
   }
 }
 
@@ -2569,7 +2736,7 @@ li {
 
 .section.testimonials-section {
   position: relative;
-  padding: var(--space-section-lg) 0 var(--space-12) 0; /* Reduced bottom padding */
+  /* Padding removed - uses responsive values from .section media queries */
   overflow: hidden;
   background: linear-gradient(135deg, var(--primary-color) 0%, #5A1954 100%);
 }
@@ -2786,7 +2953,7 @@ li {
 
 .section.faq-section {
   background: #FFFFFF;
-  padding: var(--space-3xl) 0;
+  /* Padding removed - uses responsive values from .section media queries */
 }
 
 .faq-accordion {
@@ -2909,9 +3076,7 @@ li {
 
 /* Mobile FAQ Styles */
 @media (max-width: 768px) {
-  .faq-section {
-    padding: var(--space-2xl) 0;
-  }
+  /* FAQ section padding removed - uses responsive values from .section media queries */
 
   .faq-question-text {
     font-size: 1rem;
@@ -3790,7 +3955,7 @@ h6 {
 
 .section.special-programs-section {
   background: var(--gradient-primary);
-  padding: var(--space-section-lg) 0;
+  /* Padding removed - uses responsive values from .section media queries */
   position: relative;
 }
 
@@ -3976,7 +4141,7 @@ h6 {
 /* 7.1 Layout & Styling - Ready to Start Your Healing Journey */
 
 .final-cta-section {
-  padding: var(--space-20) 0;
+  /* Padding removed - uses responsive values from .section media queries */
   background: linear-gradient(135deg,
     var(--light-lavender) 0%,
     rgba(131, 36, 124, 0.05) 50%,
@@ -4193,9 +4358,7 @@ h6 {
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-  .final-cta-section {
-    padding: var(--space-16) 0;
-  }
+  /* final-cta-section padding removed - uses responsive values from .section media queries */
 
   .final-cta-title {
     font-size: 2rem;
@@ -4222,9 +4385,7 @@ h6 {
 
 /* Small Mobile */
 @media (max-width: 480px) {
-  .final-cta-section {
-    padding: var(--space-12) 0;
-  }
+  /* final-cta-section padding removed - uses responsive values from .section media queries */
 
   .final-cta-title {
     font-size: 1.75rem;

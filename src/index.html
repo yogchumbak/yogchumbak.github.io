@@ -378,6 +378,16 @@ description: "Experience transformative therapeutic yoga in Delhi. Professional 
         <div class="section-header">
             <h2 class="section-title">Weekly Class Schedule</h2>
             <p class="section-subtitle">Choose a batch that fits your lifestyle—we offer flexible timings</p>
+
+            <!-- PDF Download Button -->
+            <div class="schedule-download-wrapper">
+                <a href="/YogChumbak-Schedule.pdf" download class="btn-download-schedule" aria-label="Download Schedule PDF">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                    <span>Download Schedule (PDF)</span>
+                </a>
+            </div>
         </div>
 
         <!-- Regular Batches Table (Desktop) / Cards (Mobile) -->
@@ -392,6 +402,7 @@ description: "Experience transformative therapeutic yoga in Delhi. Professional 
                         <th data-day="thursday">Thursday</th>
                         <th data-day="friday">Friday</th>
                         <th data-day="saturday">Saturday</th>
+                        <th data-day="sunday">Sunday</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -403,6 +414,7 @@ description: "Experience transformative therapeutic yoga in Delhi. Professional 
                         <td class="active" data-day="thursday">7:15 - 8:15 AM</td>
                         <td class="inactive" data-day="friday"></td>
                         <td class="inactive" data-day="saturday"></td>
+                        <td class="inactive" data-day="sunday"></td>
                     </tr>
                     <tr>
                         <td class="batch-name">Morning Batch 2</td>
@@ -412,6 +424,7 @@ description: "Experience transformative therapeutic yoga in Delhi. Professional 
                         <td class="active" data-day="thursday">8:15 - 9:15 AM</td>
                         <td class="active" data-day="friday">8:00 - 9:00 AM</td>
                         <td class="inactive" data-day="saturday"></td>
+                        <td class="inactive" data-day="sunday"></td>
                     </tr>
                     <tr>
                         <td class="batch-name">Morning Batch 3</td>
@@ -421,6 +434,7 @@ description: "Experience transformative therapeutic yoga in Delhi. Professional 
                         <td class="inactive" data-day="thursday"></td>
                         <td class="active" data-day="friday">9:00 - 10:00 AM</td>
                         <td class="inactive" data-day="saturday"></td>
+                        <td class="inactive" data-day="sunday"></td>
                     </tr>
                     <tr>
                         <td class="batch-name">Afternoon Batch</td>
@@ -430,6 +444,7 @@ description: "Experience transformative therapeutic yoga in Delhi. Professional 
                         <td class="active" data-day="thursday">12:00 - 1:00 PM</td>
                         <td class="inactive" data-day="friday"></td>
                         <td class="active" data-day="saturday">12:00 - 1:00 PM</td>
+                        <td class="inactive" data-day="sunday"></td>
                     </tr>
                     <tr>
                         <td class="batch-name">Evening Batch</td>
@@ -439,6 +454,7 @@ description: "Experience transformative therapeutic yoga in Delhi. Professional 
                         <td class="active" data-day="thursday">6:00 - 7:00 PM</td>
                         <td class="inactive" data-day="friday"></td>
                         <td class="inactive" data-day="saturday"></td>
+                        <td class="inactive" data-day="sunday"></td>
                     </tr>
                     <tr class="special-program-row">
                         <td class="batch-name">Kids Yoga</td>
@@ -447,7 +463,8 @@ description: "Experience transformative therapeutic yoga in Delhi. Professional 
                         <td class="inactive" data-day="wednesday"></td>
                         <td class="inactive" data-day="thursday"></td>
                         <td class="inactive" data-day="friday"></td>
-                        <td class="active" data-day="saturday">11:00 AM - 12:00 PM<br><small>(Sat & Sun)</small></td>
+                        <td class="active" data-day="saturday">11:00 AM - 12:00 PM</td>
+                        <td class="active" data-day="sunday">11:00 AM - 12:00 PM</td>
                     </tr>
                     <tr class="special-program-row">
                         <td class="batch-name">Weekend Meditation</td>
@@ -456,41 +473,70 @@ description: "Experience transformative therapeutic yoga in Delhi. Professional 
                         <td class="inactive" data-day="wednesday"></td>
                         <td class="inactive" data-day="thursday"></td>
                         <td class="inactive" data-day="friday"></td>
-                        <td class="active meditation-dates" data-day="saturday">12:30 - 1:30 PM<br><small id="meditation-dates">Loading...</small></td>
+                        <td class="inactive" data-day="saturday"></td>
+                        <td class="active meditation-dates" data-day="sunday">12:30 - 1:30 PM<br><small id="meditation-dates-sunday">Loading...</small></td>
                     </tr>
                 </tbody>
             </table>
+        </div>
 
-            <!-- Mobile Schedule Cards -->
-            <div class="schedule-mobile-cards">
-                <div class="schedule-mobile-card" data-days="monday,wednesday,thursday">
-                    <h3>Morning Batch</h3>
-                    <p class="time">7:15AM - 8:15AM</p>
-                    <p class="days">Mon • Wed • Thu</p>
+        <!-- Mobile Schedule Cards - Moved outside table wrapper to fix mobile display -->
+        <div class="schedule-mobile-cards">
+            <div class="schedule-mobile-card" data-days="monday,wednesday,thursday">
+                <h3>Morning Batch</h3>
+                <p class="time">7:15AM - 8:15AM</p>
+                <p class="days">Mon • Wed • Thu</p>
+            </div>
+
+            <div class="schedule-mobile-card" data-days="tuesday,thursday,friday">
+                <h3>Morning Batch 2</h3>
+                <p class="time">8:00AM - 9:15AM</p>
+                <p class="days">Tue • Thu • Fri</p>
+            </div>
+
+            <div class="schedule-mobile-card" data-days="monday,tuesday,friday">
+                <h3>Morning Batch 3</h3>
+                <p class="time">9:00AM - 10:00AM</p>
+                <p class="days">Mon • Tue • Fri</p>
+            </div>
+
+            <div class="schedule-mobile-card" data-days="tuesday,thursday,saturday">
+                <h3>Afternoon Batch</h3>
+                <p class="time">12:00PM - 1:00PM</p>
+                <p class="days">Tue • Thu • Sat</p>
+            </div>
+
+            <div class="schedule-mobile-card" data-days="monday,tuesday,thursday">
+                <h3>Evening Batch</h3>
+                <p class="time">6:00PM - 7:00PM</p>
+                <p class="days">Mon • Tue • Thu</p>
+            </div>
+        </div>
+
+        <!-- Mobile Schedule with Day Tabs (Swipeable) -->
+        <div class="schedule-mobile-tabs" style="display: none;">
+            <!-- Day Navigation Tabs -->
+            <div class="day-tabs-wrapper">
+                <div class="day-tabs">
+                    <!-- Tabs will be dynamically generated by JavaScript -->
                 </div>
+            </div>
 
-                <div class="schedule-mobile-card" data-days="tuesday,thursday,friday">
-                    <h3>Morning Batch 2</h3>
-                    <p class="time">8:00AM - 9:15AM</p>
-                    <p class="days">Tue • Thu • Fri</p>
+            <!-- Schedule Content for Selected Day -->
+            <div class="day-schedule-container">
+                <div class="day-schedule-content">
+                    <!-- Content will be dynamically populated by JavaScript -->
                 </div>
+            </div>
 
-                <div class="schedule-mobile-card" data-days="monday,tuesday,friday">
-                    <h3>Morning Batch 3</h3>
-                    <p class="time">9:00AM - 10:00AM</p>
-                    <p class="days">Mon • Tue • Fri</p>
+            <!-- Special Programs Note -->
+            <div class="mobile-schedule-note">
+                <div class="special-program">
+                    <strong>Kids Yoga:</strong> Sat & Sun, 11:00 AM - 12:00 PM
                 </div>
-
-                <div class="schedule-mobile-card" data-days="tuesday,thursday,saturday">
-                    <h3>Afternoon Batch</h3>
-                    <p class="time">12:00PM - 1:00PM</p>
-                    <p class="days">Tue • Thu • Sat</p>
-                </div>
-
-                <div class="schedule-mobile-card" data-days="monday,tuesday,thursday">
-                    <h3>Evening Batch</h3>
-                    <p class="time">6:00PM - 7:00PM</p>
-                    <p class="days">Mon • Tue • Thu</p>
+                <div class="special-program">
+                    <strong>Weekend Meditation:</strong>
+                    <span id="mobile-meditation-dates">Loading...</span>, 12:30 - 1:30 PM
                 </div>
             </div>
         </div>

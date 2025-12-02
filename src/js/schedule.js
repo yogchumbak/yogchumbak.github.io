@@ -76,15 +76,30 @@ function highlightTodayColumn() {
       card.classList.add('today');
     }
   });
+
+  // Highlight mobile day tabs
+  const dayTabs = document.querySelectorAll('.day-tab');
+  dayTabs.forEach(tab => {
+    const tabDay = tab.getAttribute('data-day');
+    if (tabDay === currentDay) {
+      tab.classList.add('today');
+    }
+  });
 }
 
 // Update the meditation dates and highlight today's column on page load
 document.addEventListener('DOMContentLoaded', () => {
   const meditationDatesElement = document.getElementById('meditation-dates');
+  const meditationDatesSundayElement = document.getElementById('meditation-dates-sunday');
 
   if (meditationDatesElement) {
     const dates = calculate2ndAnd4thSunday();
     meditationDatesElement.textContent = dates;
+
+    // Also update Sunday column if it exists
+    if (meditationDatesSundayElement) {
+      meditationDatesSundayElement.textContent = dates;
+    }
   }
 
   // Highlight today's column
