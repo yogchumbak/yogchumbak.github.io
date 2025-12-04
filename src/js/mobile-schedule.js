@@ -73,7 +73,14 @@ class MobileSchedule {
       const batchNameCell = row.querySelector('.batch-name');
       if (!batchNameCell) return;
 
-      const batchName = batchNameCell.textContent.trim();
+      // Extract only the batch name text, excluding the badge span
+      const batchName = Array.from(batchNameCell.childNodes)
+        .filter(node => node.nodeType === Node.TEXT_NODE)
+        .map(node => node.textContent.trim())
+        .filter(text => text.length > 0)
+        .join(' ')
+        .trim();
+
       const isSpecialProgram = row.classList.contains('special-program-row');
 
       // Get all time cells (skip first column which is batch name)
@@ -197,6 +204,25 @@ class MobileSchedule {
   }
 
   /**
+   * Check if batch is available online
+   */
+  isOnlineBatch(batchName) {
+    // Use global scheduleConfig if available, otherwise fallback to hardcoded list
+    if (window.scheduleConfig && window.scheduleConfig.batches) {
+      const batch = window.scheduleConfig.batches.find(b => b.name === batchName);
+      return batch ? batch.onlineAvailable : false;
+    }
+
+    // Fallback for special programs
+    if (window.scheduleConfig && window.scheduleConfig.specialPrograms) {
+      const program = window.scheduleConfig.specialPrograms.find(p => p.name === batchName);
+      if (program) return program.onlineAvailable;
+    }
+
+    return false;
+  }
+
+  /**
    * Render schedule for a specific day
    */
   renderDaySchedule(dayIndex, direction = 'next') {
@@ -229,6 +255,20 @@ class MobileSchedule {
           batchCard.classList.add('special-batch');
         }
 
+        // Determine online availability and badge
+        const isOnlineAvailable = this.isOnlineBatch(batch.batch);
+
+        // Build badge HTML - show both tags when both are available
+        let badgesHTML = '';
+        if (isOnlineAvailable) {
+          badgesHTML = `
+            <span class="batch-availability-badge online-available">Online Available</span>
+            <span class="batch-availability-badge in-studio">In-Studio</span>
+          `;
+        } else {
+          badgesHTML = `<span class="batch-availability-badge in-studio">In-Studio</span>`;
+        }
+
         // For Weekend Meditation on Sunday, show next class date
         let timeDisplay = batch.time;
         if (batch.batch === 'Weekend Meditation' && day === 'sunday') {
@@ -237,6 +277,9 @@ class MobileSchedule {
         }
 
         batchCard.innerHTML = `
+          <div class="batch-badges">
+            ${badgesHTML}
+          </div>
           <div class="batch-name">${batch.batch}</div>
           <div class="batch-time">${timeDisplay}</div>
         `;

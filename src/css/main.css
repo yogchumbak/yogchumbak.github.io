@@ -2320,6 +2320,116 @@ li {
   border-radius: var(--border-radius);
 }
 
+/* Online/In-Studio Availability Badges */
+.batch-availability-badge {
+  display: inline-block !important;
+  padding: 4px 12px !important;
+  font-size: 0.75rem !important;
+  font-weight: var(--font-weight-semibold) !important;
+  border-radius: 12px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  margin: 0 var(--space-2) 0 0 !important;
+  vertical-align: middle !important;
+  white-space: nowrap !important;
+  line-height: 1 !important;
+}
+
+.batch-availability-badge.online-available {
+  background-color: #10B981 !important;
+  color: white !important;
+}
+
+.batch-availability-badge.in-studio-only {
+  background-color: #6B7280 !important;
+  color: white !important;
+}
+
+.batch-availability-badge.in-studio {
+  background-color: #8B5CF6 !important;
+  color: white !important;
+}
+
+/* Desktop table badges - extra specificity */
+.schedule-table .batch-name .batch-availability-badge {
+  display: inline-block !important;
+  padding: 4px 12px !important;
+  font-size: 0.75rem !important;
+  background-color: inherit !important;
+  color: white !important;
+}
+
+.schedule-table .batch-name .batch-availability-badge.online-available {
+  background-color: #10B981 !important;
+}
+
+.schedule-table .batch-name .batch-availability-badge.in-studio {
+  background-color: #8B5CF6 !important;
+}
+
+.schedule-table .batch-name .batch-availability-badge.in-studio-only {
+  background-color: #6B7280 !important;
+}
+
+/* Badge container for multiple badges */
+.batch-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+/* Inline badge in callout text */
+.badge-online-inline {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-semibold);
+  background-color: #10B981;
+  color: white;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* Schedule Availability Note Callout */
+.schedule-availability-note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-left: 4px solid var(--primary-color);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--space-6);
+}
+
+.availability-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-color);
+  color: white;
+  border-radius: 50%;
+}
+
+.availability-content h4 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  margin: 0 0 var(--space-2) 0;
+}
+
+.availability-content p {
+  font-size: 1rem;
+  color: var(--dark-charcoal);
+  margin: 0;
+  line-height: 1.6;
+}
+
 /* Responsive - Mobile Schedule with Day Tabs */
 @media (max-width: 768px) {
   /* Hide desktop table and old card layout */
@@ -2476,6 +2586,46 @@ li {
   .special-program strong {
     color: var(--primary-color);
     font-weight: var(--font-weight-semibold);
+  }
+
+  /* Mobile badge positioning */
+  @media (max-width: 768px) {
+    .batch-availability-badge {
+      display: block;
+      width: fit-content;
+      margin: 0 0 var(--space-2) 0;
+      font-size: 0.7rem;
+      padding: 3px 10px;
+    }
+
+    .schedule-mobile-card .batch-availability-badge {
+      position: absolute;
+      top: var(--space-3);
+      right: var(--space-3);
+    }
+
+    .schedule-mobile-card {
+      position: relative;
+    }
+
+    .batch-item .batch-availability-badge {
+      margin-bottom: var(--space-2);
+    }
+
+    .schedule-availability-note {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .availability-icon {
+      width: 35px;
+      height: 35px;
+    }
+
+    .availability-content h4 {
+      font-size: 1.1rem;
+    }
   }
 
   /* Slide Animations */
@@ -3313,6 +3463,10 @@ li {
     padding: var(--space-section-md) 0;
   }
 
+  .final-cta-section {
+    padding: var(--space-section-md) 0;
+  }
+
   .section-header {
     margin-bottom: var(--space-8);
   }
@@ -3337,6 +3491,10 @@ li {
   }
 
   .section {
+    padding: var(--space-section-sm) 0;
+  }
+
+  .final-cta-section {
     padding: var(--space-section-sm) 0;
   }
 
@@ -4141,7 +4299,7 @@ h6 {
 /* 7.1 Layout & Styling - Ready to Start Your Healing Journey */
 
 .final-cta-section {
-  /* Padding removed - uses responsive values from .section media queries */
+  padding: var(--space-section-lg) 0;
   background: linear-gradient(135deg,
     var(--light-lavender) 0%,
     rgba(131, 36, 124, 0.05) 50%,

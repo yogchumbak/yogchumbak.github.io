@@ -35,7 +35,9 @@ function convertScheduleToTableData() {
 
   // Process regular batches
   scheduleConfig.batches.forEach(batch => {
-    const row = [batch.name];
+    // Add asterisk for online available batches
+    const batchName = batch.onlineAvailable ? `${batch.name}*` : batch.name;
+    const row = [batchName];
     days.forEach(day => {
       row.push(batch.schedule[day] || '-');
     });
@@ -44,7 +46,9 @@ function convertScheduleToTableData() {
 
   // Process special programs
   scheduleConfig.specialPrograms.forEach(program => {
-    const row = [program.name];
+    // Add asterisk for online available special programs
+    const programName = program.onlineAvailable ? `${program.name}*` : program.name;
+    const row = [programName];
     days.forEach(day => {
       row.push(program.schedule[day] || '-');
     });
@@ -175,7 +179,14 @@ async function generatePDF() {
       margin: { left: 20, right: 20 }
     });
 
-    yPosition = doc.lastAutoTable.finalY + 10;
+    yPosition = doc.lastAutoTable.finalY + 8;
+
+    // Legend for asterisk
+    doc.setFontSize(8);
+    doc.setTextColor(100, 100, 100);
+    doc.text('* Available both online and in-studio', 20, yPosition);
+
+    yPosition += 10;
 
     // ========================================
     // SPECIAL PROGRAMS
