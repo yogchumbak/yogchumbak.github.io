@@ -30,11 +30,11 @@
       "name": "Morning Batch 3",
       "onlineAvailable": true,
       "schedule": {
-        "monday": "9:00 - 10:00 AM",
-        "tuesday": "9:00 - 10:00 AM",
+        "monday": "9:15 - 10:00 AM",
+        "tuesday": "9:15 - 10:00 AM",
         "wednesday": null,
         "thursday": null,
-        "friday": "9:00 - 10:00 AM",
+        "friday": "9:15 - 10:00 AM",
         "saturday": null,
         "sunday": null
       }
