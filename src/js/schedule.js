@@ -89,17 +89,18 @@ function highlightTodayColumn() {
 
 // Update the meditation dates and highlight today's column on page load
 document.addEventListener('DOMContentLoaded', () => {
-  const meditationDatesElement = document.getElementById('meditation-dates');
+  const dates = calculate2ndAnd4thSunday();
+  
+  // Update desktop table meditation dates
   const meditationDatesSundayElement = document.getElementById('meditation-dates-sunday');
+  if (meditationDatesSundayElement) {
+    meditationDatesSundayElement.textContent = dates;
+  }
 
-  if (meditationDatesElement) {
-    const dates = calculate2ndAnd4thSunday();
-    meditationDatesElement.textContent = dates;
-
-    // Also update Sunday column if it exists
-    if (meditationDatesSundayElement) {
-      meditationDatesSundayElement.textContent = dates;
-    }
+  // Update mobile meditation dates
+  const mobileMeditationDatesElement = document.getElementById('mobile-meditation-dates');
+  if (mobileMeditationDatesElement) {
+    mobileMeditationDatesElement.textContent = dates;
   }
 
   // Highlight today's column

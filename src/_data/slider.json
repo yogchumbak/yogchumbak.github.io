@@ -1,30 +1,50 @@
 [
   {
-    "title": "Transform Your Body & Mind",
+    "id": "prr-therapy",
+    "title": "Find Lasting Relief from Chronic Pain",
     "subtitle": "PRR Therapy (Pain Relief Restorative Therapy) & Holistic Wellness",
     "image": "https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    "link": "#schedule",
-    "buttonText": "Book Your First Class"
+    "imageAlt": "Peaceful therapeutic yoga practice",
+    "primaryButtonText": "Book Your Demo Session",
+    "primaryButtonAction": "whatsapp",
+    "primaryButtonMessage": "Hi Yog Chumbak, I'd like to book a demo session",
+    "secondaryButtonText": "Explore Therapy Sessions",
+    "secondaryButtonLink": "#one-to-one-therapy"
   },
   {
-    "title": "Yoga for Everyone",
-    "subtitle": "From Beginners to Advanced - Morning, Afternoon & Evening Batches",
-    "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    "link": "#schedule",
-    "buttonText": "View Schedule"
+    "id": "kids-yoga",
+    "title": "Kids Yoga Program",
+    "subtitle": "Building Strength, Focus & Confidence Through Play-Based Yoga",
+    "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    "imageAlt": "Kids practicing yoga in a joyful environment",
+    "primaryButtonText": "Enroll Your Child",
+    "primaryButtonAction": "whatsapp",
+    "primaryButtonMessage": "Hi Yog Chumbak, I'm interested in Kids Yoga",
+    "secondaryButtonText": "View Programs",
+    "secondaryButtonLink": "#programs"
   },
   {
+    "id": "one-to-one",
     "title": "One-to-One Therapy Sessions",
-    "subtitle": "Personalized healing for back pain, sciatica, knee & shoulder issues",
-    "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    "link": "#one-to-one-therapy",
-    "buttonText": "Book a Therapy"
+    "subtitle": "Personalized Healing for Chronic Pain, Injuries & Special Conditions",
+    "image": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    "imageAlt": "One-to-one therapeutic yoga session",
+    "primaryButtonText": "Book Therapy Session",
+    "primaryButtonAction": "whatsapp",
+    "primaryButtonMessage": "Hi Yog Chumbak, I'd like to book a therapy session",
+    "secondaryButtonText": "Learn More",
+    "secondaryButtonLink": "#one-to-one-therapy"
   },
   {
-    "title": "Kids Yoga & Weekend Meditation",
-    "subtitle": "Building healthy habits for the whole family - Weekends only",
-    "image": "/images/kids_yoga.jpeg",
-    "link": "#schedule",
-    "buttonText": "Learn More"
+    "id": "weekend-meditation",
+    "title": "Weekend Meditation",
+    "subtitle": "Find Inner Peace & Mental Clarity Through Guided Meditation",
+    "image": "https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+    "imageAlt": "Peaceful meditation session",
+    "primaryButtonText": "Join Meditation",
+    "primaryButtonAction": "whatsapp",
+    "primaryButtonMessage": "Hi Yog Chumbak, I'm interested in Weekend Meditation",
+    "secondaryButtonText": "View Schedule",
+    "secondaryButtonLink": "#schedule"
   }
 ]

@@ -7,101 +7,39 @@ description: "Experience transformative therapeutic yoga in Delhi. Professional 
 <!-- Hero Section - Full-Width Slider -->
 <section id="hero" class="hero-visual">
     <div class="hero-slider">
-        <!-- Slide 1: Transform Your Body & Mind -->
-        <div class="hero-slide active" data-slide="1">
+        {% for slide in slider %}
+        <div class="hero-slide {% if loop.first %}active{% endif %}" data-slide="{{ loop.index }}">
             <div class="hero-image-container">
-                <img src="https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-                     alt="Peaceful therapeutic yoga practice"
+                <img src="{{ slide.image }}"
+                     alt="{{ slide.imageAlt }}"
                      class="hero-image">
                 <div class="hero-overlay"></div>
             </div>
             <div class="hero-content-wrapper">
                 <div class="container">
                     <div class="hero-content">
-                        <h1 class="hero-title">Find Lasting Relief from Chronic Pain</h1>
-                        <p class="hero-subtitle">PRR Therapy (Pain Relief Restorative Therapy) & Holistic Wellness</p>
+                        {% if loop.first %}<h1 class="hero-title">{{ slide.title }}</h1>{% else %}<h2 class="hero-title">{{ slide.title }}</h2>{% endif %}
+                        <p class="hero-subtitle">{{ slide.subtitle }}</p>
                         <div class="hero-cta-group">
-                            <a href="https://wa.me/{{ site.phone | replace(' ', '') | replace('+', '') }}?text=Hi%20Yog%20Chumbak,%20I'd%20like%20to%20book%20a%20demo%20session" class="cta-button-primary" target="_blank" rel="noopener">Book Your Demo Session</a>
-                            <a href="#one-to-one-therapy" class="cta-button-secondary">Explore Therapy Sessions</a>
+                            {% if slide.primaryButtonAction == 'whatsapp' %}
+                            <a href="https://wa.me/{{ site.phone | replace(' ', '') | replace('+', '') }}?text={{ slide.primaryButtonMessage | urlencode }}" class="cta-button-primary" target="_blank" rel="noopener">{{ slide.primaryButtonText }}</a>
+                            {% else %}
+                            <a href="{{ slide.primaryButtonLink }}" class="cta-button-primary">{{ slide.primaryButtonText }}</a>
+                            {% endif %}
+                            <a href="{{ slide.secondaryButtonLink }}" class="cta-button-secondary">{{ slide.secondaryButtonText }}</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Slide 2: Kids Yoga -->
-        <div class="hero-slide" data-slide="2">
-            <div class="hero-image-container">
-                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-                     alt="Kids practicing yoga in a joyful environment"
-                     class="hero-image">
-                <div class="hero-overlay"></div>
-            </div>
-            <div class="hero-content-wrapper">
-                <div class="container">
-                    <div class="hero-content">
-                        <h2 class="hero-title">Kids Yoga Program</h2>
-                        <p class="hero-subtitle">Building Strength, Focus & Confidence Through Play-Based Yoga</p>
-                        <div class="hero-cta-group">
-                            <a href="https://wa.me/{{ site.phone | replace(' ', '') | replace('+', '') }}?text=Hi%20Yog%20Chumbak,%20I'm%20interested%20in%20Kids%20Yoga" class="cta-button-primary" target="_blank" rel="noopener">Enroll Your Child</a>
-                            <a href="#programs" class="cta-button-secondary">View Programs</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 3: One-to-One Therapies -->
-        <div class="hero-slide" data-slide="3">
-            <div class="hero-image-container">
-                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-                     alt="One-to-one therapeutic yoga session"
-                     class="hero-image">
-                <div class="hero-overlay"></div>
-            </div>
-            <div class="hero-content-wrapper">
-                <div class="container">
-                    <div class="hero-content">
-                        <h2 class="hero-title">One-to-One Therapy Sessions</h2>
-                        <p class="hero-subtitle">Personalized Healing for Chronic Pain, Injuries & Special Conditions</p>
-                        <div class="hero-cta-group">
-                            <a href="https://wa.me/{{ site.phone | replace(' ', '') | replace('+', '') }}?text=Hi%20Yog%20Chumbak,%20I'd%20like%20to%20book%20a%20therapy%20session" class="cta-button-primary" target="_blank" rel="noopener">Book Therapy Session</a>
-                            <a href="#one-to-one-therapy" class="cta-button-secondary">Learn More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Slide 4: Weekend Meditation -->
-        <div class="hero-slide" data-slide="4">
-            <div class="hero-image-container">
-                <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
-                     alt="Peaceful meditation session"
-                     class="hero-image">
-                <div class="hero-overlay"></div>
-            </div>
-            <div class="hero-content-wrapper">
-                <div class="container">
-                    <div class="hero-content">
-                        <h2 class="hero-title">Weekend Meditation</h2>
-                        <p class="hero-subtitle">Find Inner Peace & Mental Clarity Through Guided Meditation</p>
-                        <div class="hero-cta-group">
-                            <a href="https://wa.me/{{ site.phone | replace(' ', '') | replace('+', '') }}?text=Hi%20Yog%20Chumbak,%20I'm%20interested%20in%20Weekend%20Meditation" class="cta-button-primary" target="_blank" rel="noopener">Join Meditation</a>
-                            <a href="#programs" class="cta-button-secondary">View Schedule</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 
     <!-- Slider Navigation Dots -->
     <div class="hero-slider-dots">
-        <button class="slider-dot active" data-slide="1" aria-label="Go to slide 1"></button>
-        <button class="slider-dot" data-slide="2" aria-label="Go to slide 2"></button>
-        <button class="slider-dot" data-slide="3" aria-label="Go to slide 3"></button>
-        <button class="slider-dot" data-slide="4" aria-label="Go to slide 4"></button>
+        {% for slide in slider %}
+        <button class="slider-dot {% if loop.first %}active{% endif %}" data-slide="{{ loop.index }}" aria-label="Go to slide {{ loop.index }}"></button>
+        {% endfor %}
     </div>
 
     <!-- Slider Arrow Navigation -->
@@ -415,116 +353,48 @@ description: "Experience transformative therapeutic yoga in Delhi. Professional 
                     </tr>
                 </thead>
                 <tbody>
+                    {% for batch in schedule.batches %}
                     <tr>
-                        <td class="batch-name">Morning Batch 1 <span class="batch-availability-badge online-available">Online Available</span><span class="batch-availability-badge in-studio">In-Studio</span></td>
-                        <td class="active" data-day="monday">7:15 - 8:15 AM</td>
-                        <td class="inactive" data-day="tuesday"></td>
-                        <td class="active" data-day="wednesday">7:15 - 8:15 AM</td>
-                        <td class="active" data-day="thursday">7:15 - 8:15 AM</td>
-                        <td class="inactive" data-day="friday"></td>
-                        <td class="inactive" data-day="saturday"></td>
-                        <td class="inactive" data-day="sunday"></td>
+                        <td class="batch-name">{{ batch.name }}{% if batch.onlineAvailable %} <span class="batch-availability-badge online-available">Online Available</span>{% endif %}{% if batch.inStudio %} <span class="batch-availability-badge in-studio">In-Studio</span>{% endif %}</td>
+                        <td class="{% if batch.schedule.monday %}active{% else %}inactive{% endif %}" data-day="monday">{{ batch.schedule.monday or '' }}</td>
+                        <td class="{% if batch.schedule.tuesday %}active{% else %}inactive{% endif %}" data-day="tuesday">{{ batch.schedule.tuesday or '' }}</td>
+                        <td class="{% if batch.schedule.wednesday %}active{% else %}inactive{% endif %}" data-day="wednesday">{{ batch.schedule.wednesday or '' }}</td>
+                        <td class="{% if batch.schedule.thursday %}active{% else %}inactive{% endif %}" data-day="thursday">{{ batch.schedule.thursday or '' }}</td>
+                        <td class="{% if batch.schedule.friday %}active{% else %}inactive{% endif %}" data-day="friday">{{ batch.schedule.friday or '' }}</td>
+                        <td class="{% if batch.schedule.saturday %}active{% else %}inactive{% endif %}" data-day="saturday">{{ batch.schedule.saturday or '' }}</td>
+                        <td class="{% if batch.schedule.sunday %}active{% else %}inactive{% endif %}" data-day="sunday">{{ batch.schedule.sunday or '' }}</td>
                     </tr>
-                    <tr>
-                        <td class="batch-name">Morning Batch 2 <span class="batch-availability-badge in-studio">In-Studio</span></td>
-                        <td class="inactive" data-day="monday"></td>
-                        <td class="active" data-day="tuesday">8:00 - 9:00 AM</td>
-                        <td class="inactive" data-day="wednesday"></td>
-                        <td class="active" data-day="thursday">8:15 - 9:15 AM</td>
-                        <td class="active" data-day="friday">8:00 - 9:00 AM</td>
-                        <td class="inactive" data-day="saturday"></td>
-                        <td class="inactive" data-day="sunday"></td>
-                    </tr>
-                    <tr>
-                        <td class="batch-name">Morning Batch 3 <span class="batch-availability-badge online-available">Online Available</span><span class="batch-availability-badge in-studio">In-Studio</span></td>
-                        <td class="active" data-day="monday">9:00 - 10:00 AM</td>
-                        <td class="active" data-day="tuesday">9:00 - 10:00 AM</td>
-                        <td class="inactive" data-day="wednesday"></td>
-                        <td class="inactive" data-day="thursday"></td>
-                        <td class="active" data-day="friday">9:00 - 10:00 AM</td>
-                        <td class="inactive" data-day="saturday"></td>
-                        <td class="inactive" data-day="sunday"></td>
-                    </tr>
-                    <tr>
-                        <td class="batch-name">Afternoon Batch <span class="batch-availability-badge online-available">Online Available</span><span class="batch-availability-badge in-studio">In-Studio</span></td>
-                        <td class="inactive" data-day="monday"></td>
-                        <td class="active" data-day="tuesday">12:00 - 1:00 PM</td>
-                        <td class="inactive" data-day="wednesday"></td>
-                        <td class="active" data-day="thursday">12:00 - 1:00 PM</td>
-                        <td class="inactive" data-day="friday"></td>
-                        <td class="active" data-day="saturday">12:00 - 1:00 PM</td>
-                        <td class="inactive" data-day="sunday"></td>
-                    </tr>
-                    <tr>
-                        <td class="batch-name">Evening Batch <span class="batch-availability-badge online-available">Online Available</span><span class="batch-availability-badge in-studio">In-Studio</span></td>
-                        <td class="active" data-day="monday">6:00 - 7:00 PM</td>
-                        <td class="active" data-day="tuesday">6:00 - 7:00 PM</td>
-                        <td class="inactive" data-day="wednesday"></td>
-                        <td class="active" data-day="thursday">6:00 - 7:00 PM</td>
-                        <td class="inactive" data-day="friday"></td>
-                        <td class="inactive" data-day="saturday"></td>
-                        <td class="inactive" data-day="sunday"></td>
-                    </tr>
+                    {% endfor %}
+                    {% for program in schedule.specialPrograms %}
                     <tr class="special-program-row">
-                        <td class="batch-name">Kids Yoga <span class="batch-availability-badge in-studio">In-Studio</span></td>
-                        <td class="inactive" data-day="monday"></td>
-                        <td class="inactive" data-day="tuesday"></td>
-                        <td class="inactive" data-day="wednesday"></td>
-                        <td class="inactive" data-day="thursday"></td>
-                        <td class="inactive" data-day="friday"></td>
-                        <td class="active" data-day="saturday">11:00 AM - 12:00 PM</td>
-                        <td class="active" data-day="sunday">11:00 AM - 12:00 PM</td>
+                        <td class="batch-name">{{ program.name }}{% if program.onlineAvailable %} <span class="batch-availability-badge online-available">Online Available</span>{% endif %}{% if program.inStudio %} <span class="batch-availability-badge in-studio">In-Studio</span>{% endif %}</td>
+                        <td class="{% if program.schedule.monday %}active{% else %}inactive{% endif %}" data-day="monday">{{ program.schedule.monday or '' }}</td>
+                        <td class="{% if program.schedule.tuesday %}active{% else %}inactive{% endif %}" data-day="tuesday">{{ program.schedule.tuesday or '' }}</td>
+                        <td class="{% if program.schedule.wednesday %}active{% else %}inactive{% endif %}" data-day="wednesday">{{ program.schedule.wednesday or '' }}</td>
+                        <td class="{% if program.schedule.thursday %}active{% else %}inactive{% endif %}" data-day="thursday">{{ program.schedule.thursday or '' }}</td>
+                        <td class="{% if program.schedule.friday %}active{% else %}inactive{% endif %}" data-day="friday">{{ program.schedule.friday or '' }}</td>
+                        <td class="{% if program.schedule.saturday %}active{% else %}inactive{% endif %}" data-day="saturday">{{ program.schedule.saturday or '' }}</td>
+                        <td class="{% if program.schedule.sunday %}active{% else %}inactive{% endif %}{% if program.name == 'Weekend Meditation' %} meditation-dates{% endif %}" data-day="sunday">{{ program.schedule.sunday or '' }}{% if program.name == 'Weekend Meditation' %}<br><small id="meditation-dates-sunday">Loading...</small>{% endif %}</td>
                     </tr>
-                    <tr class="special-program-row">
-                        <td class="batch-name">Weekend Meditation <span class="batch-availability-badge in-studio">In-Studio</span></td>
-                        <td class="inactive" data-day="monday"></td>
-                        <td class="inactive" data-day="tuesday"></td>
-                        <td class="inactive" data-day="wednesday"></td>
-                        <td class="inactive" data-day="thursday"></td>
-                        <td class="inactive" data-day="friday"></td>
-                        <td class="inactive" data-day="saturday"></td>
-                        <td class="active meditation-dates" data-day="sunday">12:30 - 1:30 PM<br><small id="meditation-dates-sunday">Loading...</small></td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
 
         <!-- Mobile Schedule Cards - Moved outside table wrapper to fix mobile display -->
         <div class="schedule-mobile-cards">
-            <div class="schedule-mobile-card" data-days="monday,wednesday,thursday">
+            {% for batch in schedule.batches %}
+            <div class="schedule-mobile-card" data-days="{{ batch.displayDays | lower | replace(' • ', ',') | replace(' & ', ',') | replace('sat & sun', 'saturday,sunday') }}">
+                {% if batch.onlineAvailable %}
+                <span class="batch-availability-badge online-available">Online Available</span>
+                {% else %}
                 <span class="batch-availability-badge in-studio-only">In-Studio Only</span>
-                <h3>Morning Batch 1</h3>
-                <p class="time">7:15AM - 8:15AM</p>
-                <p class="days">Mon • Wed • Thu</p>
+                {% endif %}
+                <h3>{{ batch.name }}</h3>
+                <p class="time">{{ batch.displayTime }}</p>
+                <p class="days">{{ batch.displayDays }}</p>
             </div>
-
-            <div class="schedule-mobile-card" data-days="tuesday,thursday,friday">
-                <span class="batch-availability-badge online-available">Online Available</span>
-                <h3>Morning Batch 2</h3>
-                <p class="time">8:00AM - 9:15AM</p>
-                <p class="days">Tue • Thu • Fri</p>
-            </div>
-
-            <div class="schedule-mobile-card" data-days="monday,tuesday,friday">
-                <span class="batch-availability-badge online-available">Online Available</span>
-                <h3>Morning Batch 3</h3>
-                <p class="time">9:00AM - 10:00AM</p>
-                <p class="days">Mon • Tue • Fri</p>
-            </div>
-
-            <div class="schedule-mobile-card" data-days="tuesday,thursday,saturday">
-                <span class="batch-availability-badge online-available">Online Available</span>
-                <h3>Afternoon Batch</h3>
-                <p class="time">12:00PM - 1:00PM</p>
-                <p class="days">Tue • Thu • Sat</p>
-            </div>
-
-            <div class="schedule-mobile-card" data-days="monday,tuesday,thursday">
-                <span class="batch-availability-badge online-available">Online Available</span>
-                <h3>Evening Batch</h3>
-                <p class="time">6:00PM - 7:00PM</p>
-                <p class="days">Mon • Tue • Thu</p>
-            </div>
+            {% endfor %}
         </div>
 
         <!-- Mobile Schedule with Day Tabs (Swipeable) -->
@@ -657,9 +527,9 @@ description: "Experience transformative therapeutic yoga in Delhi. Professional 
                         <h3 class="card-title">Address</h3>
                     </div>
                     <div class="card-content">
-                        <p><strong>Fourth Floor, SE 30</strong></p>
-                        <p>Above Mac, opposite BT Block</p>
-                        <p>West Shalimar Bagh, Delhi 110088</p>
+                        <p><strong>{{ site.address }}</strong></p>
+                        <p>{{ site.address_line2 }}</p>
+                        <p>{{ site.address_line3 }}</p>
                     </div>
                     <button class="btn btn-primary" onclick="openDirections()">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

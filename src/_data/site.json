@@ -8,8 +8,9 @@
   "phone": "+91 99108 26170",
   "phone2": "+91 98113 34069",
   "email": "Yogchumbak6@gmail.com",
-  "address": "Fourth Floor, SE 30, Above Mac, Opposite BT Block",
-  "address_line2": "West Shalimar Bagh, Delhi 110088",
+  "address": "Fourth Floor, SE 30",
+  "address_line2": "Above Mac, Opposite BT Block",
+  "address_line3": "West Shalimar Bagh, Delhi 110088",
   "location": {
     "city": "Delhi",
     "area": "West Shalimar Bagh",

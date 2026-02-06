@@ -3,6 +3,7 @@
     {
       "name": "Morning Batch 1",
       "onlineAvailable": true,
+      "inStudio": true,
       "schedule": {
         "monday": "7:15 - 8:15 AM",
         "tuesday": null,
@@ -11,11 +12,15 @@
         "friday": null,
         "saturday": null,
         "sunday": null
-      }
+      },
+      "displayTime": "7:15AM - 8:15AM",
+      "displayDays": "Mon • Wed • Thu",
+      "sortOrder": 1
     },
     {
       "name": "Morning Batch 2",
       "onlineAvailable": false,
+      "inStudio": true,
       "schedule": {
         "monday": null,
         "tuesday": "8:00 - 9:00 AM",
@@ -24,24 +29,32 @@
         "friday": "8:00 - 9:00 AM",
         "saturday": null,
         "sunday": null
-      }
+      },
+      "displayTime": "8:00AM - 9:15AM",
+      "displayDays": "Tue • Thu • Fri",
+      "sortOrder": 2
     },
     {
       "name": "Morning Batch 3",
       "onlineAvailable": true,
+      "inStudio": true,
       "schedule": {
-        "monday": "9:15 - 10:00 AM",
-        "tuesday": "9:15 - 10:00 AM",
+        "monday": "9:15 - 10:15 AM",
+        "tuesday": "9:15 - 10:15 AM",
         "wednesday": null,
         "thursday": null,
-        "friday": "9:15 - 10:00 AM",
+        "friday": "9:15 - 10:15 AM",
         "saturday": null,
         "sunday": null
-      }
+      },
+      "displayTime": "9:15AM - 10:15AM",
+      "displayDays": "Mon • Tue • Fri",
+      "sortOrder": 3
     },
     {
       "name": "Afternoon Batch",
       "onlineAvailable": true,
+      "inStudio": true,
       "schedule": {
         "monday": null,
         "tuesday": "12:00 - 1:00 PM",
@@ -50,11 +63,15 @@
         "friday": null,
         "saturday": "12:00 - 1:00 PM",
         "sunday": null
-      }
+      },
+      "displayTime": "12:00PM - 1:00PM",
+      "displayDays": "Tue • Thu • Sat",
+      "sortOrder": 4
     },
     {
       "name": "Evening Batch",
       "onlineAvailable": true,
+      "inStudio": true,
       "schedule": {
         "monday": "6:00 - 7:00 PM",
         "tuesday": "6:00 - 7:00 PM",
@@ -63,13 +80,17 @@
         "friday": null,
         "saturday": null,
         "sunday": null
-      }
+      },
+      "displayTime": "6:00PM - 7:00PM",
+      "displayDays": "Mon • Tue • Thu",
+      "sortOrder": 5
     }
   ],
   "specialPrograms": [
     {
       "name": "Kids Yoga",
       "onlineAvailable": false,
+      "inStudio": true,
       "schedule": {
         "monday": null,
         "tuesday": null,
@@ -78,11 +99,16 @@
         "friday": null,
         "saturday": "11:00 AM - 12:00 PM",
         "sunday": "11:00 AM - 12:00 PM"
-      }
+      },
+      "displayTime": "11:00 AM - 12:00 PM",
+      "displayDays": "Sat & Sun",
+      "note": "Weekend Classes",
+      "sortOrder": 6
     },
     {
       "name": "Weekend Meditation",
       "onlineAvailable": false,
+      "inStudio": true,
       "schedule": {
         "monday": null,
         "tuesday": null,
@@ -92,7 +118,10 @@
         "saturday": null,
         "sunday": "12:30 - 1:30 PM"
       },
-      "note": "2nd & 4th Sunday"
+      "displayTime": "12:30 - 1:30 PM",
+      "displayDays": "2nd & 4th Sunday",
+      "note": "2nd & 4th Sunday",
+      "sortOrder": 7
     }
   ]
 }
