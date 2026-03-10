@@ -40,8 +40,8 @@
       "inStudio": true,
       "schedule": {
         "monday": "9:15 - 10:15 AM",
-        "tuesday": "9:15 - 10:15 AM",
-        "wednesday": null,
+        "tuesday": null,
+        "wednesday": "9:15 - 10:15 AM",
         "thursday": null,
         "friday": "9:15 - 10:15 AM",
         "saturday": null,
