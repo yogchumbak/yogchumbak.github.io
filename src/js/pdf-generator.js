@@ -161,20 +161,17 @@ class SchedulePDFGenerator {
       doc.setFontSize(9);
       doc.setTextColor(60, 60, 60);
 
-      // Kids Yoga
-      doc.setFont(undefined, 'bold');
-      doc.text('Kids Yoga:', 20, yPosition);
-      doc.setFont(undefined, 'normal');
-      doc.text('Saturday & Sunday, 11:00 AM - 12:00 PM', 45, yPosition);
-
-      yPosition += 5;
-
-      // Weekend Meditation - get dates from the page
-      const meditationDates = document.getElementById('meditation-dates')?.textContent || '2nd & 4th Sunday';
-      doc.setFont(undefined, 'bold');
-      doc.text('Weekend Meditation:', 20, yPosition);
-      doc.setFont(undefined, 'normal');
-      doc.text(`${meditationDates}, 12:30 - 1:30 PM`, 56, yPosition);
+      // Get special programs from scheduleConfig if available
+      const specialPrograms = window.scheduleConfig?.specialPrograms || [];
+      
+      specialPrograms.forEach(program => {
+        doc.setFont(undefined, 'bold');
+        doc.text(`${program.name}:`, 20, yPosition);
+        doc.setFont(undefined, 'normal');
+        const nameWidth = doc.getTextWidth(`${program.name}:`);
+        doc.text(`${program.displayDays}, ${program.displayTime}`, 22 + nameWidth, yPosition);
+        yPosition += 5;
+      });
 
       yPosition += 12;
 

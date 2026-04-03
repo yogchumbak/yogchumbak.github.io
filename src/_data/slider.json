@@ -36,14 +36,14 @@
     "secondaryButtonLink": "#one-to-one-therapy"
   },
   {
-    "id": "weekend-meditation",
-    "title": "Weekend Meditation",
-    "subtitle": "Find Inner Peace & Mental Clarity Through Guided Meditation",
+    "id": "breathwork-meditation",
+    "title": "Breathwork & Meditation",
+    "subtitle": "Learn Powerful Breathing Techniques for Stress Relief & Mental Clarity",
     "image": "https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    "imageAlt": "Peaceful meditation session",
-    "primaryButtonText": "Join Meditation",
+    "imageAlt": "Peaceful breathwork and meditation session",
+    "primaryButtonText": "Join Tuesday Session",
     "primaryButtonAction": "whatsapp",
-    "primaryButtonMessage": "Hi Yog Chumbak, I'm interested in Weekend Meditation",
+    "primaryButtonMessage": "Hi Yog Chumbak, I'm interested in Breathwork and Meditation",
     "secondaryButtonText": "View Schedule",
     "secondaryButtonLink": "#schedule"
   }

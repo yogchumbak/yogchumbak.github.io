@@ -333,7 +333,7 @@ description: "Experience transformative therapeutic yoga in Delhi. Professional 
             </div>
             <div class="availability-content">
                 <h4>Online & In-Studio Options</h4>
-                <p>Most batches are available <strong>both online and in-studio</strong>. Look for the <span class="badge-online-inline">Online Available</span> badge in the schedule below. One-to-one therapies and special programs (Kids Yoga, Weekend Meditation) are in-studio only.</p>
+                <p>Most batches are available <strong>both online and in-studio</strong>. Look for the <span class="badge-online-inline">Online Available</span> badge in the schedule below. One-to-one therapies and special programs (Kids Yoga, Breathwork & Meditation) are in-studio only.</p>
             </div>
         </div>
 
@@ -374,7 +374,7 @@ description: "Experience transformative therapeutic yoga in Delhi. Professional 
                         <td class="{% if program.schedule.thursday %}active{% else %}inactive{% endif %}" data-day="thursday">{{ program.schedule.thursday or '' }}</td>
                         <td class="{% if program.schedule.friday %}active{% else %}inactive{% endif %}" data-day="friday">{{ program.schedule.friday or '' }}</td>
                         <td class="{% if program.schedule.saturday %}active{% else %}inactive{% endif %}" data-day="saturday">{{ program.schedule.saturday or '' }}</td>
-                        <td class="{% if program.schedule.sunday %}active{% else %}inactive{% endif %}{% if program.name == 'Weekend Meditation' %} meditation-dates{% endif %}" data-day="sunday">{{ program.schedule.sunday or '' }}{% if program.name == 'Weekend Meditation' %}<br><small id="meditation-dates-sunday">Loading...</small>{% endif %}</td>
+                        <td class="{% if program.schedule.sunday %}active{% else %}inactive{% endif %}" data-day="sunday">{{ program.schedule.sunday or '' }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
@@ -419,8 +419,7 @@ description: "Experience transformative therapeutic yoga in Delhi. Professional 
                     <strong>Kids Yoga:</strong> Sat & Sun, 11:00 AM - 12:00 PM
                 </div>
                 <div class="special-program">
-                    <strong>Weekend Meditation:</strong>
-                    <span id="mobile-meditation-dates">Loading...</span>, 12:30 - 1:30 PM
+                    <strong>Breathwork & Meditation:</strong> Tuesday, 9:15 AM - 10:00 AM
                 </div>
             </div>
         </div>
@@ -451,18 +450,18 @@ description: "Experience transformative therapeutic yoga in Delhi. Professional 
                 </div>
             </div>
 
-            <!-- Weekend Meditation Card -->
-            <div class="program-card" style="background-image: url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+            <!-- Breathwork & Meditation Card -->
+            <div class="program-card" style="background-image: url('https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
                 <div class="program-card-overlay"></div>
                 <div class="program-card-content">
-                    <h3>Weekend Meditation</h3>
-                    <p class="program-description">Find inner peace through guided meditation sessions with breath work and props.</p>
+                    <h3>Breathwork & Meditation</h3>
+                    <p class="program-description">Learn powerful breathing techniques and meditation practices to calm your mind and reduce stress.</p>
                     <div class="program-highlights">
-                        <span>2nd & 4th Sunday</span>
-                        <span>12:30 PM - 1:30 PM</span>
-                        <span>Limited to 10 Spots</span>
+                        <span>Tuesday Only</span>
+                        <span>9:15 AM - 10:00 AM</span>
+                        <span>In-Studio Only</span>
                     </div>
-                    <a href="https://wa.me/{{ site.phone | replace(' ', '') | replace('+', '') }}?text=Hi%20Yog%20Chumbak,%20I'd%20like%20to%20reserve%20a%20spot%20for%20Weekend%20Meditation" class="btn btn-secondary-outline" target="_blank" rel="noopener">Reserve Your Spot</a>
+                    <a href="https://wa.me/{{ site.phone | replace(' ', '') | replace('+', '') }}?text=Hi%20Yog%20Chumbak,%20I'm%20interested%20in%20Breathwork%20and%20Meditation" class="btn btn-secondary-outline" target="_blank" rel="noopener">Join Session</a>
                 </div>
             </div>
 
