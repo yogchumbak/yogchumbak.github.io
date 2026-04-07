@@ -23,14 +23,14 @@
       "inStudio": true,
       "schedule": {
         "monday": null,
-        "tuesday": "8:00 - 9:00 AM",
+        "tuesday": "8:15 - 9:15 AM",
         "wednesday": null,
         "thursday": "8:15 - 9:15 AM",
-        "friday": "8:00 - 9:00 AM",
+        "friday": "8:15 - 9:15 AM",
         "saturday": null,
         "sunday": null
       },
-      "displayTime": "8:00AM - 9:15AM",
+      "displayTime": "8:15AM - 9:15AM",
       "displayDays": "Tue • Thu • Fri",
       "sortOrder": 2
     },
