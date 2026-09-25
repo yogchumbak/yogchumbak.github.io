@@ -201,13 +201,14 @@ async function generatePDF() {
     doc.setFontSize(9);
     doc.setTextColor(60, 60, 60);
 
-    // Kids Yoga
-    doc.setFont(undefined, 'bold');
-    doc.text('Kids Yoga:', 20, yPosition);
-    doc.setFont(undefined, 'normal');
-    doc.text('Saturday & Sunday, 11:00 AM - 12:00 PM', 45, yPosition);
-
-    yPosition += 5;
+    scheduleConfig.specialPrograms.forEach((program) => {
+      doc.setFont(undefined, 'bold');
+      doc.text(`${program.name}:`, 20, yPosition);
+      doc.setFont(undefined, 'normal');
+      const detail = `${program.displayDays}, ${program.displayTime}`;
+      doc.text(detail, 56, yPosition);
+      yPosition += 5;
+    });
 
     // Weekend Meditation
     const meditationDates = calculate2ndAnd4thSunday();

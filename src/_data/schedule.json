@@ -35,6 +35,23 @@
       "sortOrder": 2
     },
     {
+      "name": "Morning Batch 3",
+      "onlineAvailable": true,
+      "inStudio": true,
+      "schedule": {
+        "monday": "9:40 - 10:40 AM",
+        "tuesday": null,
+        "wednesday": "9:40 - 10:40 AM",
+        "thursday": null,
+        "friday": "9:40 - 10:40 AM",
+        "saturday": null,
+        "sunday": null
+      },
+      "displayTime": "9:40AM - 10:40AM",
+      "displayDays": "Mon • Wed • Fri",
+      "sortOrder": 3
+    },
+    {
       "name": "Afternoon Batch",
       "onlineAvailable": true,
       "inStudio": true,
@@ -49,7 +66,24 @@
       },
       "displayTime": "12:00PM - 1:00PM",
       "displayDays": "Tue • Thu • Sat",
-      "sortOrder": 3
+      "sortOrder": 4
+    },
+    {
+      "name": "Evening Batch 2",
+      "onlineAvailable": true,
+      "inStudio": true,
+      "schedule": {
+        "monday": "5:00 - 6:00 PM",
+        "tuesday": null,
+        "wednesday": "5:00 - 6:00 PM",
+        "thursday": null,
+        "friday": null,
+        "saturday": "5:00 - 6:00 PM",
+        "sunday": null
+      },
+      "displayTime": "5:00PM - 6:00PM",
+      "displayDays": "Mon • Wed • Sat",
+      "sortOrder": 5
     },
     {
       "name": "Evening Batch",
@@ -66,45 +100,8 @@
       },
       "displayTime": "6:00PM - 7:00PM",
       "displayDays": "Mon • Tue • Thu",
-      "sortOrder": 4
-    }
-  ],
-  "specialPrograms": [
-    {
-      "name": "Kids Yoga",
-      "onlineAvailable": false,
-      "inStudio": true,
-      "schedule": {
-        "monday": null,
-        "tuesday": null,
-        "wednesday": null,
-        "thursday": null,
-        "friday": null,
-        "saturday": "11:00 AM - 12:00 PM",
-        "sunday": "11:00 AM - 12:00 PM"
-      },
-      "displayTime": "11:00 AM - 12:00 PM",
-      "displayDays": "Sat & Sun",
-      "note": "Weekend Classes",
-      "sortOrder": 5
-    },
-    {
-      "name": "Breathwork & Meditation",
-      "onlineAvailable": false,
-      "inStudio": true,
-      "schedule": {
-        "monday": null,
-        "tuesday": "9:15 - 10:00 AM",
-        "wednesday": null,
-        "thursday": null,
-        "friday": null,
-        "saturday": null,
-        "sunday": null
-      },
-      "displayTime": "9:15AM - 10:00AM",
-      "displayDays": "Tuesday",
-      "note": "Tuesday only",
       "sortOrder": 6
     }
-  ]
+  ],
+  "specialPrograms": []
 }

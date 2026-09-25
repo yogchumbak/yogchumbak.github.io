@@ -55,17 +55,19 @@ function parseEndTime(timeStr) {
  * This should match the schedule.json structure
  */
 function getScheduleData() {
+  if (window.scheduleConfig) {
+    return window.scheduleConfig;
+  }
   return {
     batches: [
       { name: "Morning Batch 1", schedule: { monday: "7:15 - 8:15 AM", tuesday: null, wednesday: "7:15 - 8:15 AM", thursday: "7:15 - 8:15 AM", friday: null, saturday: null, sunday: null } },
-      { name: "Morning Batch 2", schedule: { monday: null, tuesday: "8:00 - 9:00 AM", wednesday: null, thursday: "8:15 - 9:15 AM", friday: "8:00 - 9:00 AM", saturday: null, sunday: null } },
+      { name: "Morning Batch 2", schedule: { monday: null, tuesday: "8:15 - 9:15 AM", wednesday: null, thursday: "8:15 - 9:15 AM", friday: "8:15 - 9:15 AM", saturday: null, sunday: null } },
+      { name: "Morning Batch 3", schedule: { monday: "9:40 - 10:40 AM", tuesday: null, wednesday: "9:40 - 10:40 AM", thursday: null, friday: "9:40 - 10:40 AM", saturday: null, sunday: null } },
       { name: "Afternoon Batch", schedule: { monday: null, tuesday: "12:00 - 1:00 PM", wednesday: null, thursday: "12:00 - 1:00 PM", friday: null, saturday: "12:00 - 1:00 PM", sunday: null } },
+      { name: "Evening Batch 2", schedule: { monday: "5:00 - 6:00 PM", tuesday: null, wednesday: "5:00 - 6:00 PM", thursday: null, friday: null, saturday: "5:00 - 6:00 PM", sunday: null } },
       { name: "Evening Batch", schedule: { monday: "6:00 - 7:00 PM", tuesday: "6:00 - 7:00 PM", wednesday: null, thursday: "6:00 - 7:00 PM", friday: null, saturday: null, sunday: null } }
     ],
-    specialPrograms: [
-      { name: "Kids Yoga", schedule: { saturday: "11:00 AM - 12:00 PM", sunday: "11:00 AM - 12:00 PM" } },
-      { name: "Breathwork & Meditation", schedule: { tuesday: "9:15 - 10:00 AM" } }
-    ]
+    specialPrograms: []
   };
 }
 
