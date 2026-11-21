@@ -71,24 +71,6 @@
   ],
   "specialPrograms": [
     {
-      "name": "Kids Yoga",
-      "onlineAvailable": false,
-      "inStudio": true,
-      "schedule": {
-        "monday": null,
-        "tuesday": null,
-        "wednesday": null,
-        "thursday": null,
-        "friday": null,
-        "saturday": "11:00 AM - 12:00 PM",
-        "sunday": "11:00 AM - 12:00 PM"
-      },
-      "displayTime": "11:00 AM - 12:00 PM",
-      "displayDays": "Sat & Sun",
-      "note": "Weekend Classes",
-      "sortOrder": 5
-    },
-    {
       "name": "Breathwork & Meditation",
       "onlineAvailable": false,
       "inStudio": true,

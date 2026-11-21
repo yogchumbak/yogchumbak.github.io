@@ -17,6 +17,9 @@ module.exports = function() {
     .map(dirent => dirent.name);
 
   galleryFolders.forEach(folderName => {
+    // Keep retired program media on disk without publishing its gallery.
+    if (folderName.toLowerCase() === 'kids yoga') return;
+
     const folderPath = path.join(galleryRootPath, folderName);
 
     // Read all image and video files
@@ -55,9 +58,7 @@ module.exports = function() {
     let description = `Photo and video gallery of ${title.toLowerCase()} sessions`;
 
     // Customize descriptions based on folder name patterns
-    if (folderName.toLowerCase().includes('kids')) {
-      description = 'Yoga classes specially designed for children to build strength, flexibility, and mindfulness';
-    } else if (folderName.toLowerCase().includes('therapy') || folderName.toLowerCase().includes('therapies')) {
+    if (folderName.toLowerCase().includes('therapy') || folderName.toLowerCase().includes('therapies')) {
       description = 'Personalized therapeutic yoga sessions tailored to individual needs for pain relief and healing';
     } else if (folderName.toLowerCase().includes('regular')) {
       description = 'Group yoga classes for all levels focusing on props-based practice and alignment';
@@ -91,9 +92,7 @@ module.exports = function() {
 
       // Generate caption
       let caption = isVideo ? 'Video demonstration' : 'Yoga session';
-      if (folderName.toLowerCase().includes('kids')) {
-        caption = 'Fun and engaging yoga for children';
-      } else if (folderName.toLowerCase().includes('therapy')) {
+      if (folderName.toLowerCase().includes('therapy')) {
         caption = 'Personalized healing session';
       } else if (folderName.toLowerCase().includes('regular')) {
         caption = 'Group practice session';

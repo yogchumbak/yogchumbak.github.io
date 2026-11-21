@@ -2239,7 +2239,7 @@ li {
   opacity: 0.3;
 }
 
-/* Special Program Rows - Kids Yoga & Meditation */
+/* Special Program Rows */
 .schedule-table .special-program-row {
   border-top: 2px solid var(--vibrant-pink);
 }
@@ -2660,7 +2660,7 @@ li {
   }
 }
 
-/* Special Programs (Kids Yoga & Meditation) */
+/* Special Programs */
 .special-programs {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -2681,20 +2681,9 @@ li {
   box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
-/* Kids Yoga Card */
-.kids-yoga-card {
-  border-top: 4px solid var(--vibrant-pink);
-}
-
 .program-icon {
   font-size: 3rem;
   margin-bottom: 1rem;
-}
-
-.kids-yoga-card h3 {
-  color: var(--primary-color);
-  font-size: 1.75rem;
-  margin-bottom: 0.5rem;
 }
 
 .program-tagline {

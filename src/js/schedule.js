@@ -63,7 +63,6 @@ function getScheduleData() {
       { name: "Evening Batch", schedule: { monday: "6:00 - 7:00 PM", tuesday: "6:00 - 7:00 PM", wednesday: null, thursday: "6:00 - 7:00 PM", friday: null, saturday: null, sunday: null } }
     ],
     specialPrograms: [
-      { name: "Kids Yoga", schedule: { saturday: "11:00 AM - 12:00 PM", sunday: "11:00 AM - 12:00 PM" } },
       { name: "Breathwork & Meditation", schedule: { tuesday: "9:15 - 10:00 AM" } }
     ]
   };
