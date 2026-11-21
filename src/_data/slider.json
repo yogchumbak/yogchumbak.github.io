@@ -12,18 +12,6 @@
     "secondaryButtonLink": "#one-to-one-therapy"
   },
   {
-    "id": "kids-yoga",
-    "title": "Kids Yoga Program",
-    "subtitle": "Building Strength, Focus & Confidence Through Play-Based Yoga",
-    "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-    "imageAlt": "Kids practicing yoga in a joyful environment",
-    "primaryButtonText": "Enroll Your Child",
-    "primaryButtonAction": "whatsapp",
-    "primaryButtonMessage": "Hi Yog Chumbak, I'm interested in Kids Yoga",
-    "secondaryButtonText": "View Programs",
-    "secondaryButtonLink": "#programs"
-  },
-  {
     "id": "one-to-one",
     "title": "One-to-One Therapy Sessions",
     "subtitle": "Personalized Healing for Chronic Pain, Injuries & Special Conditions",
